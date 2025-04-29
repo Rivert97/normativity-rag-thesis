@@ -1,0 +1,60 @@
+%
+% Tesis de Ingenieria en Electronica.
+%
+
+\documentclass[twoadviser,master]{labicetesis}
+
+%======================== Directorios de trabajo =============================
+
+\newcommand{\DirFigF}{./Figures/FrontPage}
+
+%=============================================================================
+
+\usepackage{pdfpages}
+\usepackage{listings}
+
+%========================    Datos personales    =============================
+
+\title{Desarrollo de un asistente virtual por reentrenamiento de LLMs con recuperación-generación aumentada desde documentos normativos}		% Titulo del documento.
+\author{Ing. Roberto García Guzmán}				% Autor del documento.
+\date{Diciembre, 2025}									% Fecha de publicacion.
+\crest{\DirFigF/escudo-bn}				% Escudo de la Universidad
+\grade{MAESTRO EN INGENIERÍA ELÉCTRICA}			% Grado o Titulo
+\adviser{Dra. Dora Luz Almanza Ojeca}{Dr. Yair Alejandro Andrade Ambriz}	%Asesor(es)
+\bars{\DirFigF/bars}									%Barras
+
+\hyphenation{}
+\clubpenalty=10000
+\widowpenalty=10000
+
+%=========================    Documento          =============================
+\begin{document}                        % Empieza el documento
+\pagenumbering{roman}
+\maketitle			% Portada
+\formatLabice			% Diseño de la hoja y Formato de tesis
+%\input{./Chapters/agradecimientos2}   % Agradecimientos Institucionales.
+%\input{./Chapters/agradecimientos1}   % Agradecimientos.
+%\input{./Chapters/Abstract}			  % Abstract
+
+\dominitoc
+\tableofcontents                      % Índice general
+%\listoffigures                        % Índice de figuras
+%\listoftables                         % Índice de tablas
+\newpage
+
+
+%==========================      Capítulos     ================================
+
+\pagenumbering{arabic}
+\parskip = 0.5cm			%espacio entre parrafos
+\input{./Chapters/Chapter1}
+
+\appendix
+%\input{./Chapters/ApendiceA}
+
+%========================== Bibliography ======================================
+\bibliographystyle{IEEEtran}
+\bibliography{./Bib/Bibliography}
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\end{document}
