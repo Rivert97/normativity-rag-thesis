@@ -69,7 +69,6 @@
 \RequirePackage{fancyhdr}							  % Plantilla fancy.
 \RequirePackage{hhline}                               % Separacin de columnas.
 %\RequirePackage{bookmarks}
-\RequirePackage{hyperref}
 \RequirePackage{listings}
 %\RequirePackage{longtable}
 %\RequirePackage{supertabular}
@@ -81,6 +80,7 @@
 \RequirePackage{colortbl}
 \RequirePackage{cite}
 \RequirePackage{url}
+\def\UrlBreaks{\do\/\do-}
 \RequirePackage{minitoc}
 \RequirePackage{float}
 \RequirePackage{svg}

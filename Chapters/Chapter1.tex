@@ -2,4 +2,228 @@
 \minitoc
 \label{Cap:Int}
 
-\cite{sample-article}
+\section{Justificación}
+
+La normatividad vigente de la Universidad de Guanajuato se encuentra disponible
+para su consulta en la página oficial de la UG. Al momento, consta de 22 documentos
+individuales en formato PDF de solo texto que, en conjunto, pesan 6.9 MB. Convertidos
+a texto plano, equivalen a 1.1 MB o 168,011 palabras. Además, existen otros
+documentos con información relevante como el Plan de Desarrollo Institucional,
+la Gaceta Universitaria, entre otros, los cuales abonan a la cantidad de textos
+de los que se espera que alumnos, docentes y administrativos tengan conocimiento
+y den seguimiento a sus actualizaciones.
+
+Una dificultad que se presenta al momento de divulgar documentos de carácter
+formal es la falta de cultura lectora en la sociedad mexicana, ya que según
+datos del MOLEC 2024 (Módulo de lectura del INEGI) \cite{inegi_modulo_2024},
+el porcentaje de población lectora disminuyó 14.6 puntos porcentuales en los últimos
+años, pasando del 84.2 \% en 2015 al 69.6 \% en 2024. Aunque se observa
+una leve mejora de la cantidad de población lectora con respecto a 2023 (68.5 \%),
+la reducción de los hábitos de lectura en la población es notable. Esta tendencia
+presenta la necesidad de proponer estrategias diferentes en la divulgación de documentos
+normativos, como puede ser el uso de asistentes inteligentes.
+
+Por otra parte, el Foro Económico Mundial 2020 (WEF) presentó el concepto de
+Educación 4.0 \cite{world_economic_forum_schools_2020}, en la cual se reconoce que la
+educación debe adaptarse a las necesidades del futuro y para ello el UNESCO-UNEVOC
+(Centro internacional para la Educación y Formación Técnica y Profesional)
+define la Educación 4.0 como una técnica de aprendizaje que se centra en
+transformar la educación con el uso de tecnologías avanzadas, reconociendo la
+Inteligencia Artificial como una de ellas. Alineado con esta visión, este proyecto
+pretende servir como ejemplo de la integración de la inteligencia artificial en
+el ámbito educativo, para resolver una de las necesidades de la comunidad. Así
+mismo, ayudará a fomentar el uso responsable de las tecnologías como los chatbots
+inteligentes al emplearlos como herramientas de apoyo en la interpretación de
+documentos normativos.
+
+Los modelos de lenguaje con capacidades conversacionales, o chatbots inteligentes,
+fueron introducidos al público en general con el lanzamiento de ChatGPT en
+2022 \cite{openai_introducing_2022}, los cuales se integraron en el ámbito educativo de
+forma rápida, motivando a los investigadores a analizar el impacto que tienen los modelos
+grandes de lenguaje en la educación y cómo se integran estos modelos con la
+Educación 4.0, como es el caso de Peláez-Sánchez et al. \cite{pelaez-sanchez_impact_2024}.
+Así mismo se introduce la incógnita de cuáles usos se le pueden dar a estos modelos en
+beneficio de la comunidad académica, siendo ésta la motivación del presente proyecto.
+
+En el mercado actual, existen modelos de lenguaje tipo chatbots que pueden
+contestar preguntas relacionadas a documentos que les sean proporcionados,
+sin embargo, es difícil proporcionarles todo el contexto necesario para que den
+respuestas correctas, además de que son susceptibles a entregar respuestas basadas
+en conocimiento de fuentes no autorizadas y tienen dificultades para proporcionar
+referencias que respalden su respuesta.
+
+Entre otras desventajas del uso de modelos comerciales están que suelen estar
+sujetos a políticas de uso o privacidad que pueden ser desfavorables para las
+instituciones y los usuarios. Otras desventajas son las variaciones de su costo,
+el nivel de personalización es limitado, además de que generalmente se desconoce
+el uso que se les da a los datos confidenciales de los usuarios. Lo anterior
+obliga a considerar opciones de código abierto, con las cuales se puede alcanzar
+un nivel de personalización mayor, mejor control sobre las políticas de privacidad
+y garantizar la continuidad del sistema con un plan adecuado de mantenimiento
+y actualización. Es bajo esta filosofía que este proyecto pretende crear un sistema
+adaptado a las necesidades de los usuarios y que funcione con opciones de código
+abierto.
+
+\section{Objetivos}
+
+\subsection{General}
+
+Desarrollar un asistente virtual tipo chatbot, alojado en la nube, que responda
+preguntas sobre la normativa de la Universidad de Guanajuato, implementando cuatro
+flujos de trabajo: extracción de información con RAGs, reentrenamiento de LLMs,
+backend y frontend. Los cuatro flujos de trabajo emplearán técnicas y herramientas
+de CI/CD y MLOps o DevOps (según sea el caso) para el despliegue continuo y
+actualización del sistema.
+
+\subsection{Particulares}
+
+\begin{itemize}
+    \item Implementar un algoritmo de extracción de información de documentos
+          normativos de la universidad de Guanajuato basado en técnicas RAG, que
+          pueda interactuar con un modelo LLM.
+    \item Reentrenar un LLM que se comunique con el algoritmo de extracción de
+          información, para que sea capaz de interpretar la normativa de la Universidad
+          de Guanajuato y contestar preguntas relacionadas de forma especializada y
+          personalizada, proporcionando referencias de dónde se obtiene la información.
+    \item Desarrollar una API, empleando FastAPI o una tecnología similar,
+          para comunicar una aplicación cliente con el modelo.
+    \item Desarrollar una aplicación web tipo chatbot, empleando React o una
+          tecnología similar, para que un usuario pueda hacer consultas al modelo a
+          través de internet.
+    \item Implementar un flujo de trabajo para el algoritmo de extracción de
+          información que permita la actualización automática o semisupervisada de
+          la nueva normativa.
+    \item Implementar un flujo de trabajo, utilizando herramientas de MLOps,
+          para el reentrenamiento, actualización y despliegue del LLM de forma automática
+          o semisupervisada.
+    \item Implementar un flujo de trabajo para la API y uno para la aplicación
+          web, que emplee técnicas y herramientas de CI/CD y DevOps para desplegar
+          actualizaciones de forma automática o semisupervisada.
+\end{itemize}
+
+
+\section{Antecedentes}
+
+El Procesamiento de Lenguaje Natural (NLP) es una rama de la inteligencia artificial
+y la lingüística, dedicada a dotar a las computadoras de entendimiento de frases o
+palabras escritas en lenguajes humanos \cite{khurana_natural_2023}. De entre las áreas
+de investigación que competen al NLP, la que es relevante para este proyecto es
+el modelado de lenguaje natural (LM).
+
+El modelado de lenguaje pretende predecir la siguiente palabra o carácter en una
+secuencia de texto dada. En el último siglo, el modelado de lenguaje se ha
+desarrollado significativamente, teniendo como principales avances los mencionados
+a continuación. El modelo neuronal probabilístico de Bengio et al. \cite{bengio_neural_2003}
+que empleaba una red neuronal y una tabla de búsqueda para predecir el siguiente carácter.
+El uso de redes neuronales entrenadas de forma semisupervisada para aprendizaje
+multitarea propuesto por Collobert \& Weston \cite{collobert_unified_2008}. La
+introducción de embeddings para aprender representaciones vectoriales distribuidas
+de las palabras por Mikolov et al. \cite{mikolov_distributed_2013}.
+La aparición de los modelos sequence-to-sequence que empleaban Memoria a
+Largo Corto-Plazo (LSTM) para convertir una secuencia de texto en otra por
+Sutskever et al \cite{sutskever_sequence_2014}. La mejora de los modelos
+codificador-decodificador empleando mecanismos de atención para detectar partes de la
+oración que son relevantes por parte de Bahdanau et al. \cite{bahdanau_neural_2016}.
+Y por último la introducción de los transformers, los cuales
+son una arquitectura de red neuronal basada únicamente en mecanismos de atención
+\cite{vaswani_attention_2017} que alcanzaron excelentes resultados en tareas de traducción
+máquina. En este proceso surgen los Grandes Modelos de Lenguaje (LLM) los cuales
+emplean técnicas de aprendizaje profundo, particularmente arquitecturas basadas
+en transformers, para aprender y entender patrones complejos y estructuras presentes
+en los datos.
+
+Estos avances llevaron a la creación del Transformer Generativamente Preentrenado
+(GPT) por Radford et al. \cite{radford_improving_2018}, el cual demostró que al
+preentrenar un modelo de lenguaje, para predecir la siguiente palabra, basado en
+transformers en un corpus de texto sin etiquetar, seguido de un ajuste fino en tareas
+específicas, es posible alcanzar resultados superiores al estado del arte en diversas
+tareas de NLP, como pueden ser: inferencia de lenguaje natural, responder a preguntas,
+similitud semántica o clasificación, entre otras.
+
+La presentación del modelo GPT fue seguida de mejoras que incluyeron conjuntos de
+entrenamiento más extensos, cambios en las técnicas de ajuste fino, incremento en
+el tamaño del modelo, entre otras, dando como resultado el lanzamiento de
+ChatGPT-3 \cite{openai_introducing_2022}, definido como un modelo que interactúa de forma
+conversacional con capacidad de responder preguntas de seguimiento, admitir sus
+errores, objetar premisas incorrectas y rechazar peticiones inapropiadas. Tras
+la liberación de ChatGPT-3 al público, múltiples empresas y organizaciones han
+empleado metodologías de entrenamiento similares para desarrollar sus propios
+modelos conversacionales y competir en el mercado.
+
+Estos modelos conversacionales caen en la categoría de chatbots, los cuales se
+definen como son sistemas computacionales inteligentes con capacidades de conversación,
+los cuales son diseñados para emular una conversación humana con el objetivo de
+proporcionar orientación o apoyo \cite{caldarini_literature_2022}.
+
+En la actualidad, los modelos generativos basados en transformers como Chat GPT-4
+(OpenAI), Gemini (Google), Llama (Meta), DeepSeek (DeepSeek), entre otros, son el
+estado del arte en cuanto a chatbots multidominio, ya que pueden responder preguntas
+y realizar tareas en diferentes dominios del conocimiento, siendo algunos de ellos
+también multimodales. Estos modelos cuentan con varias versiones y tamaños, para
+ajustarse a las necesidades de sus usuarios, algunos siendo de paga y otros de
+código abierto.
+
+Los grandes modelos de lenguaje (LLM) han tenido un impacto considerable en la
+educación, gracias a sus capacidades de generar resúmenes, resaltar partes
+importantes de textos, apoyar en tareas de escritura y en general proveer información
+a los estudiantes de temas específicos, además de servir a los profesores a generar
+material de apoyo personalizado, ayudar en la planeación de las lecciones o para
+calificar pruebas de forma semiautomática \cite{kasneci_chatgpt_2023}.
+
+Por otra parte, se ha explorado el uso de LLMs en el ámbito legal, un ejemplo de
+ello es la plataforma Harvey que emplea Inteligencia Artificial para apoyar
+profesionales en ley, impuestos y finanzas. A través de una alianza con OpenAI,
+Harvey entrenó un LLM con conocimiento legal e historial de casos reales, para
+generar una herramienta tipo chatbot que puede resolver preguntas teóricas, citar
+eventos reales y, en general, funcionar como asistente en la integración y revisión
+de casos complejos \cite{openai_customizing_2024}.
+
+Al usar un LLM para una tarea específica, es necesario ajustar el modelo para
+obtener los resultados esperados, usualmente esto requiere, proporcionar contexto,
+modificar el estilo de redacción o proporcionar información actualizada al modelo.
+
+Para modificar el estilo de respuesta del modelo y proporcionar contexto se
+emplea el prompt engineering, el cual consiste en modificar la forma en que el
+modelo responde a través de instrucciones proporcionadas al modelo en forma de
+texto. Esta técnica fue empleada por Patil et al. \cite{patil_prompt_2024} para
+guiar a los modelos al generar explicaciones amigables para los pacientes sobre
+conceptos médicos, enfermedades y opciones de tratamiento, lo cual ayuda a reducir
+la brecha de conocimientos entre médicos y pacientes.
+
+Por otra parte, el ajuste fino es un proceso en el cual un modelo preentrenado,
+como un LLM, es reentrenado en un conjunto de datos específico para adaptarlo a
+tareas o dominios especializados. Dentro de esta metodología existen dos técnicas
+ampliamente usadas: Supervised fine-tuning y Reinforcement Learning From Human
+Feedback \cite{anisuzzaman_fine-tuning_2025}. Ambas metodologías emplean técnicas
+para ajustar el comportamiento del modelo a casos específicos de uso y dotarlo de
+comportamientos enfocados en tareas específicas.
+
+Por último, los modelos de lenguaje usualmente enfrentan problemas como las
+alucinaciones, el conocimiento desactualizado y la falta de transparencia y
+trazabilidad de su proceso de razonamiento. Con el objetivo de aliviar estos
+problemas se desarrollaron técnicas de recuperación-generación aumentada de
+información (RAG). Las técnicas RAG consisten en mejorar los LLMs al extraer
+fragmentos de información relevante de bases de conocimiento externas, a través
+de cálculos de similitud semántica. Por ejemplo, en una investigación realizada
+en el ámbito de la medicina, se encontró que el uso de RAGs en conjunto con LLMs
+puede mejorar hasta un 39.7 \% la exactitud en las respuestas de preguntas
+relacionadas a las normas de la American Academy of Orthopaedic Surgeons (AAOS),
+para la atención a lesiones del ligamento cruzado anterior \cite{woo_custom_2025}.
+
+\section{Hipótesis del trabajo}
+
+Es posible emplear recuperación-generación aumentada de información con información
+de un dominio específico y limitado, así como reentrenar un modelo de lenguaje
+para que pueda proporcionar información y resolver dudas que sean entendibles
+por personas sin conocimiento previo. La información que se emplee puede
+actualizarse con documentos recientes y el modelo puede reentrenarse para mejorar
+la calidad de las respuestas basándose en la interacción con los usuarios.
+
+Se puede generar un sistema que incluya un algoritmo de extracción de información
+y un modelo de lenguaje que pueda ser usado a través de una aplicación web
+empleando una API para enviar las preguntas y recibir las respuestas del modelo
+en tiempo real.
+
+Es posible aplicar la misma metodología para obtener modelos de lenguaje que
+resuelvan preguntas de documentos normativos cambiando la fuente de información
+y reentrenando el modelo para ajustar el estilo de las respuestas.
