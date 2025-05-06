@@ -1,0 +1,27 @@
+\pagestyle{fancy}       % Estilo de página fancy
+\fancyhead{}            % Encabezado de la página
+\addtolength{\headwidth}{\marginparsep}
+                        % Incrementa la longitud en el encabezado
+\addtolength{\headwidth}{\marginparwidth}
+                        % Incrementa la longitud en el encabezado
+\renewcommand{\headrulewidth}{0.4pt}
+                        % Ancho de la regla del encabezado de página
+\renewcommand{\footrulewidth}{0.4pt}
+                        % Ancho de la regla del pie de página
+\renewcommand{\chaptermark}[1]{\markboth {#1}{#1}}
+                        % Marca de nombre de capitulo
+\renewcommand{\sectionmark}[1]{\markright {\thesection~#1}}
+                        % Marca de nombre y numero de sección
+%\lhead[\fancyplain{}{\normalsize\scshape\leftmark}]{\fancyplain{}{\small\scshape\rightmark}}
+\renewcommand{\baselinestretch}{1.5}
+
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+                        % Margen izquierdo superior capitulo o sección
+%\rhead[\fancyplain{}{\slshape\leftmark}]{\fancyplain{}{\slshape\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries}}
+                        % Margen derecho superior número de página
+%\cfoot{\thepage}
+\cfoot{\thepage}                        % Pie de página central
+\chead{}
+                        % Encabezado de página central
+

@@ -1,0 +1,111 @@
+%------------------------------------------------------------------------------
+% Plantilla Tesis Maestria
+%------------------------------------------------------------------------------
+
+\documentclass[11pt,letterpaper,oneside]{book}
+\usepackage[activeacute,spanish]{babel}                                         % Lenguaje de la plantilla.
+\usepackage[utf8]{inputenc} 			                                        % Español
+\usepackage{ucs}
+\usepackage[T1,OT1]{fontenc}                                                    % Fuentes de texto.
+%\usepackage{libertine}
+\usepackage{latexsym}
+\usepackage{amsfonts,amsmath,amssymb}                                           % Simbolo AMS.
+\usepackage{graphics,graphicx,rotate,epsfig,color}                              % Grafica.
+\usepackage{bibunits}                                                           % Bibliografía.
+\usepackage{multirow, array}                                                    % Arreglos y multirenglón.
+\usepackage{longtable,multirow,booktabs}
+\usepackage[x11names,table]{xcolor}
+\usepackage[absolute]{textpos}                                                  % Posición del texto.
+\usepackage{pstricks,pst-node,amsopn,subfigure}                                 % Figura flotantes.
+\usepackage{IEEEtrantools}                                                      % Herramientas IEEE.
+\usepackage{fancyhdr,programs}                                                  % Plantilla fancy y programs.
+\usepackage{hhline}                                                             % Separación de columnas.
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb,amsfonts,latexsym,cancel}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[justification=centering]{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+\usepackage{subfigure}
+\usepackage{colortbl} % Para colorear celdas de tablas
+\usepackage{xcolor}
+\spanishdecimal{.}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Nuevos comandos     %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mRx}{\mathbf{R}_\mathbf{x}}
+\newcommand{\vrx}{\mathbf{r}_\mathbf{x}}
+\newcommand{\mathBF}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\V}[1]{\mathBF{#1}}
+\newcommand{\M}[1]{\mathBF{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Definición de directorios de trabajo     %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DirFigP}{./Figures/Portada}
+\newcommand{\DirFigCuno}{./Figures/Capitulo1}
+\newcommand{\DirFigCdos}{./Figures/Capitulo2}
+\newcommand{\DirFigCtres}{./Figures/Capitulo3}
+\newcommand{\DirFigCcuatro}{./Figures/Capitulo4}
+\newcommand{\DirFigCcinco}{./Figures/Capitulo5}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Datos personales     %%%%%%%%%%%%%%%%%%%%%%%
+\title{\Huge \textsc{Desarrollo de un asistente virtual por reentrenamiento de LLMs con recuperación-generación aumentada desde documentos normativos}}     % Titulo del documento.
+\author{\LARGE \textit{Ing. Roberto García Guzmán}}                                                                       % Autor del documento.
+\date{Diciembre, 2025}                                                                                                % Fecha de publicación.
+
+%%%%%%%%%%%%%%%%%%%%%%%     Archivos incluidos     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Archivos de tesis
+\includeonly{portada}
+
+%  Capítulos
+\includeonly{Capitulo1,Capitulo2,Capitulo3,Capitulo4,Conclusiones}
+\hyphenation{}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Inicio del documento     %%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\renewcommand{\tablename}{Tabla}                                                % Cambiar la palabra "Cuadro" por "Tabla"
+%\renewcommand{\listtablename}{Índice de Tablas}
+\input{./Chapters/portada}                                                      % Portada
+\pagestyle{fancy}                                                               % Estilo de página
+\fancyhead{}                                                                    % Encabezado de la página
+\input{./Chapters/diseno}                                                       % Diseño de hoja
+\input{./Chapters/formato}                                                      % Formato de tesis
+\pagenumbering{arabic}                                                          % Tipo de letra
+%\onehalfspace
+%\input{./Chapters/agradecimientos}                                             % Agradecimientos
+%\input{./Chapters/institucionales}
+\tableofcontents                                                               % Índice general
+%\listoffigures
+
+% Índice de figuras
+%\listoftables                                                                  % Índice de tablas
+%\input{./Chapters/Resumen}		                                                % Prologo
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%     Capítulos     %%%%%%%%%%%%%%%%%%%%%%%
+
+%\pagenumbering{arabic}
+\input{./Chapters/Capitulo1}
+%\input{./Chapters/Capitulo2}
+%\input{./Chapters/Capitulo3}
+%\input{./Chapters/Capitulo4}
+%\input{./Chapters/Conclusiones}
+%\addcontentsline{toc}{chapter}{Conclusiones.}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Apéndices     %%%%%%%%%%%%%%%%%%%%%%%
+%\appendix
+%\input{./Chapters/planos}
+%\input{./Chapters/SRF02}
+
+%%%%%%%%%%%%%%%%%%%%%%%     Bibliografía     %%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{./Biblio/Bibliography}    		% Se agrega la bibliografía
+\bibliographystyle{ieeetr}						% Estilo de Bibliografía
+
+\end{document}
