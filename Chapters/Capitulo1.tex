@@ -1,5 +1,27 @@
 \chapter{Introducción}
-\label{Cap:Int}
+
+\section{Resumen}
+
+Se propone la creación de un sistema informático alojado en la nube que emplee
+técnicas modernas de procesamiento de lenguaje natural para que los usuarios,
+principalmente alumnos, docentes y administrativos de la Universidad de Guanajuato
+(UG), puedan acceder a información y aclarar dudas sobre la normativa de la
+universidad a través de un asistente tipo chatbot.
+
+El sistema constará de cuatro componentes principales: un algoritmo basado en
+Recuperación-Generación Aumentada (RAG) para extraer información relevante del
+corpus de documentos normativos de la Universidad de Guanajuato; un modelo
+grande de lenguaje (LLM) basado en transformers con capacidad para recibir
+preguntas y entregar respuestas en lenguaje natural; una Interfaz de Programación
+de Aplicaciones (API) alojada en un servidor en la nube, mediante la cual se hará
+la comunicación entre el modelo y la aplicación cliente; y una aplicación web
+desde la que un usuario con acceso a internet podrá interactuar con el modelo a
+través de un chat, donde podrá escribir preguntas o consultas sobre la normativa
+y recibir información o aclaraciones al respecto.
+
+Se pretende, además, implementar el sistema en un entorno productivo, empleando
+herramientas de Integración Continua/Entrega Continua (CI/CD) y MLOps para realizar
+actualizaciones, pruebas y despliegues semiautomáticos de los componentes del sistema.
 
 \section{Justificación}
 
@@ -62,44 +84,6 @@ y garantizar la continuidad del sistema con un plan adecuado de mantenimiento
 y actualización. Es bajo esta filosofía que este proyecto pretende crear un sistema
 adaptado a las necesidades de los usuarios y que funcione con opciones de código
 abierto.
-
-\section{Objetivos}
-
-\subsection{General}
-
-Desarrollar un asistente virtual tipo chatbot, alojado en la nube, que responda
-preguntas sobre la normativa de la Universidad de Guanajuato, implementando cuatro
-flujos de trabajo: extracción de información con RAGs, reentrenamiento de LLMs,
-backend y frontend. Los cuatro flujos de trabajo emplearán técnicas y herramientas
-de CI/CD y MLOps o DevOps (según sea el caso) para el despliegue continuo y
-actualización del sistema.
-
-\subsection{Particulares}
-
-\begin{itemize}
-      \item Implementar un algoritmo de extracción de información de documentos
-            normativos de la universidad de Guanajuato basado en técnicas RAG, que
-            pueda interactuar con un modelo LLM.
-      \item Reentrenar un LLM que se comunique con el algoritmo de extracción de
-            información, para que sea capaz de interpretar la normativa de la Universidad
-            de Guanajuato y contestar preguntas relacionadas de forma especializada y
-            personalizada, proporcionando referencias de dónde se obtiene la información.
-      \item Desarrollar una API, empleando FastAPI o una tecnología similar,
-            para comunicar una aplicación cliente con el modelo.
-      \item Desarrollar una aplicación web tipo chatbot, empleando React o una
-            tecnología similar, para que un usuario pueda hacer consultas al modelo a
-            través de internet.
-      \item Implementar un flujo de trabajo para el algoritmo de extracción de
-            información que permita la actualización automática o semisupervisada de
-            la nueva normativa.
-      \item Implementar un flujo de trabajo, utilizando herramientas de MLOps,
-            para el reentrenamiento, actualización y despliegue del LLM de forma automática
-            o semisupervisada.
-      \item Implementar un flujo de trabajo para la API y uno para la aplicación
-            web, que emplee técnicas y herramientas de CI/CD y DevOps para desplegar
-            actualizaciones de forma automática o semisupervisada.
-\end{itemize}
-
 
 \section{Antecedentes}
 
@@ -208,6 +192,43 @@ en el ámbito de la medicina, se encontró que el uso de RAGs en conjunto con LL
 puede mejorar hasta un 39.7 \% la exactitud en las respuestas de preguntas
 relacionadas a las normas de la American Academy of Orthopaedic Surgeons (AAOS),
 para la atención a lesiones del ligamento cruzado anterior \cite{woo_custom_2025}.
+
+\section{Objetivos}
+
+\subsection{Objetivo General}
+
+Desarrollar un asistente virtual tipo chatbot, alojado en la nube, que responda
+preguntas sobre la normativa de la Universidad de Guanajuato, implementando cuatro
+flujos de trabajo: extracción de información con RAGs, reentrenamiento de LLMs,
+backend y frontend. Los cuatro flujos de trabajo emplearán técnicas y herramientas
+de CI/CD y MLOps o DevOps (según sea el caso) para el despliegue continuo y
+actualización del sistema.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+      \item Implementar un algoritmo de extracción de información de documentos
+            normativos de la universidad de Guanajuato basado en técnicas RAG, que
+            pueda interactuar con un modelo LLM.
+      \item Reentrenar un LLM que se comunique con el algoritmo de extracción de
+            información, para que sea capaz de interpretar la normativa de la Universidad
+            de Guanajuato y contestar preguntas relacionadas de forma especializada y
+            personalizada, proporcionando referencias de dónde se obtiene la información.
+      \item Desarrollar una API, empleando FastAPI o una tecnología similar,
+            para comunicar una aplicación cliente con el modelo.
+      \item Desarrollar una aplicación web tipo chatbot, empleando React o una
+            tecnología similar, para que un usuario pueda hacer consultas al modelo a
+            través de internet.
+      \item Implementar un flujo de trabajo para el algoritmo de extracción de
+            información que permita la actualización automática o semisupervisada de
+            la nueva normativa.
+      \item Implementar un flujo de trabajo, utilizando herramientas de MLOps,
+            para el reentrenamiento, actualización y despliegue del LLM de forma automática
+            o semisupervisada.
+      \item Implementar un flujo de trabajo para la API y uno para la aplicación
+            web, que emplee técnicas y herramientas de CI/CD y DevOps para desplegar
+            actualizaciones de forma automática o semisupervisada.
+\end{itemize}
 
 \section{Hipótesis del trabajo}
 
