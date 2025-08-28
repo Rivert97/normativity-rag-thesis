@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.63695024"
-     inkscape:cx="197.03266"
-     inkscape:cy="436.45482"
+     inkscape:zoom="0.99343761"
+     inkscape:cx="406.66872"
+     inkscape:cy="874.74039"
      inkscape:window-width="1920"
      inkscape:window-height="1008"
      inkscape:window-x="0"
@@ -153,233 +153,342 @@
            y="33.007847">Información del documento</tspan></text>
     </g>
     <g
-       id="g137"
-       transform="translate(0.09497163,-10.583334)">
+       id="g363"
+       transform="translate(-0.37751985,-28.951188)">
+      <rect
+         style="fill:#d4d5d5;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:0.799999, 0.4"
+         id="rect193"
+         width="206.40298"
+         height="10.226338"
+         x="2.6878464"
+         y="87.466034"
+         ry="0"
+         clip-path="url(#clipPath193)" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.247;stroke-linejoin:round;stroke-opacity:1"
+         id="rect3-6-9-25"
+         width="204.93829"
+         height="71.980576"
+         x="2.9083731"
+         y="88.494751"
+         ry="7.777709" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round"
+       x="5.5007863"
+       y="76.512886"
+       id="text1-3"><tspan
+         sodipodi:role="line"
+         id="tspan57"
+         x="5.5007863"
+         y="76.512886">Para cada línea de cada columna:</tspan><tspan
+         sodipodi:role="line"
+         id="tspan58"
+         x="5.5007863"
+         y="83.568436" /><tspan
+         sodipodi:role="line"
+         id="tspan59"
+         x="5.5007863"
+         y="90.623985">Si es una sola columna y el texto está centrado en la</tspan><tspan
+         sodipodi:role="line"
+         id="tspan60"
+         x="5.5007863"
+         y="97.679535">página, es título tipo 1.</tspan><tspan
+         sodipodi:role="line"
+         id="tspan61"
+         x="5.5007863"
+         y="104.73508" /><tspan
+         sodipodi:role="line"
+         id="tspan62"
+         x="5.5007863"
+         y="111.79063">Si son más de una columna y el texto está centrado</tspan><tspan
+         sodipodi:role="line"
+         id="tspan63"
+         x="5.5007863"
+         y="118.84618">en la columna, y hay un espacio vertical antes, es</tspan><tspan
+         sodipodi:role="line"
+         id="tspan64"
+         x="5.5007863"
+         y="125.90174">título tipo 2.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round"
+       x="105.28267"
+       y="66.094955"
+       id="text1-3-4"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         x="105.28267"
+         y="66.094955">Asignar tipo de título</tspan></text>
+    <g
+       id="g38"
+       transform="translate(25.000354,-3.5425114)"
+       inkscape:export-filename="../Extras/tipo_1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <g
-         id="g363"
-         transform="translate(-0.47249148,-18.367854)">
+         id="g35">
         <rect
-           style="fill:#d4d5d5;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:0.799999, 0.4"
-           id="rect193"
-           width="206.40298"
-           height="10.226338"
-           x="2.6878464"
-           y="87.466034"
-           ry="0"
-           clip-path="url(#clipPath193)" />
-        <rect
-           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.247;stroke-linejoin:round;stroke-opacity:1"
-           id="rect3-6-9-25"
-           width="204.93829"
-           height="71.980576"
-           x="2.9083731"
-           y="88.494751"
-           ry="7.777709" />
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round"
-         x="5.4058146"
-         y="87.096222"
-         id="text1-3"><tspan
-           sodipodi:role="line"
-           id="tspan57"
-           x="5.4058146"
-           y="87.096222">Para cada línea de cada columna:</tspan><tspan
-           sodipodi:role="line"
-           id="tspan58"
-           x="5.4058146"
-           y="94.151772"></tspan><tspan
-           sodipodi:role="line"
-           id="tspan59"
-           x="5.4058146"
-           y="101.20732">Si es una sola columna y el texto está centrado en la</tspan><tspan
-           sodipodi:role="line"
-           id="tspan60"
-           x="5.4058146"
-           y="108.26287">página, es título tipo 1.</tspan><tspan
-           sodipodi:role="line"
-           id="tspan61"
-           x="5.4058146"
-           y="115.31842"></tspan><tspan
-           sodipodi:role="line"
-           id="tspan62"
-           x="5.4058146"
-           y="122.37397">Si son más de una columna y el texto está centrado</tspan><tspan
-           sodipodi:role="line"
-           id="tspan63"
-           x="5.4058146"
-           y="129.42952">en la columna, y hay un espacio vertical antes, es</tspan><tspan
-           sodipodi:role="line"
-           id="tspan64"
-           x="5.4058146"
-           y="136.48508">título tipo 2.</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round"
-         x="105.1877"
-         y="76.678291"
-         id="text1-3-4"><tspan
-           sodipodi:role="line"
-           id="tspan9"
-           x="105.1877"
-           y="76.678291">Asignar tipo de título</tspan></text>
-      <g
-         id="g38"
-         transform="translate(24.905382,7.0408226)">
-        <g
-           id="g35">
-          <rect
-             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect57-0"
-             width="17.984283"
-             height="23.323368"
-             x="129.00841"
-             y="89.848801" />
-          <text
-             xml:space="preserve"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0088b4;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect57-0"
+           width="17.984283"
+           height="23.323368"
+           x="129.00841"
+           y="89.848801" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0088b4;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+           x="132.6908"
+           y="88.683609"
+           id="text19-0-2-8-13"><tspan
+             sodipodi:role="line"
+             id="tspan167"
              x="132.6908"
-             y="88.683609"
-             id="text19-0-2-8-13"><tspan
-               sodipodi:role="line"
-               id="tspan167"
-               x="132.6908"
-               y="88.683609">Centro</tspan></text>
-          <path
-             style="fill:none;fill-opacity:1;stroke:#0088b4;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
-             d="m 138.00054,90.45371 v 22.4517"
-             id="path39-69-2-7-4"
-             sodipodi:nodetypes="cc" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#00ad00;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-3-1"
-             width="10.782976"
-             height="1.3972168"
-             x="132.54132"
-             y="92.443222" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-dasharray:2, 1"
+             y="88.683609">Centro</tspan></text>
+        <path
+           style="fill:none;fill-opacity:1;stroke:#0088b4;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+           d="m 138.00054,90.45371 v 22.4517"
+           id="path39-69-2-7-4"
+           sodipodi:nodetypes="cc" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#00ad00;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-3-1"
+           width="10.782976"
+           height="1.3972168"
+           x="132.54132"
+           y="92.443222" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-dasharray:2, 1"
+         x="138.07497"
+         y="118.97103"
+         id="text23"><tspan
+           sodipodi:role="line"
+           id="tspan23"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
            x="138.07497"
-           y="118.97103"
-           id="text23"><tspan
-             sodipodi:role="line"
-             id="tspan23"
-             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
-             x="138.07497"
-             y="118.97103">Tipo 1</tspan></text>
-      </g>
+           y="118.97103">Tipo 1</tspan></text>
+    </g>
+    <g
+       id="g37"
+       transform="translate(8.6758174,-3.3091664)"
+       inkscape:export-filename="../Extras/tipo_2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
       <g
-         id="g37"
-         transform="translate(8.5808458,7.2741676)">
-        <g
-           id="g36">
-          <rect
-             style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect57-0-2"
-             width="17.984283"
-             height="23.323368"
-             x="171.95"
-             y="89.698555" />
-          <text
-             xml:space="preserve"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0088b4;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
-             x="175.63239"
-             y="88.533363"
-             id="text19-0-2-8-13-6"><tspan
-               sodipodi:role="line"
-               id="tspan167-5"
-               x="175.63239"
-               y="88.533363">Centro</tspan></text>
-          <path
-             style="fill:none;fill-opacity:1;stroke:#0088b4;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
-             d="m 180.94214,90.30346 v 22.4517"
-             id="path39-69-2-7-4-2"
-             sodipodi:nodetypes="cc" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6"
-             width="6.7490349"
-             height="1.3972473"
-             x="173.38287"
-             y="101.6203" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-8"
-             width="6.7490349"
-             height="1.3972473"
-             x="173.38287"
-             y="103.23331" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-7"
-             width="6.7490349"
-             height="1.3972473"
-             x="173.38287"
-             y="104.8208" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-0-5"
-             width="6.7490349"
-             height="1.3972473"
-             x="173.38287"
-             y="100.2942" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-1"
-             width="6.7490349"
-             height="1.3972473"
-             x="182.05032"
-             y="99.234573" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-8-7"
-             width="6.7490349"
-             height="1.3972473"
-             x="182.05032"
-             y="100.84757" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-7-8"
-             width="6.7490349"
-             height="1.3972473"
-             x="182.05032"
-             y="102.43507" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-6-7-8-9"
-             width="6.7490349"
-             height="1.3972473"
-             x="182.05032"
-             y="104.07764" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-0-5-9"
-             width="6.7490349"
-             height="1.3972473"
-             x="182.05032"
-             y="97.90847" />
-          <rect
-             style="fill:none;fill-opacity:1;stroke:#00b100;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="rect58-0-2-9-0-5-2"
-             width="3.7306583"
-             height="1.3972473"
-             x="175.03438"
-             y="98.706573" />
-        </g>
+         id="g36">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect57-0-2"
+           width="17.984283"
+           height="23.323368"
+           x="171.95"
+           y="89.698555" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-dasharray:2, 1"
-           x="181.02069"
-           y="118.65459"
-           id="text23-0"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0088b4;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+           x="175.63239"
+           y="88.533363"
+           id="text19-0-2-8-13-6"><tspan
              sodipodi:role="line"
-             id="tspan24"
-             x="181.02069"
-             y="118.65459">Tipo 2</tspan></text>
+             id="tspan167-5"
+             x="175.63239"
+             y="88.533363">Centro</tspan></text>
+        <path
+           style="fill:none;fill-opacity:1;stroke:#0088b4;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:1, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+           d="m 180.94214,90.30346 v 22.4517"
+           id="path39-69-2-7-4-2"
+           sodipodi:nodetypes="cc" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6"
+           width="6.7490349"
+           height="1.3972473"
+           x="173.38287"
+           y="101.6203" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-8"
+           width="6.7490349"
+           height="1.3972473"
+           x="173.38287"
+           y="103.23331" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-7"
+           width="6.7490349"
+           height="1.3972473"
+           x="173.38287"
+           y="104.8208" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-0-5"
+           width="6.7490349"
+           height="1.3972473"
+           x="173.38287"
+           y="100.2942" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-1"
+           width="6.7490349"
+           height="1.3972473"
+           x="182.05032"
+           y="99.234573" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-8-7"
+           width="6.7490349"
+           height="1.3972473"
+           x="182.05032"
+           y="100.84757" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-7-8"
+           width="6.7490349"
+           height="1.3972473"
+           x="182.05032"
+           y="102.43507" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-6-7-8-9"
+           width="6.7490349"
+           height="1.3972473"
+           x="182.05032"
+           y="104.07764" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-0-5-9"
+           width="6.7490349"
+           height="1.3972473"
+           x="182.05032"
+           y="97.90847" />
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#00b100;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect58-0-2-9-0-5-2"
+           width="3.7306583"
+           height="1.3972473"
+           x="175.03438"
+           y="98.706573" />
       </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-dasharray:2, 1"
+         x="181.02069"
+         y="118.65459"
+         id="text23-0"><tspan
+           sodipodi:role="line"
+           id="tspan24"
+           x="181.02069"
+           y="118.65459">Tipo 2</tspan></text>
+    </g>
+    <g
+       id="g1"
+       inkscape:export-filename="g1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect57-0-2-8"
+         width="17.984283"
+         height="23.323368"
+         x="238.36041"
+         y="82.209686" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-6"
+         width="6.7490349"
+         height="1.3972473"
+         x="239.79329"
+         y="94.131432" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-8-1"
+         width="6.7490349"
+         height="1.3972473"
+         x="239.79329"
+         y="95.744438" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-7-2"
+         width="6.7490349"
+         height="1.3972473"
+         x="239.79329"
+         y="97.331932" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-0-5-93"
+         width="6.7490349"
+         height="1.3972473"
+         x="239.79329"
+         y="92.805328" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-0-5-93-6"
+         width="15.261004"
+         height="1.3972473"
+         x="239.8692"
+         y="84.334671" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-0-5-93-6-6"
+         width="15.261004"
+         height="1.3972473"
+         x="239.86922"
+         y="85.763985" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-0-5-93-6-6-4"
+         width="15.261004"
+         height="1.3972473"
+         x="239.8692"
+         y="87.032288" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-1-1"
+         width="6.7490349"
+         height="1.3972473"
+         x="248.46074"
+         y="91.745705" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-8-7-9"
+         width="6.7490349"
+         height="1.3972473"
+         x="248.46074"
+         y="93.358704" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-7-8-4"
+         width="6.7490349"
+         height="1.3972473"
+         x="248.46074"
+         y="94.946198" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-6-7-8-9-7"
+         width="6.7490349"
+         height="1.3972473"
+         x="248.46074"
+         y="96.588768" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect58-0-2-9-0-5-9-8"
+         width="6.7490349"
+         height="1.3972473"
+         x="248.46074"
+         y="90.419601" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:round;stroke-dasharray:2, 1"
+         x="247.43111"
+         y="111.16572"
+         id="text23-0-5"><tspan
+           sodipodi:role="line"
+           id="tspan24-0"
+           x="247.43111"
+           y="111.16572">Tipo 0</tspan></text>
     </g>
     <g
        id="g138"
@@ -418,7 +527,7 @@
            sodipodi:role="line"
            id="tspan77"
            x="5.5204387"
-           y="172.15981"></tspan><tspan
+           y="172.15981" /><tspan
            sodipodi:role="line"
            id="tspan78"
            x="5.5204387"
@@ -434,7 +543,7 @@
            sodipodi:role="line"
            id="tspan81"
            x="5.5204387"
-           y="200.382"></tspan><tspan
+           y="200.382" /><tspan
            sodipodi:role="line"
            id="tspan82"
            x="5.5204387"
@@ -572,7 +681,7 @@
            sodipodi:role="line"
            id="tspan124"
            x="4.8600645"
-           y="247.45311"></tspan><tspan
+           y="247.45311" /><tspan
            sodipodi:role="line"
            id="tspan125"
            x="4.8600645"
@@ -588,7 +697,7 @@
            sodipodi:role="line"
            id="tspan128"
            x="4.8600645"
-           y="275.67529"></tspan><tspan
+           y="275.67529" /><tspan
            sodipodi:role="line"
            id="tspan129"
            x="4.8600645"
@@ -604,7 +713,7 @@
            sodipodi:role="line"
            id="tspan132"
            x="4.8600645"
-           y="303.89749"></tspan><tspan
+           y="303.89749" /><tspan
            sodipodi:role="line"
            id="tspan133"
            x="4.8600645"

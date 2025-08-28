@@ -1,25 +1,31 @@
 \chapter{Metodología}
 
-En este capítulo se describen los procesos seguidos para generar el asistente descrito en
-el capítulo 1, cuya implementación se divide en cuatro componentes fundamentales:
-Extractor de información, modelador de lenguaje, API de comunicación y aplicación web. El
-objetivo es generar un sistema cuyos componentes modulares puedan ser diseñados, desarrollados,
-modificados o escalados, sin que se vea comprometido el funcionamiento del sistema en general,
-favoreciendo la integración contínua de nuevas funcionalidades en el sistema, así como la
-realización de un mayor número de pruebas.
+En este capítulo se describe la fuente de información que se emplea
+para el desarrollo, así como los procesos a seguir para generar el asistente
+descrito en el capítulo 1, cuya implementación se divide en cuatro componentes
+fundamentales: Extractor de información, modelador de lenguaje, API de
+comunicación y aplicación web. El objetivo es generar un sistema cuyos
+componentes modulares puedan ser diseñados, desarrollados, modificados o
+escalados.
 
-En la figura \ref{fig:esquema_general} se muestran los cuatro módulos del sistema: El extractor
-de información realiza un proceso previo en el que se recopilan los documentos, se extrae su
-contenido, se transforma en embeddings o vectores numéricos y finalmente se almacena de forma
-estructurada para su fácil acceso; El modelador de lenguaje recibe la pregunta, busca en
-la base de datos de conocimiento la información relevante y se la proporciona al modelo de
-lenguaje (LLM), para finalmente comunicar la respuesta del al usuario; La API de
-comunicación, funge como intermediario entre la aplicación web y el modelador de lenguaje,
-controlando el envió y recepción de las preguntas y respuestas así como permitiendo la
-persistencia de datos durante la conversación; Por último, la aplicación web es el medio de interacción
-de los usuarios con el sistema, en forma de un chat, donde a través de cajas de texto, botones
-y mensajes intuitivos, permite al usuario realizar preguntas en lenguaje natural y obtener
-respuestas sobre la normativa de la universidad.
+El desarrollo de el asistente requiere el uso de múltiples lenguajes de programación,
+frameworks y librerías, siendo los princiales: Python (transformers, llama\_cpp)
+para usar y reentrenar los modelos LLM, además de para programar la API de
+comunicación (FastAPI), Javascript (NextJS, React) para desarrollar la aplicación
+web.
+
+En la figura \ref{fig:esquema_general} se muestran los cuatro módulos del
+sistema donde: El extractor de información realiza un proceso previo en el que
+se recopilan los documentos, se extrae su contenido, se transforma en
+\textit{embeddings} y, finalmente, se almacena en una base de datos; El
+modelador de lenguaje recibe la pregunta, busca en la base de datos los
+fragmentos de información relevante y se los proporciona al LLM, para que
+genere la respusta; La API de comunicación, funge como intermediario entre la
+aplicación web y el modelador de lenguaje, controlando el envió y recepción de
+las preguntas y respuestas; Por último, la aplicación web es el medio de
+interacción de los usuarios con el sistema, al tener forma de un chat es
+posible realizar preguntas en lenguaje natural a través de cajas de texto, botones
+y mensajes intuitivos.
 
 \begin{figure}[]
     \centering
@@ -28,52 +34,74 @@ respuestas sobre la normativa de la universidad.
     \label{fig:esquema_general}
 \end{figure}
 
-En las siguientes secciones se explican a detalle cada uno de los componentes.
+\section{Fuente de información}
+
+El sistema está diseñado para responder preguntas de la normativa de la
+Universidad de Guanajuato, esta normativa se encuentra disponible en la página
+oficial de la universidad
+\footnote{https://www.ugto.mx/gacetauniversitaria/normatividad/normatividad-vigente}
+en forma de 22 documentos PDF individuales. Cada documento tiene un número
+diferente de páginas, las cuales suman 511, representan 6.8MB de información y,
+convertidas a texto, 168,011 palabras.
+
+Los documentos son descargados manualmente y almacenados en un directorio,
+para cada uno se utiliza el nombre del archivo como identificador.
+
+**Incluir tabla con detalle de cada documento de la normativa**
 
 \section{Extractor de información}
 
-El módulo de extracción de información realiza de una serie de pasos que comienzan con un
+El funcionamiento del módulo de extracción de información comienzan con un
 archivo en formato PDF y terminan con la creación de una base de datos de
-embeddings de cada una de las partes significativas del documento. En la figura
-\ref{fig:esquema_extractor} se observa la secuencia de procesamiento del archivo y la
-salida de cada una de las etapas.
+embeddings de los fragmentos del documento. En la figura
+\ref{fig:esquema_extractor} se observa la secuencia de procesamiento para un
+archivo y la salida de cada una de las etapas.
 
 \begin{figure}[]
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCtres/esquema_extractor}
-    \caption{Diagrama de extracción de información de archivos PDF.}
+    \caption{Diagrama de extracción de información de un archivo PDF.}
     \label{fig:esquema_extractor}
 \end{figure}
 
 \subsection{Extraer texto e información visual}
 
-El documento PDF no puede procesarse directamente ya que el formato y ubicación
-de cada segmento de texto no puede obtenerse de forma confiable,
-sin embargo, es necesario contar con esta información para poder extraer la
-estructura del documento. Por lo anteior, se extraen dos tipos de datos
-del documento: texto plano e información obtenida por OCR (Optical Character
-Recognition).
+El documento PDF debe convertirse a texto para su procesamiento, pero es
+necesario conservar la información del formato y ubicación de los segmentos
+para poder extraer la estructura del documento. Por lo anteior, se extraen dos
+tipos de datos del archivo: texto plano e información visual relacionada con
+el formato.
 
-El texto plano se extrae emplendo el modulo PyPDF de Python, el cual lee un archivo
-PDF y extrae solamente el texto contenido en él, intentando preservar la secuencia natural
-del texto. Sin embargo, este módulo no proporciona información que ayude a
-identificar los títulos, secciones y encabezados, además en ocasiones modifica
-el orden del texto.
+Para seleccionar las herramientas de extracción de texto plano se hizo un
+análisis de aquellas que fueran de código abierto, considerando sus
+deficiencias en la extracción de texto (ver Apéndice A). Se seleccionaron
+PyPDF, porque es la herramienta más usada para esta tarea con Python, y
+PdfPlumber, porque su extracción de texto es la más limpia y provee mecanismos
+para extraer la información visual.
 
-Por otra parte, se utilizan las librerías PDF2Image y PyTesseract para obtener
-la información de OCR. La primera permite convertir cada página del archivo PDF
-en una imagen de alta resolución, mientras que PyTesseract toma la imagen de la página,
-le aplica técnicas de OCR y obtiene información del documento, específicamente,
-para cada palabra de la página obtiene: posición, ancho, alto y texto
-predicho. Sin embargo, con frecuencia, el texto predicho por PyTesseract es incorrecto,
-es por ello que no se puede emplear directamente el texto obtenido.
+Primero se extrae el texto plano con PyPDF o PdfPlumber. En el caso de PyPDF
+no se obtiene información visual que ayude a identificar los títulos, secciones
+y encabezados, además en ocasiones modifica el orden del texto. Cuando se
+emplea PdfPlumber, el texto va acompañado de la información visual del docuemto,
+que consiste en la ubicación de cada palabra dentro del docuemnto.
 
-La librería PyTesseract emplea la herramienta Tesseract, desarrollada por Google,
-y es capaz de reconstruir el texto del documento, ya que también detecta las líneas,
-párrafos y secciones, sin embargo, con frecuencia comete errores en el ordenamiento
-del texto, especialmente en textos de dos columnas, por eso es necesario hacer la
-reconstrucción del texto por nuestra cuenta detectando primero renglones,
-columnas y secciones como se muestra en la figura \ref{fig:texto_y_ocr}.
+Para obtener la información visual, cuando no se tiene, se utiliza la herramienta
+Tesseract, la cual es un software de reconocimiento óptico de caracteres que
+nos permite obtener la ubicación y texto de cada palabra dentro del documento.
+Para emplear Tesseract, primero se convierte el documento a imágenes con
+PDF2Image, las imágenes resultantes tienen una densidad de pixeles de 1000 DPIs.
+Posteriormente, se usa la librería PyTesseract para obtiener información del
+documento, específicamente, para cada palabra de la página obtiene: posición,
+ancho, alto y texto predicho.
+
+La librería PyTesseract ejecuta la herramienta Tesseract, desarrollada por
+Google para hacer OCR. Esta herramienta puede reconstruir el texto del documento,
+así como detectar las líneas, párrafos y secciones, sin embargo, con frecuencia
+comete errores en la detección del texto y el ordenamiento. Para corregir
+estos errores se opta por combinar el texto plano obtenido con PyPDF, con
+la información de posición y tamaño devuelto por PyTesseract, de esta forma
+obtenemos el texto correcto asociado a su ubicación y tamaño. Este proceso
+se describe en el diagrama de la figura \ref{fig:texto_y_ocr}.
 
 \begin{figure}[]
     \centering
@@ -82,7 +110,13 @@ columnas y secciones como se muestra en la figura \ref{fig:texto_y_ocr}.
     \label{fig:texto_y_ocr}
 \end{figure}
 
-La tarea de agrupar la página en secciones para posteriormente reconstruir el texto
+Para el caso de PdfPlumber, la librería devuelve las mismas características que
+PyTesseract, sin embargo, comete también errores en la agrupación y el
+ordenamiento del texto, por ello se requiere realizar los pasos de "Crear
+grupos para reconstruir el texto" y "Reconstruir texto" del diagrama de la figura
+\ref{fig:texto_y_ocr}.
+
+La tarea de agrupar el texto en secciones para reconstruirlo en el orden correcto
 no es trivial, y es altamente dependiente del tipo de documento del
 que se trata, es decir, el proceso descrito en el diagrama de las figuras
 \ref{fig:reconstruccion_texto_1} y \ref{fig:reconstruccion_texto_2} funciona para
@@ -92,14 +126,14 @@ columnas con títulos centrados.
 \begin{figure}[]
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCtres/reconstruccion_texto_ocr_1}
-    \caption{Detalle de reconstrucción de información del documento por OCR (Pt. 1).}
+    \caption{Detalle de reconstrucción de texto del documento (Pt. 1).}
     \label{fig:reconstruccion_texto_1}
 \end{figure}
 
 \begin{figure}[]
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCtres/reconstruccion_texto_ocr_2}
-    \caption{Detalle de reconstrucción de información del documento por OCR (Pt 2).}
+    \caption{Detalle de reconstrucción de texto del documento (Pt 2).}
     \label{fig:reconstruccion_texto_2}
 \end{figure}
 
@@ -110,27 +144,26 @@ con OCR con el texto plano extraido con PyPDF.
 
 \subsection{Combinar texto e información visual}
 
-Una vez obtenidos el texto plano y los datos a través de OCR se procede a combinar ambos
-elementos, el objetivo es tener la posición de cada palabra asociada con su texto correcto,
-de esta forma se podrá distinguir entre diferentes elementos, como títulos, párrafos,
-entre otros.
+Cuando se usa PdfPlumber, este proceso no es necesario, pues la librearía ya
+devuelve el texto correcto asociado a su informació visual de posición y tamaño,
+sin embargo, cuando se usa PyPDF y PyTesseract, es necesario combinar estas dos
+fuentes de información para obtener el texto e información visual correctas,
+el objetivo es tener la posición de cada palabra asociada con su texto correcto,
+de esta forma se podrá distinguir entre diferentes elementos, como títulos,
+párrafos, entre otros.
 
-El proceso de combinación requiere las cadenas de texto extraídas por los dos métosos:
+El proceso de combinación requiere las cadenas de texto extraídas por los dos métodos:
 la cadena proporcionada por PyPDF y la cadena reconstruida con la información
-visual, como se muestra en la figura \ref{fig:texto_y_ocr}. Ambas cadenas se
+visual, como se muestra en la figura \ref{fig:reconstruccion_texto_2}. Ambas cadenas se
 separan por palabra y se pasan a la librería Difflib, la cual aplica el algoritmo
-Ratcliff-Obershelp, también conocido como Coincidencia de patrones Gestalt para
+Ratcliff-Obershelp, también conocido como Coincidencia de patrones Gestalt, para
 comparar dos cadenas y encontrar sus diferencias.
-
-La razón para dividir el texto en palabras es que el algoritmo compara línea por
-línea, pero los saltos de líneas extraidas con PyPDF no siempre conciden con las
-extraidas con PyTesseract, por lo que se optó por hacer líneas de una sola palabra.
 
 Si se analizan los patrones de salida de la librería Difflib, es posible
 corregir las palabas detectadas con OCR utilizando las palabras extraidas directamente
 del texto, los detalles de esta implementación se explican en las figuras
 \ref{fig:esquema_combinacion_txt_ocr_1} y \ref{fig:esquema_combinacion_txt_ocr_2}.
-En escencia, se considera la palabra obtenida con PyPdf como la correcta,
+En escencia, se considera la palabra obtenida con PyPDF como la correcta,
 se compara contra la palabra obtenida con OCR y si es diferente se sobreescribe.
 
 \begin{figure}[]
@@ -151,6 +184,17 @@ Al terminar el proceso se tiene un arreglo de datos donde se conoce la posición
 y dimensiones de cada palabra, así como su texto correcto, además se cuenta con
 datos adicionales de linea, columna, alineación o grupo que serán empleadas
 para dividir las secciones del documento más adelante.
+
+Las ventajas de usar PdfPlumber sobre PyPDF+PyTesseract son que es más rápido y
+la identificación del texto es certera, pues proviene directamente del archivo,
+sin embargo, no funciona si el PDF es un escaneo o si contiene texto en forma
+de imagen.
+
+Por su parte, al generar el método que emplea PyPDF+PyTesseract, se desarrollaron
+elementos que fueron reciclados, como la resconstrucción de texto, además de
+que puede funcionar en documentos escaneados (confiando completamente en la
+predicción de PyTesseract) y documentos con imágenes, además de que es mejor
+eliminando texto no visible en el PDF.
 
 \subsection{Obtener estructura del documento}
 
@@ -235,23 +279,32 @@ El proceso completo se presenta en la figura
     \label{fig:crear_arbol}
 \end{figure}
 
-\subsection{Obtener embeddings}
+\subsection{Obtener \textit{embeddings}}
 
-Un embedding es una representación de una cadena de texto en un espacio
-vectorial de n-dimensiones. Se requiere una red neuronal que tome como entrada
-los tokens que conforman la oración y los convierta a un vector numérico,
-usualmente esta red es parte de un modelo de lenguaje grande, como puede ser
-GPT, Mistral, entre otros, con la diferencia de que se elimina la capa de
-predicción del modelo y se usa la salida de la última capa oculta.
+Para el cálculo de \textit{embeddings} se emplean LLMs especializados,
+estos modelos son entrenados en datasets de similitud semántica o QA en
+diferentes idiomas. El sistema propuesto permite el uso y evaluación de
+varios modelos, los cuales serán: MiniLM (33M de parámetros)
+\cite{wang_minilm_2020}, MPNET \cite{hagen_mpnet_2020} (110M de parámetros)
+y Qwen 3 \cite{zhang_qwen3_2025} (600M, 4B y 8B de parámetros). Estos modelos
+se encuentran disponibles en HuggingFace para su descarga y se pueden
+emplear a través de la librería \textit{SentenceTransformers}, la cual está especializada
+en obtener embeddings de oraciones.
 
-Existen librerías que realizan el proceso de tokenizar y convertir a
-embeddings utilizando modelos preentrenados, como es el caso de
-SentenceTransformers de HuggingFace, el cual dispone de un catálogo ámplio
-de modelos de embeddings y con una simple llamada a una función convierte
-un conjunto de oraciones en una lista de vectores numéricos.
+Los modelos MiniLM y MPNET fueron seleccionados por su tamaño reducido,
+ya que incluso pueden correr en CPU de forma eficiente, mientras que los
+modelos Qwen fueron seleccionados porque ocupan los primeros puestos en el
+MTEB Ladderboard de HuggingFace \footnote{https://huggingface.co/spaces/mteb/leaderboard},
+que clasifica modelos de extracción de \textit{embeddings} en diferentes idiomas
+y con múltiples métricas.
 
-Al momento se empleó el modelo 'MiniLM-L6-V2', el cual es un modelo pequeño que
-devuelve embeddings de 348 valores.
+En el caso de los modelos Qwen 3, existen versiones cuantizadas de éstos,
+las cuales emplean el mismo número de parámetros que su versión original,
+pero disminuyendo la precisión de los números flotantes de sus parámetros.
+Para el caso de Qwen 3, existen versiones de 16-bits, 8-bits, 6-bits, 5-bits y
+4-bits.
+
+**Incluir tabla resumen de modelo, parámetros y tamaño de embeddings.**
 
 El proceso para convertir la información del documento a embeddings consiste
 en recorrer el árbol en profundidad, y en cada nodo hacer lo siguiente:
@@ -308,10 +361,13 @@ tienen implementadas funciones de búsqueda por similitud de vectores.
 Algunos ejemplos de estas bases de datos vectoriales son: Chroma, Marco,
 PostgreSQL, entre otras.
 
-Al momento se han realizado pruebas con ChromaDB, el cual incluye un
-mecanismo para calcular los embeddings automáticamente al almacenar los datos
-sin tener que hacerlo por separado con SentenceTransformers. En la figura
-\ref{fig:ejemplo_chromadb} se muestran los datos almacenados en ChromaDB.
+ChromaDB es una base de datos de vectores diseñada para funcionar en
+entornos productivos, e incluye mecanismos para calcular los embeddings
+empleando \textit{SentenceTransformers} u otro método personalizado, además,
+permite el uso de diferentes parámetros de búsqueda por similitud semántica
+como son la distancia coseno y el producto interno, los cuales también se
+encuentran optimizados. En la figura \ref{fig:ejemplo_chromadb} se muestra
+un ejemplo de datos almacenados en ChromaDB.
 
 \begin{figure}[]
     \centering
@@ -319,4 +375,122 @@ sin tener que hacerlo por separado con SentenceTransformers. En la figura
     \caption{Ejemplo de cómo se almacenan metadatos en Chroma DB. Los vectores
         se almacenan en un lugar no visible para el usuario.}
     \label{fig:ejemplo_chromadb}
+\end{figure}
+
+\section{Modelador de lenguaje}
+
+El modelador de lenguaje tiene dos funciones fundamentales: manejar la
+interacción con la base de datos de vectores y manejar la interacción con el
+LLM principal, en términos de RAG, se encarga de la recuperación y la
+generación.
+
+El proceso general que ejecuta el modelador de lenguaje se presenta en el
+diagrama de la figura \ref{fig:esquema_modelador} y se explica a continuación.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/esquema_recuperacion}
+    \caption{Pasos seguidos por el modelador de lenguaje para procesar una pregunta.}
+    \label{fig:esquema_modelador}
+\end{figure}
+
+\subsection{Recuperación de documentos relevantes}
+
+Dada una pregunta o \textit{query}, el modelador la convierte a \textit{embedding}
+empleando el mismo modelo usado para la base de datos. Este \textit{embedding}
+se le proporciona a ChromaDB para hacer la búsqueda semántica, el parámetro
+de búsqueda puede ser por producto interno o por similitud coseno, dependiendo
+del modelo de \textit{embeddings}. Para hacer una búsqueda eficiente,
+ChromaDB emplea un índice llamado HNSW (Hierarchical Navigable Small World),
+esto le permite buscar de forma eficiente la similitud con todos los registros.
+
+Con ChromaDB se obtiene el top \textit{k} de \textit{embeddings} similares,
+por defecto \textit{k} se establece en 5. De estos \textit{k} \textit{embeddings}
+se obtiene su texto original, su posición dentro del árbol del documento, el
+documento al que pertenece y los demás metadatos.
+
+\subsection{Generación de respuesta}
+
+Para la generación de la respuesta, se emplean modelos multidominio de código
+abierto, la intención es comparar modelos de diferentes tamaños para
+encontrar el óptimo. Se evaluan los modelos Qwen 3 \cite{zhang_qwen3_2025}
+(600M, 4B y 8B de parámetros) en sus versiones completas y cuantizadas,
+Llama 3.1 (1B, 3B y 8B de parámetros) en sus versiones completas y cuantizadas
+y Gemma 3 (1B, 4B, 12B y 27B de parámetros) en sus versiones completas y
+cuantizadas.
+
+**Agregar tabla comparativa de modelos**
+
+A todos los modelos se les configura una instrucción de sistema indicando
+que su propósito es proporcionar ayuda sobre la normativa y se le indican
+algunos lineamientos de comportamiento.
+
+**Agregar prompt del sistema con instrucciones**
+
+Una vez se tiene una pregunta y sus los fragmentos relevantes, se extrae
+tanto el texto como sus metadatos, los cuales incluyen: el documento, artículo
+o sección, y, en algunos casos, el subtítulo o nombre de sección.
+Con el fin de transmitir esta información al LLM, se crea una plantilla de
+\textit{prompt} que contiene la pregunta, los documentos relevantes y la
+instrucción de responder la pregunta con el contexto proporcionado.
+
+**Agregar plantilla del prompt.**
+
+Una vez generado el \textit{prompt} se le manda al LLM, junto con el historial
+anterior del chat en caso de existir, y se espera por la respuesta.
+
+\section{API de comunicación}
+
+**Reemplazar esta sección con la documentación formal de la API**
+
+La tarea de la API es conectar la aplicación web con el modelador de lenguaje.
+La API funciona con peticiones http de tipo POST y conste en un solo endpoint
+el cual recibe el nombre del modelo y la lista de mensajes entre el
+usuario y el modelo, cada mensaje se identifica con un rol para distinguir
+los mensajes del usuario de las respuestas del modelo. Las peticiones se
+manejan en formato JSON como se muestra en la figura \ref{fig:parametros_api}.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/parametros_api}
+    \caption{Ejemplo de petición a API.}
+    \label{fig:parametros_api}
+\end{figure}
+
+La respuesta de la API también es en formato JSON y contiene el texto de la
+respuesta, así como los documentos que fueron tomados como contexto para
+emitirla, como se muestra en la figura \ref{fig:respuesta_api}. En estos
+documentos, se incluyen los metadatos para poder desplegarlos en la aplicación
+web.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/respuesta_api}
+    \caption{Ejemplo de respuesta de API.}
+    \label{fig:respuesta_api}
+\end{figure}
+
+Por último, para garantizar la seguridad en el acceso de la API, se implementa
+un sistema de autenticación por API-Key, la cual es un token que debe
+enviarse en el encabezado 'api-key' de la petición.
+
+\section{Aplicación web}
+
+La aplicación web es la única fuente de interacción de los usuarios con el
+sistema, es por ello que debe contener todas las funcionalidades necesarias
+que en este caso son: Ingresar una pregunta, recibir una respuesta y
+consultar los documentos que dan fundamento a dicha respuesta.
+
+Es bajo esta premisa que se desarrolla una aplicación web con una interfaz
+que contiene una caja de texto para hacer la pregunta y despliega la
+lista de mensajes y respuestas como un chat convencional. Adicionalmente
+se destina un espacio para colocar los documentos relacionados con la
+pregunta, como se muestra en la figura \ref{fig:pregunta_web}.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/pregunta_web}
+    \caption{Ejemplo de pregunta a través de aplicación web. **Reemplazar
+        esta imagen con el wireframe o prototipo de la aplicación**}
+    \label{fig:pregunta_web}
 \end{figure}
