@@ -36,6 +36,8 @@
 \usepackage{subfigure}
 \usepackage{colortbl} % Para colorear celdas de tablas
 \usepackage{xcolor}
+\usepackage{pifont} % Para usar simbolos especiales
+\usepackage{tabularx} % Para formatear tablas
 \spanishdecimal{.}
 
 %%%%%%%%%%%%%%%%%%%%%%%     Nuevos comandos     %%%%%%%%%%%%%%%%%%%%%%%
@@ -44,6 +46,8 @@
 \newcommand{\mathBF}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\V}[1]{\mathBF{#1}}
 \newcommand{\M}[1]{\mathBF{#1}}
+\newcommand{\cmark}{\ding{51}} % Checkmark
+\newcommand{\xmark}{\ding{55}} % Crossmark
 
 %%%%%%%%%%%%%%%%%%%%%%%     Definición de directorios de trabajo     %%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\DirFigP}{./Figures/Portada}
@@ -92,15 +96,15 @@
 
 %\pagenumbering{arabic}
 \input{./Chapters/Capitulo1}
-%\input{./Chapters/Capitulo2}
-\input{./Chapters/Capitulo3}
+\input{./Chapters/Capitulo2}
+%\input{./Chapters/Capitulo3}
 %\input{./Chapters/Capitulo4}
 %\input{./Chapters/Conclusiones}
 %\addcontentsline{toc}{chapter}{Conclusiones.}
 
 %%%%%%%%%%%%%%%%%%%%%%%     Apéndices     %%%%%%%%%%%%%%%%%%%%%%%
-%\appendix
-%\input{./Chapters/planos}
+\appendix
+%\input{./Chapters/ApendiceA}
 %\input{./Chapters/SRF02}
 
 %%%%%%%%%%%%%%%%%%%%%%%     Bibliografía     %%%%%%%%%%%%%%%%%%%%%%%
