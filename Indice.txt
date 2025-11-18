@@ -1,0 +1,49 @@
+Marco teórico
+
+Respuesta a preguntas (Question Answering, QA)
+    Definición (Dominio abierto y dominio restringido)
+    Técnicas de evaluación
+    Paradigmas: Énfasis en técnicas con modelos basados en transformadores
+
+Modelos de lenguaje
+    Definición
+    Mecanismos de atención y transformadores
+    Modelos basados en transformadores preentrenados
+
+Actualidad de los modelos de lenguaje
+    Modelos privados
+    Modelos de código abierto
+    Herramientas
+    Limitaciones
+
+Modelos a probar
+    ChatGPT, Llama, Qwen, MistralAI, Gemma
+
+Recuperación-Generación Aumentada
+    Definición
+    Indexado
+    Recuperación
+    Generación
+    Variantes
+    Herramientas de extracción de texto y sus limitantes
+    Herramientas de reconocimiento óptico de caracteres y sus limitantes
+    Herramientas de almacenamiento de datos
+
+Reentrenamiento de modelos grandes de lenguaje
+    Inteniería de prompts
+    Ajuste fino
+    Aprendizaje por refuerzo
+
+Interfaces de programación de aplicaciones (APIs)
+    Definición
+    FastAPI
+    Estándar API OpenAI
+
+Frameworks de desarrollo web
+    Definición
+    React
+
+Tecnologías de despliegue en la nube
+    Servicios y Herramientas
+    Integración contínua / Entrega contínua
+

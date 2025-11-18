@@ -1,16 +1,14 @@
 \chapter{Introducción}
 
 Todas las organizaciones requieren un conjunto de normas para funcionar adecuadamente.
-Si bien, en algunas organizaciones, las normas se dan a conocer de forma verbal,
+Si bien en algunas organizaciones las normas se dan a conocer de forma verbal,
 las organizaciones constituidas formalmente requieren que sus lineamientos se encuentren
 redactados en documentos para evitar errores o ambigüedades en la
 aplicación de los mismos.
 
 En organizaciones grandes, los documentos normativos suelen ser extensos y poseer un
 lenguaje que no es familiar para todos los miembros, lo cual puede dificultar el
-entendimiento completo de las normas.
-
-Por otro lado, en la última década, se han presentado avances significativos
+entendimiento completo de las normas. Por otro lado, en la última década, se han presentado avances significativos
 en lo que popularmente se conoce como \textit{Inteligencia Artificial}, tratándose
 específicamente de una mejora notable en los modelos de lenguaje, que ahora
 permiten a los sistemas computacionales comunicarse con los usuarios empleando
@@ -29,9 +27,9 @@ cumplimiento de sus obligaciones.
 
 La normatividad vigente de la Universidad de Guanajuato (UG) se puede consultar
 en su página oficial \footnote{https://www.ugto.mx/}, en la cual se presentan
-22 documentos de solo texto en formato PDF que, en conjunto, pesan 6.9 MB. Si
+22 documentos de texto en formato PDF que, en conjunto, pesan 6.9 MB. Si
 se convierten estos documentos a texto plano, se obtienen 1.1 MB de información,
-lo que equivale a 168,011 palabras. Además, la página web presenta otros documentos
+lo que equivale a aproximadamente 168,000 palabras. Además, la página web presenta otros documentos
 relevantes como el Plan de Desarrollo Institucional, la Gaceta Universitaria,
 entre otros, los cuales abonan a la cantidad de textos que se espera que
 alumnos, docentes y administrativos conozcan y den seguimiento a sus actualizaciones.
@@ -61,7 +59,7 @@ documentos normativos.
 
 Aunado a lo anterior, desde la introducción de ChatGPT en 2022 \cite{openai_introducing_2022},
 los modelos de lenguaje con capacidades conversacionales, o chatbots inteligentes,
-se han integraron en diversos ámbitos de la vida cotidiana, siendo el ámbito
+se han integrado en diversos ámbitos de la vida cotidiana, siendo el ámbito
 académico uno de los más influenciados. Estos cambios motivan a los investigadores
 a analizar el impacto que tienen estas herramientas en la educación, como es el
 caso de Peláez-Sánchez et al. \cite{pelaez-sanchez_impact_2024}.
@@ -69,17 +67,17 @@ Así mismo, se introduce la incógnita de los usos se les puede dar a estas herr
 beneficio de la comunidad académica, siendo ésta la motivación del presente proyecto.
 
 Si bien en el mercado actual existen chatbots inteligentes que pueden
-responder preguntas relacionadas a documentos que les sean proporcionados, es
+responder preguntas relacionadas con documentos que les sean proporcionados, es
 difícil proporcionarles todo el contexto necesario para que sus respuestas sean
-correctas, que provengan de fuentes autorizadas y estén debidamente
-referenciadas. Además, estas herramientas comerciales tienen desventajas
-marcadas como que suelen estar sujetas a políticas de uso o privacidad que pueden
-ser desfavorables para los usuarios, puede haber variaciones
-en su costo, el nivel de personalización es limitado y generalmente se desconoce
+correctas, provengan de fuentes autorizadas y estén debidamente
+referenciadas. Además, estas herramientas comerciales presentan desventajas
+marcadas, como el hecho de que suelen estar sujetas a políticas de uso o privacidad que pueden
+ser desfavorables para los usuarios; puede haber variaciones
+en su costo, el nivel de personalización es limitado y, generalmente, se desconoce
 el uso que se les da a los datos confidenciales que se comparten en ellas. Lo anterior
-obliga a considerar opciones de código abierto, con las que se puede alcanzar
-un nivel de personalización mayor, mejor control sobre las políticas de privacidad
-y garantizar la continuidad del sistema con un plan adecuado de mantenimiento
+obliga a considerar opciones de código abierto, con las cuales se puede alcanzar
+un mayor nivel de personalización, contar con un mejor control sobre las políticas de privacidad
+y garantizar la continuidad del sistema mediante un plan adecuado de mantenimiento
 y actualización. Es bajo esta filosofía que este proyecto pretende crear un sistema
 adaptado a las necesidades de los usuarios y que funcione con opciones de código
 abierto.
@@ -89,52 +87,54 @@ abierto.
 El Procesamiento de Lenguaje Natural (NLP, Natural Language Processing) es una rama
 de la inteligencia artificial y la lingüística, dedicada a dotar a las computadoras
 de entendimiento de frases o  palabras escritas en lenguajes humanos \cite{khurana_natural_2023}.
-En este proyecto, intervienen diferenes áreas del NLP, como son el modelado de lenguaje
+En este proyecto, intervienen diferentes áreas del NLP, como el modelado del lenguaje
 (LM, Language Modeling), la respuesta a preguntas (QA, Question Answering) y la
 similitud semántica de texto (STS, Semantic Textual Similarity), por mencionar
 las más importantes.
 
-Respecto al modelado de lenguaje, es el área del NLP que pretende predecir la siguiente palabra o carácter en una
-secuencia de texto dada. En las úlitmas décadas, se han presentado avances significativos
-como son: el modelo neuronal probabilístico de Bengio et al. \cite{bengio_neural_2003}
-que empleaba una red neuronal y una tabla de búsqueda para predecir el siguiente carácter;
+Respecto al modelado de lenguaje, es el área del NLP que busca predecir la siguiente palabra o carácter en una
+secuencia de texto dada. En esta área se han presentado avances significativos en las últimas décadas,
+entre los cuales destacan el desarrollo del modelo neuronal probabilístico de Bengio et al. \cite{bengio_neural_2003},
+que empleaba una red neuronal y una tabla de búsqueda para predecir el siguiente carácter.
+Posteriormente, Collobert \& Weston \cite{collobert_unified_2008} propusieron
 el uso de redes neuronales entrenadas de forma semisupervisada para aprendizaje
-multitarea propuesto por Collobert \& Weston \cite{collobert_unified_2008}; la
-introducción de embeddings para aprender representaciones vectoriales distribuidas
-de las palabras por Mikolov et al. \cite{mikolov_distributed_2013};
-la aparición de los modelos sequence-to-sequence que empleaban Memoria a
-Largo Corto-Plazo (LSTM) para convertir una secuencia de texto en otra por
-Sutskever et al \cite{sutskever_sequence_2014}; la mejora de los modelos
-codificador-decodificador empleando mecanismos de atención para detectar partes de la
-oración que son relevantes por parte de Bahdanau et al. \cite{bahdanau_neural_2016};
-y por último, la introducción de los transformers, los cuales
-son una arquitectura de red neuronal basada únicamente en mecanismos de atención
-\cite{vaswani_attention_2017} que alcanzaron excelentes resultados en tareas de traducción
-máquina. Es en este proceso que surgen los Modelos de Lenguaje de Gran Tamaño
+multitarea. Más adelante, Mikolov et al. \cite{mikolov_distributed_2013} introdujeron los
+\textit{embeddings} para aprender representaciones vectoriales distribuidas
+de las palabras.
+
+Luego surgieron los modelos \textit{secuencia a secuencia} que utilizaban memoria a
+largo corto-plazo (LSTM) para convertir una secuencia de texto en otra, desarrollados por
+Sutskever et al. \cite{sutskever_sequence_2014}. A su vez, Bahdanau et al. \cite{bahdanau_neural_2016}
+presentaron la mejora de los modelos \textit{codificador-decodificador} empleando mecanismos de atención para
+detectar partes de la oración relevantes. Finalmente, Vaswani et al. \cite{vaswani_attention_2017}
+introdujeron los \textit{transformers}, una arquitectura de red neuronal basada únicamente en mecanismos de atención,
+que alcanzó excelentes resultados en tareas de traducción de texto automática.
+
+Estos avances dieron origen los Modelos de Lenguaje de Gran Tamaño
 (LLM, Large Language Models), los cuales emplean técnicas de aprendizaje profundo,
-particularmente arquitecturas basadas en transformers, para aprender y entender
+particularmente arquitecturas basadas en \textit{transformers}, para aprender y entender
 patrones complejos y estructuras presentes en los datos.
 
-Estos avances llevaron a la creación del Transformer Generativamente Preentrenado
+El desarrollo de los LLMs llevó a la creación del Transformer Generativamente Preentrenado
 (GPT) por Radford et al. \cite{radford_improving_2018}, una arquitectura basada en
-transformers, acompañada de método de entrenamiento que consiste en preentrenar un modelo de
+\textit{transformers}, acompañada de un método de entrenamiento que consiste en preentrenar un modelo de
 lenguaje para predecir la siguiente palabra, empleando un corpus de texto sin
 etiquetar, seguido de un ajuste fino en tareas específicas. Con esta técnica,
 fue posible alcanzar resultados superiores al estado del arte en
 diversas tareas de NLP, como son la inferencia de lenguaje natural,
 dar respuesta a preguntas, búsquedas por similitud semántica, entre otras.
 
-La presentación del modelo GPT fue seguida de mejoras que incluyeron conjuntos de
+Versiones posteriores del modelo GPT incluyeron conjuntos de
 entrenamiento más extensos, cambios en las técnicas de ajuste fino, incremento en
 el tamaño del modelo, entre otras, dando como resultado el lanzamiento de
-ChatGPT-3 \cite{openai_introducing_2022}, definido como un modelo que interactúa de forma
-conversacional con capacidad de responder preguntas de seguimiento, admitir sus
+ChatGPT-3 \cite{openai_introducing_2022}. Este modelo se definió como un modelo que interactúa de forma
+conversacional, con capacidad de responder preguntas de seguimiento, admitir sus
 errores, objetar premisas incorrectas y rechazar peticiones inapropiadas. Tras
 la liberación de ChatGPT-3 al público, múltiples empresas y organizaciones han
 empleado metodologías de entrenamiento similares para desarrollar sus propios
 modelos conversacionales y competir en el mercado.
 
-Estos modelos conversacionales caen en la categoría de chatbots, los cuales se
+Estos modelos conversacionales se consideran chatbots, los cuales se
 definen como sistemas computacionales inteligentes con capacidades de conversación,
 que son diseñados para emular una conversación humana con el objetivo de
 proporcionar orientación o apoyo \cite{caldarini_literature_2022}.
@@ -150,7 +150,7 @@ código abierto.
 En el ámbito educativo los LLMs han tenido un impacto significativo,
 gracias a sus capacidades de generar resúmenes, resaltar partes
 importantes de textos, apoyar en tareas de escritura y en general proveer información
-a los estudiantes de temas específicos, además de servir a los profesores a generar
+a los estudiantes de temas específicos; además de servir a los profesores a generar
 material de apoyo personalizado, ayudar en la planeación de las lecciones o para
 calificar pruebas de forma semiautomática \cite{kasneci_chatgpt_2023}.
 
@@ -162,26 +162,27 @@ que puede contestar preguntas teóricas, citar eventos reales y, en general,
 funcionar como asistente en la integración y revisión
 de casos complejos \cite{openai_customizing_2024}.
 
-En cuanto a las otras áreas del NLP, la presentación del transformer también
+En cuanto a otras áreas del NLP, la presentación del \textit{transformer}
 derivó en la creación de arquitecturas como BERT (Bidirectional Encoder
-Representations from Transformers), presentada por Devlin et al.
-\cite{devlin_bert_2019}, la cual tuvo como objetivo generar representaciones
-bidireccionales profundas de texto con el objetivo de usarlas en un posterior
-proceso de ajuste fino para tareas más específicas, alcanzando resultados
-superiores al estado del arte en tareas como la similitud semántica de texto.
-Posteriores modificaciones y alternativas a esta arquitectura fueron presentadas
-como son el modelo SBERT (Sentence BERT) de Riemers \& Gurevych
-\cite{reimers_sentence-bert_2019}, MiniLM de Wang et al \cite{wang_minilm_2020}
-o Qwen3 de Zhang et al. \cite{zhang_qwen3_2025} que han demostrado buenos
-resultados en tareas de similitud semántica de texto y respuesta a preguntas.
+Representations from Transformers), propuesta por Devlin et al.
+\cite{devlin_bert_2019}. Esta arquitectura tiene la capacidad de generar representaciones
+bidireccionales profundas de texto (\textit{embeddings}) con el objetivo de emplearlas posteriormente en un
+proceso de ajuste fino (\textit{fine-tuning}) para realizar tareas específicas, alcanzando resultados
+superiores al estado del arte en actividades como la similitud semántica de texto.
 
-Los modelos mencionados anteriormente hacen uso de diferentes técnicas de ajuste
-para obtener los resultados esperados en tareas específicos, de forma general
-(y relacionado a este proyecto), las más comunes son: ingeniería de
-prompts y el ajuste fino.
+Posteriormente, se presentaron diversas modificaciones y alternativas a esta arquitectura, entre
+las cuales destacan el modelo SBERT (Sentence BERT) de Riemers \& Gurevych
+\cite{reimers_sentence-bert_2019}, MiniLM de Wang et al. \cite{wang_minilm_2020}
+y Qwen3 de Zhang et al. \cite{zhang_qwen3_2025}, todas con el objetivo de desarrollarse
+adecuadamente en tareas de similitud semántica de texto, respuesta a preguntas, entre otras.
 
-La ingeniería de prompts pretende modificar la forma en que un modelo, entrenado
-para ello, emita su respuesta a través de instrucciones que se le proporcionan
+Estos modelos de \textit{embeddings}, así como los modelos generativos basados en \textit{transformers},
+hacen uso de diferentes técnicas de entrenamiento y ajuste
+para obtener los resultados esperados en tareas específicas, siendo las técnicas
+más comunes la ingeniería de \textit{prompts} y el ajuste fino.
+
+La ingeniería de \textit{prompts} tiene por objetivo modificar la forma en que un modelo
+emite su respuesta, empleando instrucciones que se le proporcionan
 en forma de texto. Un ejemplo de aplicación de esta técnica se puede ver en el
 trabajo de Patil et al. \cite{patil_prompt_2024} que usó instrucciones para
 guiar a los modelos a generar explicaciones amigables para los pacientes sobre

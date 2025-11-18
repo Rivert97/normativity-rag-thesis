@@ -1,0 +1,74 @@
+\chapter{Limitaciones convertidores de PDF a texto}
+
+\section{Fromato PDF}
+
+El formato PDF (Portable Document Format, en inglés) es un formato cuyo objetvio
+es ofrecer una forma sencilla y segura de presentar e intercambiar documentos con
+independencia del software, el hardware o el sistema operativo que utilice quien
+los consulte [cita Adobe]. Fue creado por Adobe en 1993 y posteriormente estandarizado por la
+ISO (Organización Internacional de Normalización) bajo la ISO 32000-1:2008
+(PDF 1.7) y más recientemente la ISO 32000-2:2020 (PDF 2.0) [cita ISO].
+
+Gracias a su estándarización, el formato PDF es el medio \textit{de facto} para
+compartir documentos entre dispositivos y plataformas, ya que existen múltiples
+herramientas de lectura de archivos PDF y una gran cantidad de editores de texto
+o imágenes cuentan con capacidades de exportación a PDF.
+
+Sin embargo, el formato PDF fue pensado como una herramienta para presentar e intercambiar
+documentos, entendiendo la presentación como el hecho de que un humano vea e interprete
+el documento sin dificultad, ya sea de forma digital o impresa, es decir, no está
+diseñado para que una máquina interprete su contenido de forma fácil, sino para que
+un humano lo haga.
+
+Al emplear este formato, pensado para la visualización por parte de un humano, el formato
+presenta dificultades cuando se requiere extraer la información textual que contiene,
+lo cual es necesario para cualquier tarea donde se empleen modelos grandes de lenguaje.
+
+Existen diferentes herramientas para la extracción de texto desde archivos PDF, las cuales
+presentan errores errores o limitaciones que son propias del formato PDF o relacionadas
+con el algoritmo de extracción empleado por la herramienta.
+
+Se hizo un análisis de diferentes convertidores de PDF a texto, especialmente de
+aquellos cuyas derivaciones se usan en frameworks para el uso de modelos de lenguaje,
+siendo los principales los siguientes:
+
+\begin{itemize}
+      \item \textbf{pypdf}: Libería de código abierto escrita puramente en Python para manipular
+            archivos PDF. \url{https://pypdf.readthedocs.io/en/stable/}
+      \item \textbf{pdftotext}: Herramienta de línea de comandos de Linux. Incluida en
+            la mayoría de las distribuciones con el paquete poppler-utils.
+            \url{https://linux.die.net/man/1/pdftotext}
+      \item \textbf{pdfplumber}: Libería de código abierto de Python para sondear información
+            detallada un documento.
+            \url{https://github.com/jsvine/pdfplumber?tab=readme-ov-file}
+      \item \textbf{pymupdf4llm}: Libería de código abierto de Python (basada en pymupdf) para
+            extraer información de archivos PDF y convertirlo a formato md u otros.
+            \url{https://pymupdf.readthedocs.io/en/latest/tutorial.html}
+\end{itemize}
+
+\begin{table}
+      \begin{tabularx}{0.85\textwidth}{|X|c|c|c|c|}
+            \hline
+            \textbf{Característica}                   & \textbf{pypdf} & \textbf{pdftotext} & \textbf{pdfplumber} & \textbf{pymupdf4llm} \\
+            \hline
+            Detección de títulos y subtítulos         & \xmark**       & \xmark             & \cmark***           & \xmark               \\
+            Detección de subtítulos en columnas       & \xmark**       & \xmark             & \cmark***           & \xmark               \\
+            Texto ordenado siempre                    & \xmark         & \xmark             & \cmark***           & \xmark               \\
+            Detección de encabezados y pies de página & \cmark         & \xmark             & \cmark              & \xmark               \\
+            Interpretación de índices                 & \cmark*        & \xmark             & \cmark              & \cmark               \\
+            Texto a dos columnas                      & \cmark         & \cmark             & \cmark              & \cmark               \\
+            Texto con tabulaciones intermedias        & \xmark         & \xmark             & \cmark***           & \xmark               \\
+            Detección de tablas                       & \xmark         & \xmark             & \cmark              & \cmark               \\
+            Detección de letra capital                & \xmark         & \xmark             & \cmark              & \xmark               \\
+            Detección de texto duplicado              & \xmark         & \xmark             & \cmark              & \cmark               \\
+            \hline
+      \end{tabularx}
+      \caption{* La librería ordena correctamente el texto pero no es consciente de que se trata de un índice.
+            ** La librería proporciona algunas formas de optener las posiciones, el tipo y tamaño de letra pero no es fácil interpretarlas.
+            *** Al usar directamente la función de extracción de texto de la librería se encuentran estos errores, pero tiene la funcionalidad de regresar el boundingbox de cada palabra.}
+\end{table}
+
+PdfPlumber es una librería muy completa que incluso proporciona los boundingboxes de cada palabra, sin embargo,
+sus funciones para procesar texto a más de una columna son deficientes. También proporciona una función
+para extraer las tablas del documento.
+
