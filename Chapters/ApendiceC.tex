@@ -1,0 +1,225 @@
+\chapter{Configuración de puesta en producción}
+
+\section{Contenedor \textit{normativity\_rag} Dockerfile}
+
+\begin{verbatim}
+ARG CUDA_IMAGE="12.3.2-devel-ubuntu22.04"
+FROM nvidia/cuda:${CUDA_IMAGE}
+
+# We need to set the host to 0.0.0.0 to allow outside access
+ENV HOST=0.0.0.0
+
+# Avoid interactive prompts during packge installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install Python 3.12
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update && apt-get install -y python3.12 \
+    python3.12-venv
+
+# Create virtual environment
+RUN python3.12 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install depencencies
+RUN pip install --upgrade pip fastapi uvicorn \
+    sse-starlette pydantic-settings starlette-context
+
+# Install llama-cpp-python (build with cuda)
+RUN pip install llama-cpp-python \
+    --extra-index-url \
+    https://abetlen.github.io/llama-cpp-python/whl/cu123
+
+ENTRYPOINT ["python3", "-m", "llama_cpp.server"]
+\end{verbatim}
+
+\section{Contenedor \textit{llm\_api} Dockerfile}
+
+\begin{verbatim}
+
+FROM llama_cpp_cuda:latest
+
+WORKDIR /code
+
+# Copy requirements files
+COPY requirements.txt ./
+COPY app/normativity/requirements.txt \
+    ./requirements_normativity.txt
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir \
+    -r requirements_normativity.txt
+
+# Copy source code
+COPY . .
+
+EXPOSE 8080
+
+# Set entrypoint
+ENTRYPOINT ["uvicorn", "app.main:app", \
+    "--host", "0.0.0.0", "--port", "8080"]
+
+\end{verbatim}
+
+\section{\textit{Dell Precission 7920 Tower} docker-compose.yml}
+
+\begin{verbatim}
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: llm_api
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - D:\Roberto_Garcia\data:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+\end{verbatim}
+
+\section{Contenedor \textit{app} Dockerfile}
+
+\begin{verbatim}
+FROM node:20-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* \
+    pnpm-lock.yaml* .npmrc* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm \
+    && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Generate Prisma client
+RUN mv ./.env.prod ./.env
+RUN npx prisma generate
+RUN rm -f ./.env.local ./.env.prod
+
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN \
+  if [ -f yarn.lock ]; then yarn run build; \
+  elif [ -f package-lock.json ]; then npm run build; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm \
+    && pnpm run build; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+RUN rm -f ./.env
+
+# Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+
+COPY --from=builder --chown=nextjs:nodejs \
+    /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs \
+    /app/.next/static ./.next/static
+
+# Copy prisma schema to init DB
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+
+ENV HOSTNAME="0.0.0.0"
+CMD ["node", "server.js"]
+\end{verbatim}
+
+\section{Máquina Virtual de Azure docker-compose.yml}
+
+\begin{verbatim}
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: zsWiSKoJo
+      MYSQL_DATABASE: chatug
+      MYSQL_USER: chatug
+      MYSQL_PASSWORD: nIyaEtDB4StVSNt4IEJv
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - chatug_network
+
+  app:
+    image: rivert97/chatug
+    container_name: chatug
+    networks:
+      - chatug_network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - chatug_network
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: >
+      sh -c "certbot certonly --webroot \
+        --webroot-path=/var/www/certbot \
+        -d chatugto.rgarciag.com \
+        -d www.chatugto.rgarciag.com \
+        --email email@mail.com \
+        --agree-tos --no-eff-email"
+
+volumes:
+  mysql_data:
+
+networks:
+  chatug_network:
+    driver: bridge
+
+\end{verbatim}
+

@@ -18,10 +18,12 @@ así como \textit{FastAPI} para programar la API de comunicación. Además,
 se usa \textit{Javascript} (\textit{NextJS} y \textit{React}) para desarrollar la
 aplicación web.
 
-En la figura \ref{fig:esquema_general} se muestran los cuatro módulos del
-sistema. Previo a la interacción de un usuario, el extractor de información
-realiza el proceso de extraer el contenido de los documentos y fragmentarlo,
-transformar los fragmentos en \textit{embeddings} y, finalmente, almacenarlos en una base de datos.
+En la figura \ref{fig:esquema_general} se muestran los cuatro módulos que
+componen el sistema, en donde el procesamiento de la información comienza previo
+a la interacción de un usuario, en el extractor de información.
+El extractor obtiene el contenido de los documentos y lo fragmenta,
+transforma los fragmentos en \textit{embeddings} y, finalmente, almacena
+los \textit{embeddings} en una base de datos.
 Una vez lista la base de datos, el usuario accede a la aplicación web,
 desde donde realiza una pregunta que se envía al modelador de lenguaje a través
 de la API de comunicación. Cuando el modelador de lenguaje recibe la pregunta,
@@ -43,13 +45,14 @@ una estación de trabajo \textit{Dell Precission 7920 Tower} con un procesador
 DDR5, un disco SSD \textit{Samsung PM881 SATA 52 GB}, un disco SSD
 \textit{ADATA SU800 1TB}, dos GPUs \textit{Nvidia Quadro P620} de 2 GB de VRAM,
 una GPU \textit{Nvidia RTX A4000} de 16 BG de VRAM y con sistema operativo
-Windows 11. Además, se obtuvo acceso durante tres meses al centro de
+Windows 11. Además, se obtuvo acceso durante cuatro meses al centro de
 supercómputo del CIMAT, a través de la convocatoria
 \textit{Supercómputo como motor de colaboraciones académia-industria 2025},
-para usar un nodo de cómputo GPU con dos GPUS \textit{Nvidia TITAN RTX}
-de 24 GB de VRAM cada una, con Ubuntu 22.04.5. Por último, se cuenta con una laptop de desarrollo
+para usar un nodo de cómputo GPU con dos tarjetas \textit{Nvidia TITAN RTX}
+de 24 GB de VRAM cada una, con Ubuntu 22.04.5. Adicionalmente, se cuenta con una laptop de desarrollo
 \textit{Dell G3 15} con una GPU \textit{Nvidia GTX 1050Ti} de 4 GB de VRAM y
-con Ubuntu 24.04.02.
+con Ubuntu 24.04.02. Por último, para la puesta en producción del sistema
+se tiene una licencia de estudiante de Azure con \$100 USD de crédito.
 
 \section{Fuente de información}
 
@@ -60,7 +63,9 @@ en forma de 22 documentos PDF individuales. Cada documento tiene un número
 diferente de páginas, las cuales suman 511, representan 6.8 MB de información y,
 convertidas a texto, 168,011 palabras. Para alimentar la base de datos,
 los documentos son descargados manualmente y almacenados en un directorio,
-donde se utiliza el nombre del archivo como identificador. En la tabla \
+donde se utiliza el nombre del archivo como identificador. En la tabla
+\ref{tab:documentos} se muestra un resumen de los documentos que conforman
+la normativa, así como el número de artículos que contiene cada uno.
 
 \begin{table}[!ht]
     \centering
@@ -96,9 +101,9 @@ donde se utiliza el nombre del archivo como identificador. En la tabla \
 
 \section{Extractor de información}
 
-El funcionamiento del módulo de extracción de información comienzan con un
-archivo en formato PDF y terminan con la creación de una base de datos de
-embeddings de los fragmentos del documento. En la figura
+La labor del módulo de extracción de información comienza con un
+archivo en formato PDF y termina con la creación de una base de datos de
+\textit{embeddings} de los fragmentos del documento. En la figura
 \ref{fig:esquema_extractor} se observa la secuencia de procesamiento para un
 archivo y la salida de cada una de las etapas.
 
@@ -124,7 +129,7 @@ deficiencias en la extracción de texto (ver Apéndice A). Se seleccionó
 \textit{PdfPlumber}, porque su extracción de texto es la más limpia y provee mecanismos
 para extraer la información visual.
 
-Primero, se extrae el texto plano con \textit{PyPDF} o \textit{PdfPlumber}. En el caso de PyPDF
+El primer paso del procesamiento es extraer el texto plano con \textit{PyPDF} o \textit{PdfPlumber}. En el caso de PyPDF
 no se puede obtiener información visual que ayude a identificar los títulos, secciones
 y encabezados, además en ocasiones modifica el orden del texto. Para solucionar
 estos problemas se utiliza la herramienta \textit{Tesseract}, la cual es un software de
@@ -148,7 +153,7 @@ visual necesaria, por lo que no es necesario emplear otras herramientas.
 \textit{Tesseract} es una herramienta, desarrollada por \textit{Google}, que puede reconstruir
 el texto del documento, así como detectar las líneas, párrafos y secciones,
 sin embargo, con frecuencia comete errores en la detección del texto y el
-ordenamiento. Para corregir estos errores se opta por combinar el texto
+ordenamiento. Para corregir estos errores se propone combinar el texto
 plano obtenido con \textit{PyPDF}, con la información de posición y tamaño devuelta
 por \textit{Tesseract}, de esta forma se obtiene el texto correcto asociado a su
 ubicación y tamaño. Este proceso se describe en el diagrama de la figura
@@ -192,8 +197,8 @@ documento difiera considerablemente.
 Una vez realizada la agrupación de los elementos de la página, es posible reconstruir
 el texto respetando el orden normal de lectura, eliminando los errores de
 posicionamiento de \textit{PyPDF} o \textit{PdfPlumber} según sea el caso.
-Cuando se utiliza \textit{PyPDF}+\textit{Tesseract}, el texto contiene
-errores de detección que serán corregidos al combinar la información
+Además, cuando se utiliza \textit{PyPDF}+\textit{Tesseract}, el texto contiene
+errores de detección de texto que serán corregidos al combinar la información
 visual del texto reconstruido, con el texto plano extraído con \textit{PyPDF}.
 
 \subsection{Combinar texto e información visual}
@@ -260,44 +265,46 @@ las primeras secciones de la Ley Orgánica.
 \end{figure}
 
 Para generar el árbol es necesario analizar el documento en varios pasos. Primero,
-se detectan las líneas o segmentos que corresponden a títulos, estas típicamente
-se encuentran centrados en la página o en la columna, además de presentar un
-espacio vertical antes o después. Para encontrar las secciones o subsecciones
-se consideran los títulos centrados en la página y se les asigna un nivel.
+se divide el documento en bloques de texto que estén separados verticalmente,
+es decir, quey haya al menos una línea en blanco entre ellos.
+Posteriormente se detectan los bloques que corresponden a títulos, estos típicamente
+se encuentran centrados en la página o en la columna. Para encontrar las
+secciones o subsecciones se consideran los títulos centrados en la página
+y se les asigna un nivel.
 Para asignar el nivel se debe conocer de antemano la estructura del documento
 y generar expresiones regulares que ayuden a diferenciar un título, de un subtítulo,
 y así sucesivamente. Para los documentos normativos de la Universidad
 de Guanajuato la estructura es la siguiente:
 
-\begin{enumerate}
-    \item \textbf{Encabezado general:} Son textos abiertos que no tienen palabras o
+\begin{itemize}
+    \item \textbf{Nivel 1 - Encabezado general:} Son textos abiertos que no tienen palabras o
           estructura específica y se consideran dentro del primer nivel.
           \begin{itemize}
               \item Sin expresión regular
           \end{itemize}
-    \item \textbf{Título:} Los documentos se dividen en títulos. Cada título comienza con
+    \item \textbf{Nivel 2 - Título:} Los documentos se dividen en títulos. Cada título comienza con
           la palabra \textit{Título}. También pueden ser numerales romanos.
           \begin{itemize}
               \item \string^(título\textbar[xiv]+\textbackslash.) .*
           \end{itemize}
-    \item \textbf{Sección (Opcional):} Algunos documentos dividen los títulos en secciones.
+    \item \textbf{Nivel 3 - Sección (Opcional):} Algunos documentos dividen los títulos en secciones.
           Cada sección comienza con la palabra \textit{Sección}. También pueden ser
           secciones numeradas.
           \begin{itemize}
               \item \string^([0-9]+\.[0-9]|sección) .*
           \end{itemize}
-    \item \textbf{Capítulo:} Los títulos o secciones se dividen en capítulos y cada capítulo comienza
+    \item \textbf{Nivel 4 - Capítulo:} Los títulos o secciones se dividen en capítulos y cada capítulo comienza
           con la palabra \textit{Capítulo}
           \begin{itemize}
               \item \string^capítulo .*
           \end{itemize}
-\end{enumerate}
+\end{itemize}
 
 Además, se debe tener en cuenta que hay divisiones del documento
 que no se encuentran centrados, sino que están contenidos en el grueso del
 texto, como lo son los Artículos. Para identificar estas separaciones en el
 contenido, también se crean expresiones regulares que se verifican contra el
-inicio de cada línea mientras se va construyendo el árbol.
+inicio de cada bloque mientras se va construyendo el árbol.
 
 \begin{enumerate}
     \item \textbf{Artículo:} Los capítulos tienen uno o más artículos.
@@ -319,7 +326,7 @@ El proceso completo se presenta en la figura
 
 \begin{figure}[]
     \centering
-    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/crear_arbol}
+    \includegraphics[width = 0.78\textwidth]{\DirFigCtres/crear_arbol}
     \caption{Proceso de creación del árbol de secciones de un documento.}
     \label{fig:crear_arbol}
 \end{figure}
@@ -349,7 +356,7 @@ de los modelos de extracción de \textit{embeddings} se encuentra en la tabla \r
 
 \begin{table}[!ht]
     \centering
-    \begin{tabularx}{0.8\textwidth}{|l|l|r|X|}
+    \begin{tabularx}{0.8\textwidth}{|l|X|r|X|}
         \hline
         Modelo                     & Tipo de dato & Memoria  & Tamaño Embed. \\ \hline
         Qwen3-Embedding-0.6B       & BF16         & 3.65 GB  & 1024          \\ \hline
@@ -427,9 +434,10 @@ Algunos ejemplos de estas bases de datos vectoriales son: Chroma, Marco o
 PostgreSQL.
 
 Este proyecto emplea ChromaDB, la cual funciona con SQLite y está diseñada para funcionar en
-entornos productivos, e incluye mecanismos para calcular los embeddings
-empleando \textit{SentenceTransformers} u otro método personalizado, además,
-permite el uso de diferentes parámetros de búsqueda por similitud semántica
+entornos productivos, y permite el uso de otras librerías para calcular
+los \textit{embeddings}, como \textit{SentenceTransformers} y
+\textit{llama\_cpp} u otro método personalizado, además, permite el
+uso de diferentes parámetros de búsqueda por similitud semántica
 como son la distancia coseno y el producto interno, los cuales también se
 encuentran optimizados. En la figura \ref{fig:ejemplo_chromadb} se muestra
 un ejemplo de datos almacenados en ChromaDB.
@@ -481,9 +489,8 @@ abierto. Para seleccionar el modelo óptimo para el sistema se seleccionaron
 distintos modelos cuya restricción principal es que pudieran ejecutarse en el
 hardware del sistema, es decir, que funcionen correctamente con 16 GB de VRAM.
 Se evaluarán los modelos Qwen 3 \cite{zhang_qwen3_2025} (600M y 8B de parámetros)
-en sus versiones completas y cuantizadas, Llama 3.1 (8B de parámetros) en
-su versión completas y el modelo GPT-OSS (20B de parámetros) en su versión
-cuantizada.
+en sus versiones completas y cuantizadas, Llama 3.1 (8B de parámetros)
+y el modelo GPT-OSS (20B de parámetros) en su versión cuantizada.
 
 \begin{table}[!ht]
     \centering
@@ -511,74 +518,14 @@ con el objetivo de evaluarlos en su forma básica.
 En una segunda evaluación, se comparan únicamente los mejores modelos de la primera etapa,
 pero esta vez con una instrucción de sistema más compleja, donde se incluyen instrucciones
 de cómo procesar las preguntas, el tono en que debe contestar, entre otros elementos.
-Esta instrucción es más cercana a la que se usará en la aplicación final.
-
-\begin{verbatim}
-Eres un asistente virtual experto en la normativa de la
-Universidad de Guanajuato. Tu único propósito es responder a
-las preguntas de los usuarios basándote estricta y
-exclusivamente en los fragmentos de los documentos normativos
-que se te proporcionen en cada consulta.
-
-**Instrucciones de Operación:**
-
-1. **Rol y Personalidad:** Actúa como un asistente
-   universitario formal, preciso y servicial. Tu tono debe ser
-   siempre profesional, claro y objetivo. No uses un lenguaje
-   coloquial ni opiniones personales.
-2. **Fuente de Verdad:** Los documentos proporcionados en
-   la sección `<contexto>` son tu única fuente de información.
-   No debes usar ningún conocimiento previo que tengas sobre
-   esta u otras universidades, ni información externa a la
-   proporcionada.
-3. **Proceso para Responder:**
-   * Analiza detenidamente la pregunta del usuario en la
-   sección `<pregunta>`.
-   * Revisa cuidadosamente los fragmentos de texto en la
-   sección `<contexto>`. Los fragmentos de texto se
-   encuentran en formato JSON y contienen el nombre del
-   documento, el nombre de la sección o artículo y el
-   contenido del fragmento.
-   * Ignora los fragmentos de texto en la sección
-   `<contexto>` que no estén relacionados con la pregunta o
-   en los que no esté presente la respuesta.
-   * Formula una respuesta concisa y directa a la pregunta
-   del usuario utilizando únicamente la información
-   encontrada en el `<contexto>`.
-4. **Manejo de Información Insuficiente:**
-   * Si la información en el `<contexto>` no es suficiente
-   para responder a la pregunta del usuario de manera
-   completa y precisa, debes indicar claramente: "No he
-   encontrado información suficiente en los documentos
-   proporcionados para responder a tu pregunta." y solicita
-   al usuario que intente de nuevo reformulando la pregunta.
-   * No intentes inferir, adivinar o completar información
-   que no esté explícitamente escrita en el `<contexto>`.
-   Es crucial que no inventes respuestas.
-5. **Formato de la Respuesta:**
-   * La respuesta debe ser clara y estar redactada en un
-   español impecable.
-   * Utiliza viñetas o listas numeradas si ayuda a clarificar
-   la información extraída de los documentos.
-   * No añadas saludos, despedidas ni frases introductorias
-   como "Claro, aquí tienes la respuesta:" o "Basado en la
-   información...". Responde directamente a la pregunta.
-
-**Ejemplo de cómo debes procesar la información:**
-
-<pregunta>
-{question}
-</pregunta>
-
-<contexto>
-{context}
-</contexto>
-\end{verbatim}
+Esta instrucción es más cercana a la que se usará en la aplicación final y
+se puede consultar en el apéndice B.
 
 Teniendo la pregunta y los fragmentos relevantes con sus metadatos,
-se transmite la información al LLM a través de una instrucción con una plantilla,
-que contiene la pregunta, y los documentos relevantes en formato JSON
-con todos sus datos. Una vez generada la instrucción, se le proporciona
+se transmite la información al LLM a través de una instrucción con la plantilla
+mostrada a continuación, que contiene la pregunta, y los documentos
+relevantes en formato JSON con todos sus datos.
+Una vez generada la instrucción, se le proporciona
 al modelo, junto con el historial anterior del chat en caso de
 existir para obtener la respuesta.
 
@@ -595,7 +542,7 @@ existir para obtener la respuesta.
 \section{API de comunicación}
 
 La tarea de la API es conectar la aplicación web con el modelador de lenguaje.
-La API funciona con peticiones http de tipo POST y expone un solo endpoint
+La API funciona con peticiones HTTP de tipo POST y expone un solo endpoint
 que recibe parámetros en formato JSON, además esta protegida con un API-KEY
 que se debe enviar en el encabezado de cada petición. Un ejemplo de petición
 se muestra en la figura \ref{fig:parametros_api}. La estructura de una petición es la siguiente:
@@ -653,9 +600,9 @@ web. La estructura de la respuesta es la siguiente:
 La aplicación web es la única fuente de interacción de los usuarios con el
 sistema, es por ello que debe contener todas las funcionalidades necesarias
 que en este caso son: ingresar una pregunta, recibir una respuesta y
-consultar los documentos que dan fundamento a dicha respuesta. Bajo esta
+consultar los documentos que dan fundamento a dicha respuesta. Con este fin,
 la aplicación web debe contar con una caja de texto para hacer la pregunta
-y un mecanismo para mostrar la lista de mensajes y respuestas como un chat
+y una lista de mensajes enviados y recibidos como un chat
 convencional. Adicionalmente, se debe destinar un espacio para colocar los
 documentos relacionados con la pregunta, como se muestra en el
 \textit{wireframe} de la figura \ref{fig:wireframe_chat}.
@@ -665,6 +612,24 @@ documentos relacionados con la pregunta, como se muestra en el
     \includegraphics[width = 0.8\textwidth]{\DirFigCtres/wireframe_chat}
     \caption{Esqueleto del chat de la aplicación.}
     \label{fig:wireframe_chat}
+\end{figure}
+
+Con el fin facilitar el uso de la aplicación, no será obligatorio crear
+una cuenta de usuario para hacer uso de la misma, sin embargo, se puede agregar
+la funcionalidad como opcional, para que los usuarios registrados puedan
+conservar el historial de conversaciones a largo plazo, así como acceder
+desde distintos dispositivos. En caso de no crear una cuenta, los chats
+solo estarán disponibles por 7 días, siempre y cuando el usuario no
+elimine las cookies de su navegador. Adicional a esto, otras funcionalidades
+se deben agregar como el visualizar el historial de chat o eliminar chats.
+Para cubrir todas las funcionalidades se diseña la estructura de base de
+datos de la figura \ref{fig:chatug_db} para que sea implementada.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{\DirFigCtres/chatug_db}
+    \caption{Esquema de tablas de la base de datos de la aplicación.}
+    \label{fig:chatug_db}
 \end{figure}
 
 \section{Evaluación de los modelos}
@@ -695,9 +660,10 @@ artículo de donde fue extraída la pregunta.
 La base de datos se genera en formato CSV, por conveniencia de los
 participantes, pero después se convierte a JSON y complementa con
 otros campos relevantes para que sea similar a la estructura del
-conjunto de datos SQuAD. Posteriormente, el conjunto de datos es
-a la plataforma HuggingFace como un dataset de QA por conveniencia.
-Una entrada del dataset final contiene los siguientes elementos:
+conjunto de datos SQuAD \cite{rajpurkar_squad_2016}.
+Posteriormente, el conjunto de datos se carga en
+la plataforma HuggingFace como un conjunto de datos de QA por conveniencia.
+Una entrada del conjunto de datos final contiene los siguientes elementos:
 
 \begin{itemize}
     \item \textbf{id:} Identificador único de la pregunta. Es un MD5.
@@ -715,8 +681,8 @@ Una entrada del dataset final contiene los siguientes elementos:
 \subsection{Evaluación del modelo de \textit{embedding}}
 
 El objetivo de esta evaluación es conocer la calidad de los documentos
-identificados como relevantes para cada una de las preguntas del conjunto de
-datos. Se emplearán tres métricas: \textit{precision@k}, \textit{recall@k} y
+identificados como relevantes por el extractor de información y el modelador
+de lenguaje. Se emplearán tres métricas: \textit{precision@k}, \textit{recall@k} y
 \textit{f1@k}. Cada una de estas métricas se definen con las ecuaciones
 \ref{eq:precision}, \ref{eq:recall}, \ref{eq:f1} respectivamente. Para
 aplicar las fórmulas \ref{eq:precision} y \ref{eq:recall}, se considera
@@ -736,12 +702,12 @@ en el conjunto de datos).
     \text{f1@k} = \frac{2 \times \text{precision} \times \text{recall}}{\text{precision} + \text{recall}}
 \end{equation}
 
-El proceso de evaluación de los embeddings se realiza siguiendo los siguientes
-pasos:
+El proceso de evaluación de los \textit{embeddings} se realiza siguiendo
+los siguientes pasos:
 
 \begin{enumerate}
     \item Para cada pregunta, se identifican los fragmentos relevantes reales. Es decir,
-          los fragmentos del artículo donde se encuentra la respuesta.
+          los fragmentos de los artículos donde se encuentra la respuesta.
     \item Se calcula la similitud coseno entre la pregunta y cada fragmento de
           la base de datos de \textit{embeddings}, incluyendo todos los documentos.
     \item Se obtienen los k fragmentos con mayor similitud coseno.
@@ -753,7 +719,7 @@ pasos:
 \subsection{Evaluación del modelo de inferencia}
 
 El objetivo de esta evaluación es conocer la similitud de la respuesta
-dandidata con la respuesta de referencia, y si la respuesta responde correctamente
+candidata con la respuesta de referencia, y si la respuesta responde correctamente
 la pregunta. Se emplearán tres métricas principales: puntuación ROUGE,
 puntuación BERT y similitud coseno. ROUGE (Recall-Oriented Understudy for
 Gisting Evaluation) es una métrica que evalúa la superposición entre una
@@ -803,13 +769,13 @@ el all-MiniLM-L6-v2 y se obtiene la similitud coseno entre ambos vectores.
 
 En este proyecto se emplea la forma más directa de reentrenamiento o ajuste
 fino, que es el reentrenamiento completo del modelo sobre un conjunto
-de datos sepecializados. El conjunto de datos será el descrito anteriormente
+de datos especializados. El conjunto de datos será el descrito anteriormente
 para la evaluación de los modelos, haciendo una división aleatoria de 80\%
 de muestras para el entrenamiento y un 20\% para la evaluación. Esta
-separación se hace a nivel archivo, por lo que se garantiza que haya al menos
-exista una pregunta de cada documento.
+separación se hace a nivel archivo, por lo que se garantiza que exista al menos
+una pregunta de cada documento en ambos conjuntos de datos.
 
-Para reentrenar se emplea la librería \textit{SentenceTransformers}, la
+Para reentrenar los modelos se emplea la librería \textit{SentenceTransformers}, la
 cual permite cargar un modelo y reentrenarlo con una función de pérdida
 específica, dependiendo de la tarea. En este caso, la función de pérdida
 es \textit{CachedMultipleNegativesRankingLoss}, que requiere pares de oraciones
@@ -819,6 +785,10 @@ de oraciones, se considera cada muestra del conjunto de datos original y
 se emplea la pregunta como el ancla, el texto del contexto como el par
 positivo, y texto del contexto de otra pregunta como la parte negativa.
 Se harán pruebas de entrenamiento con solamente ancla y positivo, así como
-pruebas con el texto negativo también. Dadas las limitaciones del hardware,
-solamente se hará reentrenamiento sobre los modelos all-MiniLM-L6-v2 y el
-multi-qa-mpnet-base-dot-v1 por su tamaño reducido.
+pruebas con el texto negativo también. Sin embargo, la librearía
+\textit{SentenceTransformers} requiere que tanto el modelo como los
+ejemplos de entrenamiento sean cargados en la misma GPU para el
+reentrenamiento, por lo que solo se hará reentrenamiento sobre los
+modelos all-MiniLM-L6-v2 y el multi-qa-mpnet-base-dot-v1, ya que son los
+únicos que cumplen este requisito en las GPU de 24 GB de memoria del nodo
+de supercómputo del CIMAT.

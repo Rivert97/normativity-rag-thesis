@@ -79,12 +79,11 @@ arquitectura del \textit{transformer} para crear una arquitectura basada
 El \textit{transformer} esta basado en una arquitectura del tipo
 codificador-decodificador, es decir, una red neuronal divida en dos partes
 cuyo objetivo es convertir una secuencia de texto a otra.
-
 En su artículo, Vashwani et al. \cite{vaswani_attention_2017} definen
 una función de \textit{atención} como un mapeo de una
 \textit{query} y un conjunto de pares \textit{key}-\textit{value} a una salida,
 donde la \textit{query}, las \textit{keys} y los \textit{values} son vectores.
-Esta salida es una suma ponderada de los \textit{values}, donde el peso
+Esta salida de atención es una suma ponderada de los \textit{values}, donde el peso
 asignado a cada \textit{value} es calculado por una función de compatibilidad de la
 \textit{query} con la \textit{key} correspondiente. Para realizar este
 cálculo de forma eficiente se emplea el \textit{Scaled Dot-Product Attention}
@@ -102,7 +101,7 @@ subespacios en diferentes posiciones, conformando lo que se denomina
 \begin{equation}\label{eq:multi_attention}
     \begin{split}
         MultiHead(Q,K,V) = Concat(head_i, ..., head_h)W^O \\
-        \text{where } head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)
+        \text{donde } head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)
     \end{split}
 \end{equation}
 
@@ -134,12 +133,15 @@ tareas relacionadas con NLP, siendo una de ellas la respuesta a preguntas desde 
 Los modelos multidominio, al ser arquitecturas profundas, usualmente emplean
 el número de parámetros como métrica de su tamaño, estando
 por lo general en el orden de billones. Esta medida es importante pues
-sirve para determinar la cantidad aproximada de memoria de video que requieren
+sirve para determinar la cantidad aproximada de memoria que requieren
 para funcionar en su modo de inferencia de acuerdo a la ecuación
 \ref{eq:params_to_vram}.
 
 \begin{equation}\label{eq:params_to_vram}
-    VRAM(bytes) \approx N_{params} \times \text{bytes-per-param} \times (1 + \alpha)
+    \begin{split}
+        VRAM(bytes) \approx N_{params} \times \text{bytes-per-param} \times (1 + \alpha) \\
+        \text{donde } \alpha \text{ es un factor de la carga adicional del framework}
+    \end{split}
 \end{equation}
 
 Un modelo de particular relevancia para este proyecto es el modelo Qwen3 \cite{yang_qwen3_2025},
@@ -150,7 +152,7 @@ incluyendo bloques de atención de consultas agrupadas (GQA, Grouped Query Atten
 bloques de alimentación directa (\textit{feedforward}) con activación SwiGLU,
 codificación posicional rotatoria (RoPE, Rotary Positional Embeddings) y RMSNorm.
 Esta arquitectura optimiza el uso de memoria y el rendimiento general del modelo
-(Figura \ref{fig:qwen3}) y está disponible en tres tamaños: 0.6B, 4B y 8B.
+que se muestra en la figura \ref{fig:qwen3} y está disponible en tres tamaños: 0.6B, 4B y 8B.
 
 \begin{figure}
     \centering
@@ -178,8 +180,8 @@ pues solo una parte de los parámetros se activa en cada paso.
 Además del modelo Qwen3 en su versión MoE, otro modelo que se beneficia de
 esta arquitectura es el modelo GPT-OSS. Este modelo es un modelo de licencia
 abierta, basado en GPT-2 y GPT-3, liberado por OpenAI en dos versiones: 20B y 120B.
-Cuenta con bloques MoE de 128 y 32 expertos para cada versión, escogiendo los
-top-4 expertos para procesar ada token y emplea SwiGLU en las capas de alimentación directa.
+Cuenta con bloques MoE de 32 y 128 expertos para cada versión, escogiendo los
+top-4 expertos para procesar cada token y emplea SwiGLU en las capas de alimentación directa.
 La arquitectura se presenta en la figura \ref{fig:gpt_oss}.
 
 \begin{figure}
@@ -200,13 +202,14 @@ de generar representaciones con estas características se les conocen como model
 de \textit{embeddings}.
 
 Existe una gran variedad de modelos para generación de \textit{embeddings}, por ejemplo,
-el modelo SBERT tiene la capacidad de extraer \textit{emeddings} de oraciones
+el modelo SBERT tiene la capacidad de extraer \textit{embeddings} de oraciones
 completas, considerando la posición y contexto de las palabras, permitiendo
 generar representaciones más significativas \cite{reimers_sentence-bert_2019}.
 Otro modelo relevante es el modelo \textit{Qwen3-Embedding} \cite{zhang_qwen3_2025},
-el cual es una versión de Qwen3 tras un proceso de ajuste fino en diversas tareas
-como similitud semántica, respuesta a preguntas, entre otras con conjuntos de datos
-generados sintéticamente.
+el cual es una versión de Qwen3 que fue sometida a un proceso de ajuste fino
+en tareas como la similitud semántica o la respuesta a preguntas con
+conjuntos de datos generados sintéticamente y obtiene representaciones
+orientadas a la tarea que se desea realizar.
 
 \subsection{Cuantización de modelos}
 
@@ -242,8 +245,8 @@ sin depender del creador.
 \section{QA con modelos multidominio}
 
 Un modelo multidominio tiene la capacidad de responder preguntas que se
-le hagan en lenguaje natural. Para emitir una respuesta lo puede hacer de
-diferentes formas.
+le hagan en lenguaje natural y emitir respuestas que usualmente son también
+en lenguaje natural, pero pueden ser de otra naturaleza.
 
 \subsection{Respuestas desde conocimiento previo}
 
@@ -264,10 +267,11 @@ los modelos no cuentan con la capacidad de indicar la fuente de la información.
 
 Es posible alimentar un modelo con información desde la cual pueda buscar o
 inferir la respuesta, a esta información se le denomina contexto y usualmente
-se trata de un texto que contiene la respuesta. Un ejemplo es proporcionar la información bibliográfica de una
+se trata de un texto del cual se puede extraer la respuesta. Un ejemplo es
+proporcionar la información biográfica de una
 persona como contexto y hacer preguntas sobre la persona. Generalmente,
 estas respuestas son más acertadas, pues los modelos son entrenados
-en para realizar este tipo de tareas, siempre y cuando el contexto sea adecuado. Una
+para responder preguntas de esta forma, siempre y cuando el contexto sea adecuado. Una
 desventaja de este método es que los modelos operan con ventanas de contexto
 limitadas, las cuales pueden ser de algunos miles de tokens hasta unos pocos
 millones y es posible que el contexto que se deba proporcionar sea mayor.
@@ -280,7 +284,7 @@ sido incorporado con frecuencia. Estas técnicas consisten en incorporar
 información o conocimiento desde fuentes de datos externas, que sirven como
 complemento a las preguntas \cite{fan_survey_2024}. Un esquema de RAG simple,
 como el que se presenta en la figura \ref{fig:rag},
-contempla tres etapas principales: Indexado, Recuperación y Generación
+contempla tres etapas principales: indexado, recuperación y generación
 
 \begin{figure}
     \centering
@@ -292,9 +296,10 @@ contempla tres etapas principales: Indexado, Recuperación y Generación
 \subsection{Indexado}
 
 En su forma más simple, una base de conocimiento para RAG parte de la recolección
-de documentos relacionados con las preguntas posteriores. Una de las ventajas
-es que no hay limitante en la cantidad o tamaño, aunque si deben estar en
-formato de texto. Estos documentos se separan en framentos, comunmente
+de documentos relacionados con las preguntas que se harán a continuación.
+Una de las ventajas es que no hay limitante en la cantidad o tamaño de
+los documentos, aunque si deben estar en formato de texto.
+Estos documentos se separan en framentos, comúnmente
 llamados \textit{chunks}, el objetivo es obtener fragmentos pequeños pero
 que contengan suficiente información. Posteriormente se calcula la
 representación vectorial (\textit{embedding}) de cada framento, para finalmente
@@ -303,11 +308,14 @@ de datos.
 
 \subsection{Recuperación}
 
-Dada una solicitud hecha al LLM, la recuperación consiste
+Cuando se le hace una solicitud al LLM, la recuperación consiste
 en buscar información relevante, en forma de fragmentos de
 documentos, en la base de datos previamente construida. La forma de
 determinar si un fragmento es relevante o no para la pregunta es calculando la
-distancia entre la solicitud y el fragmento. Uno de los cálculos de distancia
+similitud entre la solicitud y el fragmento. Una vez calculada la
+similitud con todos los fragmentos disponibles, se seleccionan los \textit{k}
+fragmentos más similares o se establece un valor umbral y se consideran
+como relevantes aquellos que estén por encima del umbral. Uno de los cálculos de distancia
 más comunes es la distancia coseno, en su forma de similitud coseno, como se muestra en la
 ecuación \ref{eq:cos_similarity}
 
@@ -335,7 +343,7 @@ pregunta.
 Tanto los LLMs comerciales como los de código abierto pasan por una serie de
 pasos de entrenamiento y ajuste para funcionar adecuadamente en los
 diferentes dominios para los que son preparados, sin embargo, es
-posible mejorar su rendimiento en tareas específicas aplicando diferentes
+posible mejorar su rendimiento en tareas más específicas aplicando diferentes
 técnicas de ajuste.
 
 \subsection{Ingeniería de instrucciones (\textit{prompts})}
@@ -360,7 +368,7 @@ el modelo preentrenado y solo entrena un pequeño número de parámetros adicion
 
 \subsection{Aprendizaje por refuerzo}
 
-El aprendizaje profundo consiste en entrenar al modelo para tomar decisiones
+El aprendizaje por refuerzo consiste en entrenar al modelo para tomar decisiones
 que maximicen una recompenza. En el caso de los modelos de lenguaje, uno
 de los enfoques más utilizados es el aprendizaje por refuerzo con
 retroalimentación humana (RLHF, Reinforcement Learning from Human Feedback),
