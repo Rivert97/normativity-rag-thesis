@@ -1,6 +1,4 @@
-\chapter{Limitaciones convertidores de PDF a texto}
-
-\section{Fromato PDF}
+\chapter{Convertidores de PDF a texto}
 
 Se realizó un análisis de diferentes convertidores de PDF a texto,
 especialmente aquellos cuyas derivaciones se usan en frameworks para el
@@ -20,25 +18,42 @@ uso de modelos de lenguaje, siendo los principales los siguientes:
             \url{https://pymupdf.readthedocs.io/en/latest/tutorial.html}
 \end{itemize}
 
+En la tabla se muestran con (*) aquellas librerías que ordenan correctamente
+el texto pero no funciona con los índices. Se usan (**) en las librerías que
+proporcionan algunas formas de obtener las posiciones del texto, tipo y
+tamaño de letra pero es dificil interpretarlas. Los (***) muestran
+librearías que, al usar directamente la función de extracción de texto, se
+encuentra el error especificado, pero que proveen la funcionalidad de
+regresar el recuadro que contiene cada palabra, por lo que, aplicando las
+técnicas descritas en el documento se podrían solucionar.
+
 \begin{table}
       \begin{tabularx}{0.85\textwidth}{|X|c|c|c|c|}
             \hline
             \textbf{Característica}                   & \textbf{pypdf} & \textbf{pdftotext} & \textbf{pdfplumber} & \textbf{pymupdf4llm} \\
             \hline
             Detección de títulos y subtítulos         & \xmark**       & \xmark             & \cmark***           & \xmark               \\
+            \hline
             Detección de subtítulos en columnas       & \xmark**       & \xmark             & \cmark***           & \xmark               \\
+            \hline
             Texto ordenado siempre                    & \xmark         & \xmark             & \cmark***           & \xmark               \\
+            \hline
             Detección de encabezados y pies de página & \cmark         & \xmark             & \cmark              & \xmark               \\
+            \hline
             Interpretación de índices                 & \cmark*        & \xmark             & \cmark              & \cmark               \\
+            \hline
             Texto a dos columnas                      & \cmark         & \cmark             & \cmark              & \cmark               \\
+            \hline
             Texto con tabulaciones intermedias        & \xmark         & \xmark             & \cmark***           & \xmark               \\
+            \hline
             Detección de tablas                       & \xmark         & \xmark             & \cmark              & \cmark               \\
+            \hline
             Detección de letra capital                & \xmark         & \xmark             & \cmark              & \xmark               \\
+            \hline
             Detección de texto duplicado              & \xmark         & \xmark             & \cmark              & \cmark               \\
             \hline
       \end{tabularx}
-      \caption{* La librería ordena correctamente el texto pero no es consciente de que se trata de un índice.
-            ** La librería proporciona algunas formas de optener las posiciones, el tipo y tamaño de letra pero no es fácil interpretarlas.
-            *** Al usar directamente la función de extracción de texto de la librería se encuentran estos errores, pero tiene la funcionalidad de regresar el boundingbox de cada palabra.}
+      \caption{Tabla comparativa de errores y funcionalidades de extractores de texto de
+            archivos PDF.}
 \end{table}
 

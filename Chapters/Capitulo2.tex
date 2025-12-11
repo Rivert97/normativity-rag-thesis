@@ -87,7 +87,7 @@ Esta salida de atención es una suma ponderada de los \textit{values}, donde el 
 asignado a cada \textit{value} es calculado por una función de compatibilidad de la
 \textit{query} con la \textit{key} correspondiente. Para realizar este
 cálculo de forma eficiente se emplea el \textit{Scaled Dot-Product Attention}
-definido en la ecuación \ref{eq:attention}.
+definido en la Ecuación \ref{eq:attention}.
 
 \begin{equation}\label{eq:attention}
     Attention(Q,K,V) = softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V
@@ -96,7 +96,7 @@ definido en la ecuación \ref{eq:attention}.
 Esta operación puede replicarse de forma paralela, con el objetivo de que el
 modelo preste \textit{atención} a información de diferentes representaciones de
 subespacios en diferentes posiciones, conformando lo que se denomina
-\textit{Multi-Head Attention}, definido por la ecuación \ref{eq:multi_attention}.
+\textit{Multi-Head Attention}, definido por la Ecuación \ref{eq:multi_attention}.
 
 \begin{equation}\label{eq:multi_attention}
     \begin{split}
@@ -134,7 +134,7 @@ Los modelos multidominio, al ser arquitecturas profundas, usualmente emplean
 el número de parámetros como métrica de su tamaño, estando
 por lo general en el orden de billones. Esta medida es importante pues
 sirve para determinar la cantidad aproximada de memoria que requieren
-para funcionar en su modo de inferencia de acuerdo a la ecuación
+para funcionar en su modo de inferencia de acuerdo a la Ecuación
 \ref{eq:params_to_vram}.
 
 \begin{equation}\label{eq:params_to_vram}
@@ -182,7 +182,7 @@ esta arquitectura es el modelo GPT-OSS. Este modelo es un modelo de licencia
 abierta, basado en GPT-2 y GPT-3, liberado por OpenAI en dos versiones: 20B y 120B.
 Cuenta con bloques MoE de 32 y 128 expertos para cada versión, escogiendo los
 top-4 expertos para procesar cada token y emplea SwiGLU en las capas de alimentación directa.
-La arquitectura se presenta en la figura \ref{fig:gpt_oss}.
+La arquitectura se presenta en la Figura \ref{fig:gpt_oss}.
 
 \begin{figure}
     \centering
@@ -283,7 +283,7 @@ de Recuperación-Generación Aumentada (RAG, Retrieval-Augmented Generation) ha
 sido incorporado con frecuencia. Estas técnicas consisten en incorporar
 información o conocimiento desde fuentes de datos externas, que sirven como
 complemento a las preguntas \cite{fan_survey_2024}. Un esquema de RAG simple,
-como el que se presenta en la figura \ref{fig:rag},
+como el que se presenta en la Figura \ref{fig:rag},
 contempla tres etapas principales: indexado, recuperación y generación
 
 \begin{figure}
@@ -298,7 +298,7 @@ contempla tres etapas principales: indexado, recuperación y generación
 En su forma más simple, una base de conocimiento para RAG parte de la recolección
 de documentos relacionados con las preguntas que se harán a continuación.
 Una de las ventajas es que no hay limitante en la cantidad o tamaño de
-los documentos, aunque si deben estar en formato de texto.
+los documentos, aunque sí deben estar en formato de texto.
 Estos documentos se separan en framentos, comúnmente
 llamados \textit{chunks}, el objetivo es obtener fragmentos pequeños pero
 que contengan suficiente información. Posteriormente se calcula la
@@ -309,22 +309,23 @@ de datos.
 \subsection{Recuperación}
 
 Cuando se le hace una solicitud al LLM, la recuperación consiste
-en buscar información relevante, en forma de fragmentos de
-documentos, en la base de datos previamente construida. La forma de
-determinar si un fragmento es relevante o no para la pregunta es calculando la
-similitud entre la solicitud y el fragmento. Una vez calculada la
-similitud con todos los fragmentos disponibles, se seleccionan los \textit{k}
-fragmentos más similares o se establece un valor umbral y se consideran
-como relevantes aquellos que estén por encima del umbral. Uno de los cálculos de distancia
-más comunes es la distancia coseno, en su forma de similitud coseno, como se muestra en la
-ecuación \ref{eq:cos_similarity}
+en buscar información relacionada, en forma de fragmentos de
+documentos, en la base de datos previamente construida. Para determinar
+cuáles son los fragmentos que más se relacionan con la pregunta, se
+calcula la similitud semántica entre la pregunta y cada fragmento.
+Una vez calculada la similitud con todos los fragmentos disponibles, se
+seleccionan los \textit{k} fragmentos más similares a la pregunta o se
+establece un valor umbral y se consideran como relacionados a aquellos
+que estén por encima del umbral. Uno de los cálculos de distancia
+más comunes es la distancia coseno, en su forma de similitud coseno,
+como se muestra en la Ecuación \ref{eq:cos_similarity}.
 
 \begin{equation}\label{eq:cos_similarity}
     d = 1.0 - \frac{\sum{(A_i \times B_i)}}{\sqrt{\sum{(A_i^2)}}\sqrt{\sum{(B_i^2)}}}
 \end{equation}
 
 Otra métrica común es el cálculo de similitud empleando el producto interno,
-como se muestra en la ecuación \ref{eq:inner_product}.
+como se muestra en la Ecuación \ref{eq:inner_product}.
 
 \begin{equation}\label{eq:inner_product}
     d = 1.0 - \sum{(A_i \times B_i)}
@@ -332,8 +333,8 @@ como se muestra en la ecuación \ref{eq:inner_product}.
 
 \subsection{Generación}
 
-En esta etapa, tanto la solicitud como los documentos seleccionados son
-sintetizados en una instrucción coherente que se le proporciona al modelo.
+En esta etapa, la solicitud y los fragmentos marcados como relacionados
+son sintetizados en una instrucción coherente que se le proporciona al modelo.
 Usualmente esta instrucción incluye: indicación de responder la pregunta
 solamente con los fragmentos proporcionados, los fragmentos de texto y la
 pregunta.
@@ -444,17 +445,18 @@ del dominio de las preguntas a documentos específicos, permite construir
 una base de datos de conocimiento más simple, tanto en tamaño como en
 pasos de procesamiento, lo que da como resultado un sistema más rápido y compacto.
 
-Uno de los problemas principales del RAG es la recuperación de fragmentos
-relevantes de los documentos. Trabajos como el de Shao et al. \cite{shao_enhancing_2023}
+Uno de los retos principales del RAG es la recuperación adecuada de fragmentos
+relacionados con las preguntas. Trabajos como el de Shao et al. \cite{shao_enhancing_2023}
 se centran en proponer mejores técnicas en la identificación de
-documentos relevantes en grandes volúmenes de datos, aplicando una
+fragmentos relacionados en grandes volúmenes de datos, aplicando una
 sinergia entre el recuperador y el generador con el fin de mejorar las respuestas
 de manera iterativa. Por su parte, Shi et al. \cite{shi_replug_2024} proponen el
 \textit{framework RePlug}, que consiste en tratar al modelo de lenguaje
 que responde la pregunta como una caja negra y reentrenar el modelo
 responsable de la recuperación de información para optimizar su desempeño.
 Dadas estas consideraciones, el sistema propuesto en este proyecto incluye una etapa de ajuste
-fino para el modelo que obtiene los \textit{embeddings} de los documentos.
+fino para el modelo que obtiene los \textit{embeddings} de los fragmentos
+de los documentos normativos.
 
 Por último, existen herramientas comerciales y de código abierto con la
 capacidad de ejecutar metodologías RAG para responder a preguntas de documentos,

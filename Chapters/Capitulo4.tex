@@ -37,7 +37,7 @@ información irrelevante que se desea eliminar. Para eliminar estos elementos
 se normalizó a 1.0 el ancho y alto de la página, para posteriormente
 establecer los márgenes superior, inferior, izquierdo y derecho.
 Todo el texto que se encuentre fuera de dichos márgenes es ignorado como
-se muestra en la figura \ref{fig:quitar_encabezados}. El ancho y alto totales
+se muestra en la Figura \ref{fig:quitar_encabezados}. El ancho y alto totales
 del documento se obtienen directamente de \textit{PyPdf}, \textit{PyTesseract}
 o \textit{Pdfplumber} según sea el caso. La mayoría de los documentos normativos
 comparten un márgen de: (izquierda: 0.5, arriba: 0.1, derecha: 0.95, abajo: 0.95),
@@ -56,13 +56,13 @@ dar flexibilidad al procesar documentos con márgenes diferentes.
 Inicialmente, la detección de títulos centrados se realizó línea por línea,
 para no tener que detectar los bloques separados verticalmente,
 sin embargo, hay ocasiones en las que la línea parece estar centrada
-(recuadro rojo de figura \ref{fig:titulo_wrong}), cuando en realidad
+(recuadro rojo de Figura \ref{fig:titulo_wrong}), cuando en realidad
 es parte de una viñeta o de un texto con sangría, es por ello que es
 necesario hacer el análisis por bloques separados verticalmente
-(recuadro verde de figura \ref{fig:titulo_wrong}).
+(recuadro verde de Figura \ref{fig:titulo_wrong}).
 Se determina que un bloque está separado verticalmente cuando hay una distancia
 mayor a un valor configurable, proporcional al alto de la línea como se
-muestra en la figura \ref{fig:titulo_ok}.
+muestra en la Figura \ref{fig:titulo_ok}.
 
 \begin{figure}
     \centering
@@ -82,7 +82,7 @@ muestra en la figura \ref{fig:titulo_ok}.
 
 De la misma forma, inicialmente se planteó identificar los títulos
 centrados en la columna analizando línea por línea, sin embargo, cuando
-el texto es muy extenso, ya no parece estar centrado, como en la figura
+el texto es muy extenso, ya no parece estar centrado, como en la Figura
 \ref{fig:title_column}. Por lo anterior, se recurrió al mismo enfoque donde
 se detecta el bloque de texto y se da una tolerancia de $L$ líneas para
 detectar el inicio de un artículo con la expresión regular, de ser así,
@@ -105,7 +105,7 @@ de la institución. Esto no impide que sea dividido en secciones y fragmentos,
 pero difiere en que el texto está justificado a una columna y
 sus secciones son numéricas y sin centrar. Para detectar estas secciones no centradas,
 el texto se divide en bloques verticales y cada bloque se valida
-con una expresión regular como se muestra en la figura \ref{fig:titulo_no_centrado}.
+con una expresión regular como se muestra en la Figura \ref{fig:titulo_no_centrado}.
 Esta validación no interfiere con la detección de títulos centrados
 pues ambos procesos se realizan para todos los documentos.
 
@@ -123,12 +123,12 @@ La generación del árbol con la estructura del documento se realizó
 adecuadamente para todos los documentos normativos, sin embargo, se detectó
 que al generar la estructura del preámbulo de los documentos,
 ésta puede presentar algunas estructuras poco
-congruentes, como se observa en el recuadro rojo de la figura
+congruentes, como se observa en el recuadro rojo de la Figura
 \ref{fig:arbol}. Sin embargo, estas estructuras no afectan el sistema
 pues la estructura de capítulos y artículos se genera correctamente,
-como se observa en el recuadro verde de la figura \ref{fig:arbol}, además
+como se observa en el recuadro verde de la Figura \ref{fig:arbol}, además
 el preámbulo puede ignorarse si así se deseara pues no contiene información
-relevante para la normativa en la mayoría de los casos. Adicionalmente, en la figura
+relevante para la normativa en la mayoría de los casos. Adicionalmente, en la Figura
 \ref{fig:arbol_2} se muestra parte de la estructura generada para el documento
 ``Modelo Educativo de la Universidad de guanajuato y su Modelo Académico''
 que, a pesar de que el documento tiene una estructura diferente, puede
@@ -172,7 +172,7 @@ es la detección de tablas en los documentos. Una tabla es un elemento que puede
 ser complejo, especialmente cuando cada celda es de más de un renglón o
 se mezclan alineaciones de las columnas, todo esto hace que los extractores de
 texto, tanto \textit{PyPDF}, \textit{PyTesseract} y \textit{Pdfplumber} desorganicen
-el texto de las tablas, generando secuencias ilegibles como se muestra en la figura
+el texto de las tablas, generando secuencias ilegibles como se muestra en la Figura
 \ref{fig:tablas_1}. Este proceso se acentúa más cuando las tablas están
 orientadas verticalmente, en lugar de horizontalmente, como es el caso de
 uno de los documentos de la normativa. Dada esta circunstancia, las partes
@@ -200,13 +200,13 @@ disminuir más con más núcleos de procesamiento. Otra
 desventaja de \textit{PyPDF+PyTesseract} es que se encontró texto no visible
 en los documentos PDF de la normativa, especialmente palabras que al obtener
 el texto plano con \textit{PyPDF} se duplican o triplican como se muestra
-en la figura \ref{fig:texto_duplicado}, lo cual altera
+en la Figura \ref{fig:texto_duplicado}, lo cual altera
 considerablemente el algoritmo y requiere de un proceso adicional para
 eliminarlas, este proceso se puede hacer directamente con \textit{Pdfplumber}
 con una bandera de configuración. Sin embargo, una bentaja de
 \textit{PyPDF+PyTesseract} es que permite al sistema detectar texto escrito en
 imágenes, aunque en toda la normativa solamente hay un documento que lo tiene
-y es en su portada, la cual puede simplemente ser ignorada. En la tabla
+y es en su portada, la cual puede simplemente ser ignorada. En la Tabla
 \ref{tab:mixed_vs_pdfplumber} se muestra una comparación entre ambos métodos,
 donde se observa que emplear únicamente \textit{Pdfplumber} es más beneficioso
 para el tipo de documentos de la normativa de la universidad.
@@ -238,7 +238,7 @@ para el tipo de documentos de la normativa de la universidad.
 
 El conjunto de datos que se generó recopila preguntas y respuestas de
 21 documentos diferentes, con un total de 1,082 preguntas y respuestas,
-la distribución de preguntas por cada documento se muestra en la figura
+la distribución de preguntas por cada documento se muestra en la Figura
 \ref{fig:dataset_questions}. Un ejemplo de un registro del conjunto de
 datos generado se ve como el siguiente:
 
@@ -292,18 +292,19 @@ datos de forma organizada, así como los subconjuntos de entrenamiento y prueba.
 \section{Evaluación y selección del modelo de \textit{embeddings}}
 
 Se evaluaron tres modelos diferentes: MiniLM, MPNET y Qwen 3. Del modelo
-Qwen 3 se evaluaron sus tres variantes de tamaño: 0.6B, 4B y 8B. Para
-cada variante se evaluaron además su versión cuantizada disponible más pequeña y
-la más grande, dando como resultados los mostrados en las tabla
+Qwen 3 se evaluaron sus tres variantes de tamaño: 0.6B, 4B y 8B, para
+cada variante se evaluó además su versión cuantizada disponible más pequeña y
+la más grande. Adicionalmente, se evaluaron los modelos con k=3 y k=5
+fragmentos similares, dando como resultados los mostrados en las Tablas
 \ref{tab:metrics_embedding_top_3} y \ref{tab:metrics_embedding_top_5} para
-top-3 y top-5 documentos relevantes respectivamente. Se debe considerar que la precisión
+top-3 y top-5 de fragmentos similares respectivamente. Se debe considerar que la precisión
 y la puntuación f1 son naturalmente bajos puesto que cada pregunta del conjunto
 de datos fue formulada para que tenga un solo artículo relevante, es decir,
 el máximo de fragmentos relevantes por pregunta es 1 o 2 (dado que unos pocos
 artículos son de más de un fragmento), de ahí que la mejor
 métrica para comparar los modelos sea únicamente el recall.
 
-Si se compara el recall (figuras
+Si se compara el recall (Figuras
 \ref{fig:metrics_embedding_top_3}, \ref{fig:metrics_embedding_top_5}), se
 puede observar que el mejor modelo es el Qwen3-Embedding-8B, seguido de sus
 versiones cuantizadas. Este resultado nos permite seleccionar al modelo
@@ -313,8 +314,9 @@ rendimiento similar. Por otra parte, se observa la considerable diferencia
 de 0.63 y 0.5 puntos de recall entre el mejor modelo y los modelos
 all-MiniLM-L6-v2 y multi-qa-mpnet-base-dot-v1 respectivamente. Además,
 observamos que existe una diferencia de aproximadamente 0.8 puntos entre
-las pruebas con 5 documentos respecto a las de 3 documentos, esto es indicativo
-de que no siempre el fragmento relevante real está dentro del top 3, por
+las pruebas con el top-5 de fragmentos similares respecto al top-3, esto es indicativo
+de que no siempre el fragmento relevante real está dentro de de los tres
+fragmentos más similares, por
 lo que alimentar el modelo de inferencia con 5 fragmentos de contexto entregará
 mejores resultados sacrificando un poco de memoria para el contexto.
 
@@ -335,7 +337,7 @@ mejores resultados sacrificando un poco de memoria para el contexto.
         all-MiniLM-L6-v2              & 0.091          & 0.273          & 0.136          \\ \hline
         multi-qa-mpnet-base-dot-v1    & 0.133          & 0.400          & 0.200          \\ \hline
     \end{tabular}
-    \caption{Resultados de evaluación para modelos de \textit{embeddings} con $k=3$ documentos relevantes.}
+    \caption{Resultados de evaluación para modelos de \textit{embeddings} con el top-3 de fragmentos similares.}
     \label{tab:metrics_embedding_top_3}
 \end{table}
 
@@ -356,21 +358,21 @@ mejores resultados sacrificando un poco de memoria para el contexto.
         all-MiniLM-L6-v2              & 0.071          & 0.356          & 0.118 \\ \hline
         multi-qa-mpnet-base-dot-v1    & 0.099          & 0.493          & 0.164 \\ \hline
     \end{tabular}
-    \caption{Resultados de evaluación para modelos de \textit{embeddings} con $k=5$ documentos relevantes.}
+    \caption{Resultados de evaluación para modelos de \textit{embeddings} con el top-5 de fragmentos similares.}
     \label{tab:metrics_embedding_top_5}
 \end{table}
 
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCcuatro/metrics_embedding_top_3}
-    \caption{Recall para \textit{embeddings} con top 3 documentos relevantes.}
+    \caption{Recall para \textit{embeddings} con el top-3 de fragmentos similares.}
     \label{fig:metrics_embedding_top_3}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCcuatro/metrics_embedding_top_5}
-    \caption{Recall para \textit{embeddings} con top 5 documentos relevantes.}
+    \caption{Recall para \textit{embeddings} con el top-5 de fragmentos similares.}
     \label{fig:metrics_embedding_top_5}
 \end{figure}
 
@@ -382,10 +384,10 @@ el modelo GPT-OSS 20B y el modelo LLama 3.1 8B. Adicionalmente se evaluó
 el modelo de Qwen3 8B con la opción de razonamiento activada. Estas evaluaciones
 fueron ejecutadas en el centro de supercómputo del CIMAT, con 48 GB de memoria
 de video disponibles, además, todos los
-modelos fueron evaluados con el top 5 fragmentos relevantes, así como
+modelos fueron evaluados con el top-5 de fragmentos similares, así como
 con el mejor modelo de \textit{embeddings}, es decir, el modelo
 Qwen3-Embedding-8B. Los resultados de esta evaluación se muestran en la
-tabla \ref{tab:metrics_inferencia} donde se observa que los mejores modelos
+Tabla \ref{tab:metrics_inferencia} donde se observa que los mejores modelos
 son Qwen3-8B y Qwen3-0.6B, en sus versiones completas.
 Nótese el rendimiento es casi igual entre estos dos modelos y
 la versión cuantizada de Qwen3-8B-Q4\_K\_M, aunque esta última requiere
@@ -404,19 +406,19 @@ más memoria que Qwen3-0.6B, pero menos que Qwen3-8B.
         Llama-3.1-8B-Instruct   & 0.351          & 0.750          & 0.645            \\ \hline
     \end{tabular}
     \caption{Resultados de evaluación de modelos de inferencia con Qwen3-Embedding-8B
-        y top 5 documentos.}
+        y top-5 de fragmentos similares.}
     \label{tab:metrics_inferencia}
 \end{table}
 
-Una vez obtenidos los resultados de la tabla \ref{tab:metrics_inferencia},
+Una vez obtenidos los resultados de la Tabla \ref{tab:metrics_inferencia},
 se debe considerar la cantidad de memoria disponible en el servidor
-\textit{Dell Precission 7920 Tower}, que es de 16GB+2GB+2BG, y se determina que el modelo
-Qwen3-Embeddings-8B no puede ejecutarse ahí, por lo que para el siguiente
+\textit{Dell Precision 7920 Tower}, que es de 16GB+2GB+2BG, y se determina que el modelo
+Qwen3-8B no puede ejecutarse ahí, por lo que para el siguiente
 paso de evaluación se escogieron los tres mejores modelos siguientes, que
 son los modelos Qwen3-0.6B, Qwen3-8B-Q4\_K\_M y GPT-OSS-20B. La siguiente
 prueba fue mejorar el comando de sistema que se le proporciona al modelo
 para hacer ajuste por ingeniería de comandos. Los resultados de esta evaluación
-se presentan en la tabla \ref{tab:metrics_prompt}, donde también se evaluó
+se presentan en la Tabla \ref{tab:metrics_prompt}, donde también se evaluó
 el modelo Qwen3-8B-Q4\_K\_M con su opción de razonamiento activada para
 analizar si reacciona mejor al haber un comando de sistema más complejo.
 
@@ -435,7 +437,7 @@ analizar si reacciona mejor al haber un comando de sistema más complejo.
     \label{tab:metrics_prompt}
 \end{table}
 
-En la tabla \ref{tab:metrics_prompt} se observa que el modelo GPT-OSS-20B
+En la Tabla \ref{tab:metrics_prompt} se observa que el modelo GPT-OSS-20B
 es el que tiene mejor rendimiento, mostrando una mejora contra la evaluación sin
 instrucción de sistema. Por su parte, los modelos Qwen3 empeoraron ligeramente su puntaje
 al introducir el comando del sistema. Por último, el modelo Qwen3 con la
@@ -449,7 +451,7 @@ a la pregunta, según su criterio. Para esta evaluación se verificaron
 25 respuestas aleatorias de los modelos, evaluando la misma pregunta para todos
 los modelos con el fin de comparar otros factores como su legibilidad o estilo.
 
-En la tabla \ref{tab:metrics_manual} se muestra el porcentaje de respuestas
+En la Tabla \ref{tab:metrics_manual} se muestra el porcentaje de respuestas
 correctas para cada uno de los cuatro modelos, y se observa que el modelo
 Qwen3-0.6B es inferior al resto por un margen considerable, mientras que el
 resto se desempeña de una forma similar.
@@ -460,7 +462,7 @@ resto se desempeña de una forma similar.
         \hline
         Modelo                           & Aciertos       \\ \hline
         Qwen3-0.6B                       & 60 \%          \\ \hline
-        \textbf{GPT-OSS}                 & \textbf{88} \% \\ \hline
+        \textbf{gpt-oss-20b-MXFP4}       & \textbf{88} \% \\ \hline
         Qwen3-8B-Q4\_K\_M                & 84 \%          \\ \hline
         \textbf{Qwen3-8B-Q4\_K\_M-think} & \textbf{88} \% \\ \hline
     \end{tabular}
@@ -503,7 +505,7 @@ se llevó a cabo en el centro de supercómputo del CIMAT en uno de los
 nodos con dos GPUs utilizando \textit{torchrun} para distribuir la
 carga entre ambos, aquí se buscaron los mejores parámetros de
 entrenamiento para cada modelo, dando como resultado los parámetros
-de la tabla \ref{tab:settings}.
+de la Tabla \ref{tab:settings}.
 
 \begin{table}[!ht]
     \centering
@@ -513,7 +515,7 @@ de la tabla \ref{tab:settings}.
         all-MiniLM-L6-v2           & 20     & 32    & 2.00E-05 & 0.1  & 3  \\ \hline
         multi-qa-mpnet-base-dot-v1 & 15     & 32    & 1.00E-05 & 0.05 & 3  \\ \hline
     \end{tabular}
-    \caption{Configuraciones de entranamiento de los modelos. Taza de aprendizaje (LR),
+    \caption{Configuraciones de entranamiento de los modelos. Tasa de aprendizaje (LR),
         razón de calentamiento (WR), detención temprana (ES).}
     \label{tab:settings}
 \end{table}
@@ -521,10 +523,10 @@ de la tabla \ref{tab:settings}.
 Con el fin de analizar la calidad del entrenamiento, se generaron las gráficas
 de la evolución de la función de pérdida para el entrenamiento de ambos modelos.
 Para el entrenamiento con pares ancla-positivo, las gráficas se muestran
-en las figuras \ref{fig:train_minilm_pair} y \ref{fig:train_mpnet_pair}
+en las Figuras \ref{fig:train_minilm_pair} y \ref{fig:train_mpnet_pair}
 para los modelos all-MiniLM-L6-v2 y multi-qa-mpnet-base-dot-v1 respectivmente.
 Para el entrenamiento con tríos ancla-positivo-negativo, las gráficas se
-muestran en las figuras \ref{fig:train_minilm_triplets} y
+muestran en las Figuras \ref{fig:train_minilm_triplets} y
 \ref{fig:train_mpnet_triplets}. En todas las gráficas se observa que
 el mejor modelo se alcanza tras pocas épocas.
 
@@ -557,12 +559,12 @@ el mejor modelo se alcanza tras pocas épocas.
 \end{figure}
 
 Para hacer la evaluación de los modelos, se siguió la misma metodología de
-evaluación de extracción de documentos, obteniendo el \textit{precision},
+evaluación de extracción de fragmentos, obteniendo el \textit{precision},
 \textit{recall} y \textit{f1} con k=3 y k=5. Con el fin de comparar los
 modelos base y los entrenados, se realizó una evaluación con los modelos base
 sobre el conjunto de datos de prueba, así como una evaluación
 contra el modelo Qwen3-Embedding-8B-Q4\_K\_M. La evaluación se muestra en la
-tabla \ref{tab:results_train_3} para k=3 en la tabla \ref{tab:results_train_5}
+Tabla \ref{tab:results_train_3} para k=3 en la Tabla \ref{tab:results_train_5}
 para k=5, donde se observa que ambos modelos reentrenados tienen una
 mejora de 0.32 y 0.25 puntos de recall respecto a sus modelos base,
 además, se observa que no hay una diferencia significativa entre el
@@ -611,7 +613,7 @@ puntos de recall, por lo que será el que se use en el sistema final.
 La puesta en producción del sistema consta de tres componentes: un servidor con GPUs
 donde se ejecuten los modelos LLM, un servidor en la nube donde se ejecute la
 aplicación web y una VPN (Virtual Private Network) para comunicar ambos
-componentes. Para el servidor con GPUs, se emplea la \textit{Dell Precission 7920 Tower}
+componentes. Para el servidor con GPUs, se emplea la \textit{Dell Precision 7920 Tower}
 que se encuentra dentro de las instalaciones de la División de Ingenierías
 del Campus Irapuato-Salamanca (DICIS) de la Universidad de Guanajuato, en este servidor
 se coloca el extractor de información, el modelador del lenguaje y la API
@@ -620,9 +622,9 @@ de Azure del tipo \textit{Standard B2pts v2 (2vcpus, GiB memory)}, con
 Ubuntu 24.04, donde se ejecuta la aplicación web. Este servidor debe
 ser visible desde internet, por lo se le asigna una IP pública.
 Por último, la VPN se configura en Azure para conectar directamente con
-la máquina virtual, mientras que la \textit{Dell Precission 7920 Tower}
+la máquina virtual, mientras que la \textit{Dell Precision 7920 Tower}
 se conecta a través de una puerta de enlace VPN. El esquema completo de
-conexiones se encuentra en la figura \ref{fig:conexion_prod}.
+conexiones se encuentra en la Figura \ref{fig:conexion_prod}.
 
 \begin{figure}
     \centering
@@ -636,7 +638,7 @@ conexiones se encuentra en la figura \ref{fig:conexion_prod}.
 Este servidor contiene la API de comunicación, el modelador de lenguaje y
 el extractor de información. El servidor se configuró con Docker para
 hacer el despliegue de los contenedores necesarios, los cuales se
-muestran en la figura \ref{fig:docker_windows}. Se creó una imagen de
+muestran en la Figura \ref{fig:docker_windows}. Se creó una imagen de
 contenedor llamada \textit{normativity\_rag}, la cual contiene el extractor
 de información. Este contenedor tiene la capacidad de ejecutar todos los
 scripts relacionados con la extracción de información, incluido un script
@@ -651,7 +653,7 @@ configuración del contenedor.
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCcuatro/docker_windows}
-    \caption{Diagrama de contenedores en servidor \textit{Dell Precission Tower}.}
+    \caption{Diagrama de contenedores en servidor \textit{Dell Precision Tower}.}
     \label{fig:docker_windows}
 \end{figure}
 
@@ -666,7 +668,7 @@ base de datos, así como la creación de al menos una API-KEY para acceder,
 para ello se ejecuta un script en python dentro del contenedor. En el
 Apéndice C se muestra el \textit{Dockerfile} del contenedor, así como el
 archivo \textit{docker-compose.yml} con las instrucciones de creación del
-servicio. En la figura \ref{fig:docker_api} se muestra una captura de
+servicio. En la Figura \ref{fig:docker_api} se muestra una captura de
 pantalla del administrador de contenedores donde se observa el servicio
 de la API en funcionamiento.
 
@@ -687,7 +689,7 @@ de \textit{embeddings} es el Qwen3-Embedding-8B-Q4\_K\_M, mientras que
 el modelo de inferencia es el GPT-OSS-20B-MXFP4, ambos modelos ocupan
 17.6 GB de VRAM, por lo que usan la tarjeta RTX A4000 del servidor en su
 totalidad y además hacen uso de 2 GB de memoria compartida de la RAM
-como se muestra en la captura de la figura \ref{fig:windows_recursos}.
+como se muestra en la captura de la Figura \ref{fig:windows_recursos}.
 No se realizaron pruebas para medir el impacto del uso de la memoria
 compartida pues no se notó lentitud en el sistema, además de que el modelo
 que es cargado parcialmente en RAM es el modelo de \textit{embeddings}
@@ -695,7 +697,7 @@ que es mucho más rápido. Se intentó usar las otras dos GPUs del sistema
 pero no se logró establecer una configuración satisfactoria con la librería
 \textit{llama\_cpp}. Adicionalmente, se debe habilitar la conexión
 al puerto 8080 con una regla del firewall de Windows, como se muestra en
-la captura de la figura \ref{fig:firewall_8080}.
+la captura de la Figura \ref{fig:firewall_8080}.
 
 \begin{figure}
     \centering
@@ -717,7 +719,7 @@ la captura de la figura \ref{fig:firewall_8080}.
 La administración de la conexión a la VPN se hace a través de la aplicación
 ``Azure VPN'', la cual emplea una llave privada, que hay que configurar en el
 sistema, y un archivo de configuración para conectarse a la puerta de enlace
-VPN configurada en Azure, en la figura \ref{fig:azure_vpn} se muestra
+VPN configurada en Azure, en la Figura \ref{fig:azure_vpn} se muestra
 una captura de pantalla de la interfaz de conexión.
 Una desventaja de esta estructua es que la
 conexión a la VPN tiene que hacerse manualmente al encender el servidor,
@@ -741,7 +743,7 @@ de conexión de red o fallas en el sumministro de luz.
 \subsection{Máquina virtual en la nube}
 
 En la máquina virtual de la nube también se instala Docker para ejecutar los
-contenedores requeridos por la aplicación, como se muestra en la figura
+contenedores requeridos por la aplicación, como se muestra en la Figura
 \ref{fig:docker_vm}. La aplicación web se coloca en un contenedor con
 el puerto 3000 expuesto, este contenedor se crea con la aplicación construida
 para producción con \textit{npm}. La base de datos de la aplicación
@@ -756,7 +758,7 @@ la herramienta Certbot. Para facilitar el lanzamiento de los contenedores se
 creó un archivo \textit{docker-compose.yml} con la configuración para
 obtener la arquitectura deseada, el cual se encuentra en el Apéndice C,
 junto con el \textit{Dockerfile} del contenedor con la aplicación.
-En la captura de la figura \ref{fig:docker_vm_run} se observan los tres
+En la captura de la Figura \ref{fig:docker_vm_run} se observan los tres
 contenedores en ejecución en la máquina virtual en la nube.
 
 \begin{figure}
@@ -777,7 +779,7 @@ contenedores en ejecución en la máquina virtual en la nube.
 Además, se deben configurar reglas en el firewall para solo permitir el
 acceso por el puerto 22 (SSH), 80 (http) y 433 (https), para ello se utiliza
 el firewall de la máquina virtual (UFW) y se configura como se muestra
-en la captura de la figura \ref{fig:vm_firewall}. Finalmente, en la
+en la captura de la Figura \ref{fig:vm_firewall}. Finalmente, en la
 configuración de Nginx se coloca una regla de redirección para enviar
 todas las peticiónes del puerto 80 al 443 por defecto.
 
@@ -795,7 +797,7 @@ Se llamó a la aplicación \textit{ChatUGTo}, con este nombre se pretende
 indicar el tipo de aplicación del que se trata y la pertenencia a la
 Universidad de Guanajuato, que si bien sus siglas son UG, se optó por
 usar UGTo para dar un nombre más específico y que no se confunda.
-Así mismo, se diseñó el logotipo de la figura \ref{fig:logo_chatugto}
+Así mismo, se diseñó el logotipo de la Figura \ref{fig:logo_chatugto}
 para ayudar al usuario a identificar la aplicación. Con el fin de
 facilitar el acceso a la aplicación, se creó un subdominio dentro de
 un dominio propiedad del estudiante (chatugto.rgarciag.com), esto de
@@ -803,7 +805,7 @@ forma temporal en búsqueda de gestionar un dominio oficial de la
 universidad a futuro. También, con el fin de aumentar la confianza
 del usuario al usar el chat, se le dio una personalidad al asistente,
 al que se llamó \textit{La Abeja Norma}, y se le diseñó la imagen
-de la figura \ref{fig:abeja_norma}, que presenta una abeja con caracter
+de la Figura \ref{fig:abeja_norma}, que presenta una abeja con caracter
 amigable y elementos que la identifican como un agente de apoyo.
 
 La aplicación web consta de tres rutas o pantallas con las que se
@@ -835,7 +837,7 @@ el tiempo de desarrollo es limitado, no se realiza un proceso de
 verificación del correo electrónico y solo se utiliza como identificador
 único del usuario, sin embargo, la implementación de estos mecanismos puede
 realizarse fuera del alcance de esta tesis. En la captura de pantalla
-de la figura \ref{fig:signin_page} se muestra el formulario de registro.
+de la Figura \ref{fig:signin_page} se muestra el formulario de registro.
 Todos los campos tienen validación del formato de los datos.
 
 \begin{figure}
@@ -850,7 +852,7 @@ Todos los campos tienen validación del formato de los datos.
 Para los usuarios que hayan creado una cuenta pueden acceder a ella
 a través de la pantalla de inicio de sesión, que consulta la existencia
 del usuario en la base de datos. En la captura de pantalla de la
-figura \ref{fig:login_page} se muestra el formalario de inicio de sesión.
+Figura \ref{fig:login_page} se muestra el formalario de inicio de sesión.
 
 \begin{figure}
     \centering
@@ -863,14 +865,14 @@ figura \ref{fig:login_page} se muestra el formalario de inicio de sesión.
 
 La pantalla principal de la aplicación es la pantalla de chat, la cual
 se muestra al acceder a la aplicación. Por defecto, esta pantalla
-muestra un chat nuevo (figura \ref{fig:chat_new}), donde se da la
+muestra un chat nuevo (Figura \ref{fig:chat_new}), donde se da la
 bienvenida, además, se muestran sugerencias de uso para ayudar a los
 usuarios nuevos, así como el campo de entrada donde se puede ingresar
 directamente la pregunta que se desea realizar y así comenzar una
 conversación. Esta pantalla también cuenta con botones para iniciar
 sesión o crear una cuenta en la parte superior derecha, los cuales
 se reemplazan con un ícono de usuario cuando se accede con un usuario y
-contraseña, como se muestra en la figura \ref{fig:chat_new_user}.
+contraseña, como se muestra en la Figura \ref{fig:chat_new_user}.
 
 \begin{figure}
     \centering
@@ -888,7 +890,7 @@ contraseña, como se muestra en la figura \ref{fig:chat_new_user}.
 
 La pantalla cuenta con una barra lateral desplegable que muestra la
 opción de crear un nuevo chat, así como el historial de conversaciones
-en caso de existir, como se muestra en la figura \ref{fig:chat_sidebar}.
+en caso de existir, como se muestra en la Figura \ref{fig:chat_sidebar}.
 
 \begin{figure}
     \centering
@@ -902,13 +904,13 @@ a modo conversación, donde se listarán los mensajes del usuario y
 del asistente. Al enviar una pregunta, la aplicación realiza el proceso
 de recuperación de información y emite una respuesta, la cual muestra
 como mensaje, además, muestra como ``Fuentes:'' los artículos de donde
-extrajo la respuesta, como se muestra en la captura de la figura
+extrajo la respuesta, como se muestra en la captura de la Figura
 \ref{fig:chat_respuesta}. Si se hace clic en un artículo de
 referencia se despliega el texto completo del artículo, el título del
 documento y el link hacia el documento oficial en el repositorio de la
-universidad, como se muestra en la figura \ref{fig:chat_referencias}.
+universidad, como se muestra en la Figura \ref{fig:chat_referencias}.
 Dentro de la respuesta del asistente también se listan los otros
-documentos que el RAG detectó como relevantes, pero que el modelo de
+fragmentos que el RAG detectó como relevantes, pero que el modelo de
 inferencia no usó para generar la respuesta, estos se muestran como
 ``Documentos relacionados''. Por último, se incluyen botones para
 indicar si la respuesta fue apropiada o si resolvió la duda, esto
@@ -926,19 +928,19 @@ por el momento solo se almacena el dato.
     \centering
     \includegraphics[width = 0.75\textwidth]{\DirFigCcuatro/chat_referencias}
     \caption{Ejemplo de artículos de referencia mostrado por el asistente.
-        Se muestran además otros documentos posiblemente relacionados.}
+        Se muestran además otros fragmentos posiblemente relacionados.}
     \label{fig:chat_referencias}
 \end{figure}
 
 Una funcionalidad importante del asistente es que se pueden realizar
 preguntas de seguimiento sobre el mismo chat, haciendo referencia a
-preguntas o respuestas anteriores, como se muestra en la figura
+preguntas o respuestas anteriores, como se muestra en la Figura
 \ref{fig:chat_seguimiento}. Además, cuando se le hace una pregunta de la
-cual no se encuentra ningún documento relevante, el modelo responde
+cual no se encuentra ningún fragmento con la respuesta, el modelo responde
 con un mensaje predeterminado, esto ayuda a evitar el uso indebido
 del modelo, pues en caso de hacer solicitudes que no sean preguntas
 sobre la normativa también muestra el mismo mensaje de la
-figura \ref{fig:chat_no_docs}.
+Figura \ref{fig:chat_no_docs}.
 
 \begin{figure}
     \centering
@@ -957,7 +959,7 @@ figura \ref{fig:chat_no_docs}.
 Finalmente, la aplicación está diseñada para funcionar en dispositivos
 de distintos tamaños, así como con un tema oscuro, modificando los
 colores y logos para permitir que sean visibles, como se muestra en
-la figura \ref{fig:chat_dark}.
+la Figura \ref{fig:chat_dark}.
 
 \begin{figure}
     \centering

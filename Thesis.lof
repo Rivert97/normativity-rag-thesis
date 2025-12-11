@@ -1,0 +1,68 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Arquitectura \textit {transformer}.}}{27}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Arquitectura \textit {Qwen3}.}}{30}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arquitectura \textit {Mezcla de Expertos}.}}{31}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Arquitectura \textit {GPT-OSS}.}}{32}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de funcionamiento de un esquema de RAG simple.}}{36}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagrama de componentes que conforman el sistema.}}{44}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagrama de extracción de información de un archivo PDF.}}{47}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejemplo de información visual obtenida por \textit {Tesseract} y \textit {Pdfplumber}.}}{49}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Detalle extracción de texto y características de OCR.}}{50}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Detalle de reconstrucción de texto del documento (Pt. 1).}}{51}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Detalle de reconstrucción de texto del documento (Pt 2).}}{52}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Detalle de combinación de texto plano con información de OCR.}}{54}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Porción del árbol del documento ``Ley Orgánica de la Universidad de Guanajuato''.}}{55}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Proceso de creación del árbol de secciones de un documento.}}{58}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Ejemplo almacenamiento de metadatos y \textit {embeddings} en formato csv.}}{61}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Ejemplo de cómo se almacenan metadatos en Chroma DB. Los vectores se almacenan de forma óptima en un archivo separado.}}{62}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Pasos seguidos por el modelador de lenguaje para procesar una pregunta.}}{63}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Ejemplo de petición a API.}}{68}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Ejemplo de respuesta de API.}}{69}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Esqueleto del chat de la aplicación.}}{70}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Esquema de tablas de la base de datos de la aplicación.}}{71}{figure.caption.27}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Elminación de encabezados y pies de página con márgenes.}}{78}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Línea de texto aparentemente centrada (recuadro rojo) que al separar el documento en bloques (recuadro verde) ya no se detecta como título.}}{79}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Detección correcta de títulos centrados y agrupación en bloques de texto por separación vertical.}}{79}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Título centrado en columna ideal (izquierda) y título centrado en columna que no puede ser detectado como texto centrado (derecha).}}{80}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Documento con títulos a la izquierda son detectados al separalos en bloques verticales y validar contra una expresión regular.}}{81}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Árbol de documento generado automáticamente. Se observa el preámbulo con algunos títulos erroneos (recuadro rojo) y el contenido del documento detectado correctamente (recuadro verde).}}{81}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Árbol de documento ``Modelo Educativo de la Universidad de guanajuato y su Modelo Académico'' que es un documento a una columna, justificado y con secciones numéricas.}}{82}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Extracción de tabla como texto. A la izquierda se muestra la tabla original y a la derecha la secuencia de texto desorganizado.}}{83}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Ejemplo de texto oculto. (Arriba a la izquierda) Párrafo como aparece en archivo PDF. (Arriba a la derecha) Texto extraído con \textit {PyPDF}. (Abajo al centro) Texto corregido sin texto duplicado.}}{84}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Distribución de preguntas por documento.}}{85}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Recall para \textit {embeddings} con el top-3 de fragmentos similares.}}{88}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Recall para \textit {embeddings} con el top-5 de fragmentos similares.}}{88}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Función de pérdida para entrenamiento de pares ancla-positivo con modelo all-MiniLM-L6-v2.}}{94}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Función de pérdida para entrenamiento de pares ancla-positivo con modelo multi-qa-mpnet-base-dot-v1.}}{94}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Función de pérdida para entrenamiento de tríos ancla-positivo-negativo con modelo all-MiniLM-L6-v2.}}{95}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Función de pérdida para entrenamiento de tríos ancla-positivo-negativo con modelo multi-qa-mpnet-base-dot-v1.}}{95}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Diagrama de conexión de sistema.}}{98}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Diagrama de contenedores en servidor \textit {Dell Precision Tower}.}}{99}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Captura de pantalla de administrador de contenedores en servidor con API en ejecución.}}{100}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Captura de pantalla de administrador de recursos de Windows donde se muestra el uso de la GPU al cargar los modelos.}}{101}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Captura de pantalla de regla de Firewall de Windows para permitir el acceso al puerto 8080.}}{101}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Captura de pantalla de administrador conexión a VPN de Azure desde servidor en una red local.}}{102}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Diagrama de contenedores en máquina virtual en la nube.}}{103}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Captura de pantalla de contenedores de aplicación web en ejecución en servidor en la nube.}}{103}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Captura de pantalla de reglas de UFW para solo permitir acceso por puerto 22, 80 y 443.}}{104}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Logotipo de aplicación \textit {ChatUGTo}.}}{105}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Imagen asociada al asistente virtual. \textit {La Abeja Norma}.}}{105}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Formulario de registro (opcional) de la aplicación.}}{106}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Formulario de inicio de sesión (opcional) de la aplicación.}}{107}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Pantalla de chat de la aplicación. Chat nuevo.}}{108}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Pantalla de chat de la aplicación con sesión iniciada.}}{108}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Barra lateral de la aplicación con historial de conversaciones.}}{109}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Ejemplo de pregunta y respuesta en la aplicación.}}{110}{figure.caption.69}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Ejemplo de artículos de referencia mostrado por el asistente. Se muestran además otros fragmentos posiblemente relacionados.}}{110}{figure.caption.70}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Ejemplo de pregunta de seguimiento sobre el mismo chat.}}{111}{figure.caption.71}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Ejemplo entrada del usuario indebida.}}{112}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Aplicación en un dispositivo móvil con modo oscuro activado.}}{113}{figure.caption.73}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

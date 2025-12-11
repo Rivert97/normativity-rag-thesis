@@ -18,7 +18,7 @@ así como \textit{FastAPI} para programar la API de comunicación. Además,
 se usa \textit{Javascript} (\textit{NextJS} y \textit{React}) para desarrollar la
 aplicación web.
 
-En la figura \ref{fig:esquema_general} se muestran los cuatro módulos que
+En la Figura \ref{fig:esquema_general} se muestran los cuatro módulos que
 componen el sistema, en donde el procesamiento de la información comienza previo
 a la interacción de un usuario, en el extractor de información.
 El extractor obtiene el contenido de los documentos y lo fragmenta,
@@ -27,8 +27,8 @@ los \textit{embeddings} en una base de datos.
 Una vez lista la base de datos, el usuario accede a la aplicación web,
 desde donde realiza una pregunta que se envía al modelador de lenguaje a través
 de la API de comunicación. Cuando el modelador de lenguaje recibe la pregunta,
-el controlador busca en la base de datos los fragmentos de información relevantes
-y se los proporciona al LLM como contexto, para que genere la respusta. Una vez
+el controlador busca en la base de datos los fragmentos de información relacionados
+con la pregunta y se los proporciona al LLM como contexto, para que genere la respusta. Una vez
 obtenida la respuesta, el controlador la envía de vuelta a través de la API para que
 el usuario pueda visualizarla en la aplicación web.
 
@@ -40,7 +40,7 @@ el usuario pueda visualizarla en la aplicación web.
 \end{figure}
 
 Para el desarrollo y puesta en producción de este proyecto se cuenta con
-una estación de trabajo \textit{Dell Precission 7920 Tower} con un procesador
+una estación de trabajo \textit{Dell Precision 7920 Tower} con un procesador
 \textit{Intel\textregistered Xeon\textregistered Silver 4214R @2.40Ghz}, 256 GB de RAM
 DDR5, un disco SSD \textit{Samsung PM881 SATA 52 GB}, un disco SSD
 \textit{ADATA SU800 1TB}, dos GPUs \textit{Nvidia Quadro P620} de 2 GB de VRAM,
@@ -63,7 +63,7 @@ en forma de 22 documentos PDF individuales. Cada documento tiene un número
 diferente de páginas, las cuales suman 511, representan 6.8 MB de información y,
 convertidas a texto, 168,011 palabras. Para alimentar la base de datos,
 los documentos son descargados manualmente y almacenados en un directorio,
-donde se utiliza el nombre del archivo como identificador. En la tabla
+donde se utiliza el nombre del archivo como identificador. En la Tabla
 \ref{tab:documentos} se muestra un resumen de los documentos que conforman
 la normativa, así como el número de artículos que contiene cada uno.
 
@@ -103,7 +103,7 @@ la normativa, así como el número de artículos que contiene cada uno.
 
 La labor del módulo de extracción de información comienza con un
 archivo en formato PDF y termina con la creación de una base de datos de
-\textit{embeddings} de los fragmentos del documento. En la figura
+\textit{embeddings} de los fragmentos del documento. En la Figura
 \ref{fig:esquema_extractor} se observa la secuencia de procesamiento para un
 archivo y la salida de cada una de las etapas.
 
@@ -156,7 +156,7 @@ sin embargo, con frecuencia comete errores en la detección del texto y el
 ordenamiento. Para corregir estos errores se propone combinar el texto
 plano obtenido con \textit{PyPDF}, con la información de posición y tamaño devuelta
 por \textit{Tesseract}, de esta forma se obtiene el texto correcto asociado a su
-ubicación y tamaño. Este proceso se describe en el diagrama de la figura
+ubicación y tamaño. Este proceso se describe en el diagrama de la Figura
 \ref{fig:texto_y_ocr}.
 
 \begin{figure}[]
@@ -169,12 +169,12 @@ ubicación y tamaño. Este proceso se describe en el diagrama de la figura
 Para el caso de PdfPlumber, la librería devuelve las mismas características que
 PyTesseract, sin embargo, comete también errores en la agrupación y el
 ordenamiento del texto, por ello se requiere realizar los pasos de ``Crear
-grupos para reconstruir el texto'' y ``Reconstruir texto'' del diagrama de la figura
+grupos para reconstruir el texto'' y ``Reconstruir texto'' del diagrama de la Figura
 \ref{fig:texto_y_ocr}.
 
 La tarea de agrupar el texto en secciones para reconstruirlo en el orden correcto
 no es trivial, y es altamente dependiente del tipo de documento a procesar.
-Este proceso se explica en los diagramas de las figuras
+Este proceso se explica en los diagramas de las Figuras
 \ref{fig:reconstruccion_texto_1} y \ref{fig:reconstruccion_texto_2}, y
 funciona adecuadamente para documentos donde predomina el texto en una o dos
 columnas con títulos centrados, pero podría fallar cuando la estructura del
@@ -213,14 +213,14 @@ párrafos, entre otros.
 
 El proceso de combinación requiere las cadenas de texto extraídas por los dos métodos:
 la cadena proporcionada por \textit{PyPDF} y la cadena reconstruida con la información
-visual, como se muestra en la figura \ref{fig:reconstruccion_texto_2}. Ambas cadenas se
+visual, como se muestra en la Figura \ref{fig:reconstruccion_texto_2}. Ambas cadenas se
 separan por palabra y se pasan a la librería \textit{Difflib}, la cual aplica el algoritmo
 Ratcliff-Obershelp, también conocido como Coincidencia de patrones Gestalt, para
 comparar dos cadenas y encontrar sus diferencias.
 
 Si se analizan los patrones de salida de la librería \textit{Difflib}, es posible
 corregir las palabas detectadas con OCR utilizando las palabras extraídas directamente
-del texto, los detalles de esta implementación se explican en la figura
+del texto, los detalles de esta implementación se explican en la Figura
 \ref{fig:esquema_combinacion_txt_ocr}.
 En escencia, se considera la palabra obtenida con \textit{PyPDF} como la correcta,
 se compara contra la palabra obtenida con \textit{Tesseract} y si es diferente se sobreescribe.
@@ -253,14 +253,14 @@ del documento esté referenciada a su sección y subsecciones correspondientes,
 por ejemplo, para la Ley Orgánica se desea conocer en qué título, capítulo y
 artículo se encuentra un texto específico. Para crear dicha estructura, se optó por generar un árbol, donde cada nodo
 corresponde a una sección del documento, además, las hojas y los nodos intermedios
-almacenan el texto de cada artículo o sección según sea el caso. En la figura
-\ref{fig:fragmento_arbol} se muestra un fragmento del árbol correspondiente a
+almacenan el texto de cada artículo o sección según sea el caso. En la Figura
+\ref{fig:fragmento_arbol} se muestra una porción del árbol correspondiente a
 las primeras secciones de la Ley Orgánica.
 
 \begin{figure}[]
     \centering
     \includegraphics[width = 0.8\textwidth]{\DirFigCtres/fragmento_arbol}
-    \caption{Fragmento de árbol de documento ``Ley Orgánica de la Universidad de Guanajuato''.}
+    \caption{Porción del árbol del documento ``Ley Orgánica de la Universidad de Guanajuato''.}
     \label{fig:fragmento_arbol}
 \end{figure}
 
@@ -321,7 +321,7 @@ que se va creando el árbol de la misma forma, es decir, cuando se encuentra
 un título se crea un nuevo nodo en el nivel correspondiente, siempre teniendo
 la referencia de cual será su padre, cuando se llega al nivel más bajo se
 guarda el contenido de texto en el nodo correspondiente.
-El proceso completo se presenta en la figura
+El proceso completo se presenta en la Figura
 \ref{fig:crear_arbol}.
 
 \begin{figure}[]
@@ -352,7 +352,7 @@ cuantizados de Qwen 3: f16 (16 bits), Q8\_0 (8 bits), Q6\_K (6 bits), Q5\_K\_M (
 y Q4\_K\_M (4 bits). Estos modelos cuantizados se emplean con la librería \textit{llama\_cpp},
 la cual es una implementación de la arquitectura \textit{Llama} de Meta en
 C/C++ para hacer inferencia de forma eficiente. Un resumen de las características
-de los modelos de extracción de \textit{embeddings} se encuentra en la tabla \ref{tab:embed_models}.
+de los modelos de extracción de \textit{embeddings} se encuentra en la Tabla \ref{tab:embed_models}.
 
 \begin{table}[!ht]
     \centering
@@ -390,7 +390,7 @@ en recorrer el árbol en profundidad, y en cada nodo hacer lo siguiente:
           del documento y cualquier información relevante.
 \end{enumerate}
 
-Al final, por cada fragmento del documento se tendrá la siguiente información:
+Al final, por cada fragmento se tendrá la siguiente información:
 
 \begin{itemize}
     \item Texto del fragmento.
@@ -412,7 +412,7 @@ convenientes el formato CSV y las bases de datos con soporte para vectores.
 El formato CSV tiene la ventaja de ser portable y fácil de leer, basta con
 convertir los metadatos a formato JSON, para que puedan ser almacenados
 como texto, mientras que el vector de \textit{embedding} se puede
-expandir y crear una columna para cada valor. En la figura \ref{fig:ejemplo_csv}
+expandir y crear una columna para cada valor. En la Figura \ref{fig:ejemplo_csv}
 se muestra un ejemplo de la información almacenada como archivo CSV.
 Este método funciona bien para hacer la evaluación y análisis de los modelos,
 sin embargo, no es apto para entornos productivos, ya que no se tienen
@@ -439,7 +439,7 @@ los \textit{embeddings}, como \textit{SentenceTransformers} y
 \textit{llama\_cpp} u otro método personalizado, además, permite el
 uso de diferentes parámetros de búsqueda por similitud semántica
 como son la distancia coseno y el producto interno, los cuales también se
-encuentran optimizados. En la figura \ref{fig:ejemplo_chromadb} se muestra
+encuentran optimizados. En la Figura \ref{fig:ejemplo_chromadb} se muestra
 un ejemplo de datos almacenados en ChromaDB.
 
 \begin{figure}[]
@@ -456,7 +456,7 @@ El modelador de lenguaje tiene dos funciones fundamentales: manejar la
 interacción con la base de datos de vectores y hacer uso del
 LLM de inferencia principal, en términos de RAG, se encarga de la
 recuperación y la generación. El proceso general que ejecuta el modelador
-de lenguaje se presenta en el diagrama de la figura
+de lenguaje se presenta en el diagrama de la Figura
 \ref{fig:esquema_modelador} y se explica en las siguientes subsecciones.
 
 \begin{figure}
@@ -466,7 +466,7 @@ de lenguaje se presenta en el diagrama de la figura
     \label{fig:esquema_modelador}
 \end{figure}
 
-\subsection{Recuperación de documentos relevantes}
+\subsection{Recuperación de fragmentos relacionados}
 
 Dada una pregunta, el modelador la convierte a \textit{embedding}
 empleando el mismo modelo usado en la base de datos de vectores. Este \textit{embedding}
@@ -474,13 +474,14 @@ se le proporciona a ChromaDB para que realice la búsqueda semántica, el parám
 de búsqueda puede ser por producto interno o por similitud coseno, dependiendo
 del modelo de \textit{embedding}. Para hacer una búsqueda eficiente,
 ChromaDB emplea un índice llamado HNSW (Hierarchical Navigable Small World),
-esto le permite encontrar los fragmentos con mayor similitud sin tener que
-comparar con toda la base de datos.
+esto le permite encontrar los fragmentos con mayor similitud a la pregunta
+sin tener que comparar con toda la base de datos.
 
-Con ChromaDB se obtiene el top \textit{k} de \textit{embeddings} similares,
-por defecto \textit{k} se establece en 5. De estos \textit{k} \textit{embeddings}
-se obtiene su texto original, su posición dentro del árbol del documento, el
-documento al que pertenece y los demás metadatos.
+Con ChromaDB se obtiene el top \textit{k} de \textit{embeddings} similares
+al \textit{embedding} de la pregunta, por defecto \textit{k} se establece
+en 5. De estos \textit{k} \textit{embeddings} se obtiene su texto original,
+su posición dentro del árbol del documento, el documento al que pertenece
+y los demás metadatos del fragmento.
 
 \subsection{Generación de respuesta}
 
@@ -519,25 +520,96 @@ En una segunda evaluación, se comparan únicamente los mejores modelos de la pr
 pero esta vez con una instrucción de sistema más compleja, donde se incluyen instrucciones
 de cómo procesar las preguntas, el tono en que debe contestar, entre otros elementos.
 Esta instrucción es más cercana a la que se usará en la aplicación final y
-se puede consultar en el apéndice B.
+se puede consultar en el Apéndice B.
 
-Teniendo la pregunta y los fragmentos relevantes con sus metadatos,
+Teniendo la pregunta y los fragmentos relacionados con la misma, con sus metadatos,
 se transmite la información al LLM a través de una instrucción con la plantilla
-mostrada a continuación, que contiene la pregunta, y los documentos
-relevantes en formato JSON con todos sus datos.
-Una vez generada la instrucción, se le proporciona
-al modelo, junto con el historial anterior del chat en caso de
-existir para obtener la respuesta.
+mostrada a continuación, que contiene la pregunta, y los fragmentos
+relacionados en formato JSON con toda su información.
 
 \begin{verbatim}
 <pregunta>
 {pregunta}
-<pregunta>
+</pregunta>
 
 <contexto>
 {documentos_en_JSON}
 </contexto>
 \end{verbatim}
+
+Un ejemplo de una instrucción completa se muestra a continuación:
+
+\begin{verbatim}
+<pregunta>
+¿Qué contiene la Ley Orgánica de la Universidad de Guanajuato?
+</pregunta>
+
+<contexto>
+[
+    {
+        "documento": "ley-organica-de-la-universidad
+                      -de-guanajuato",
+        "nombre": "Artículo 1",
+        "contenido": "La presente Ley es de orden
+                      público y de interés social. Contiene
+                      las normas fundamentales de la misión,
+                      organización, funcionamiento y
+                      gobierno de la Universidad de
+                      Guanajuato."
+    },
+    {...}
+]
+</contexto>
+\end{verbatim}
+
+La instrucción generada se le proporciona al modelo junto con
+el historial anterior del chat para obtener la
+respuesta. Por lo general, la respuesta a la pregunta
+del usuario se encuentra únicamente en uno o dos fragmentos, pero al modelo
+se le proporcionan k fragmentos como contexto. Para lograr que en
+la aplicación web se le muestre al usuario únicamente los fragmentos
+de los que se extrajo la respuesta, se aprovecha la capacidad preentrenada
+del modelo de referenciar su respuesta, pero se mejora al agregar al comando del sistema una línea
+adicional para indicar que debe referenciar los fragmentos como
+una lista en formato JSON al final de la respuesta.
+Se teoriza que al proporcionar al modelo los fragmentos de forma estructurada
+en un JSON, se puede solicitar que haga referencia a campos específicos de los
+mismos también en formato JSON, el cual es un formato que la aplicación
+puede interpretar facilmente.
+El comando adicional de sistema se muestra a continuación y sólo se
+agrega en el sistema final y no para las evaluaciones de los modelos.
+
+\begin{verbatim}
+Si la respuesta se encuentra en uno o varios artículos o
+secciones específicas, cítalos al final de tu respuesta en
+formato JSON de la siguiente manera:
+<documents>[{"documento": [Nombre del Documento],
+"nombre": [Artículo/Sección]}]</documents>.
+Si el nombre del documento o artículo no está disponible en
+el fragmento, omite la cita.
+\end{verbatim}
+
+Un ejemplo de una respuesta del modelo con esta instrucción se muestra
+a continuación:
+
+\begin{verbatim}
+La Ley Orgánica de la Universidad de Guanajuato contiene
+las normas fundamentales que establecen la misión, la
+organización, el funcionamiento y el gobierno de la
+Universidad, y se caracteriza por ser de orden público
+y de interés social.
+
+<documents>
+[
+    {
+        "documento": "ley-organica-de-la-universidad
+                      -de-guanajuato",
+        "nombre": "Artículo 1",
+    }
+]
+</documents>
+\end{verbatim}
+
 
 \section{API de comunicación}
 
@@ -545,12 +617,12 @@ La tarea de la API es conectar la aplicación web con el modelador de lenguaje.
 La API funciona con peticiones HTTP de tipo POST y expone un solo endpoint
 que recibe parámetros en formato JSON, además esta protegida con un API-KEY
 que se debe enviar en el encabezado de cada petición. Un ejemplo de petición
-se muestra en la figura \ref{fig:parametros_api}. La estructura de una petición es la siguiente:
+se muestra en la Figura \ref{fig:parametros_api}. La estructura de una petición es la siguiente:
 
 \begin{itemize}
     \item \textbf{model:} Identificador del modelo a emplear.
     \item \textbf{num\_related\_questions:} (Opcional) Número de preguntas previas a tomar
-          en cuenta para buscar documentos relevantes. Por defecto 1.
+          en cuenta para buscar fragmentos relacionados a la pregunta actual. Por defecto 1.
     \item \textbf{messages:} Lista de mensajes.
           \begin{itemize}
               \item \textbf{role:} Rol del mensaje. ``system'', ``user'' o ``assistant''.
@@ -567,7 +639,7 @@ se muestra en la figura \ref{fig:parametros_api}. La estructura de una petición
 
 La respuesta de la API también es en formato JSON y contiene el texto de la
 respuesta, así como los fragmentos de los documentos que fueron tomados como contexto para
-emitirla, como se muestra en la figura \ref{fig:respuesta_api}. En estos
+emitirla, como se muestra en la Figura \ref{fig:respuesta_api}. En estos
 documentos, se incluyen los metadatos para poder desplegarlos en la aplicación
 web. La estructura de la respuesta es la siguiente:
 
@@ -597,15 +669,15 @@ web. La estructura de la respuesta es la siguiente:
 
 \section{Aplicación web}
 
-La aplicación web es la única fuente de interacción de los usuarios con el
+La aplicación web es la única forma de interacción de los usuarios con el
 sistema, es por ello que debe contener todas las funcionalidades necesarias
 que en este caso son: ingresar una pregunta, recibir una respuesta y
 consultar los documentos que dan fundamento a dicha respuesta. Con este fin,
 la aplicación web debe contar con una caja de texto para hacer la pregunta
 y una lista de mensajes enviados y recibidos como un chat
 convencional. Adicionalmente, se debe destinar un espacio para colocar los
-documentos relacionados con la pregunta, como se muestra en el
-\textit{wireframe} de la figura \ref{fig:wireframe_chat}.
+fragmentos de los documentos relacionados con la pregunta, como se muestra en el
+\textit{wireframe} de la Figura \ref{fig:wireframe_chat}.
 
 \begin{figure}
     \centering
@@ -623,7 +695,7 @@ solo estarán disponibles por 7 días, siempre y cuando el usuario no
 elimine las cookies de su navegador. Adicional a esto, otras funcionalidades
 se deben agregar como el visualizar el historial de chat o eliminar chats.
 Para cubrir todas las funcionalidades se diseña la estructura de base de
-datos de la figura \ref{fig:chatug_db} para que sea implementada.
+datos de la Figura \ref{fig:chatug_db} para que sea implementada.
 
 \begin{figure}
     \centering
@@ -642,7 +714,7 @@ considerando rendimiento y recursos.
 \subsection{Conjunto de datos de evaluación}
 
 Es necesario generar un conjunto de datos de preguntas y respuestas
-relacionadas con los documentos normativos, para conocer el rendimiento
+de los documentos normativos, con el fin de conocer el rendimiento
 de los modelos en este dominio específico.
 Tres personas fungen como los generadores de preguntas, a cada una se le
 proporcionan 7 u 8 documentos, para completar el total de 21, se
@@ -659,7 +731,7 @@ artículo de donde fue extraída la pregunta.
 
 La base de datos se genera en formato CSV, por conveniencia de los
 participantes, pero después se convierte a JSON y complementa con
-otros campos relevantes para que sea similar a la estructura del
+otros campos pertinentes para que sea similar a la estructura del
 conjunto de datos SQuAD \cite{rajpurkar_squad_2016}.
 Posteriormente, el conjunto de datos se carga en
 la plataforma HuggingFace como un conjunto de datos de QA por conveniencia.
@@ -680,15 +752,18 @@ Una entrada del conjunto de datos final contiene los siguientes elementos:
 
 \subsection{Evaluación del modelo de \textit{embedding}}
 
-El objetivo de esta evaluación es conocer la calidad de los documentos
-identificados como relevantes por el extractor de información y el modelador
-de lenguaje. Se emplearán tres métricas: \textit{precision@k}, \textit{recall@k} y
+El objetivo de esta evaluación es conocer la calidad de los fragmentos
+identificados como relacionados con cada pregunta.
+Se emplearán tres métricas: \textit{precision@k}, \textit{recall@k} y
 \textit{f1@k}. Cada una de estas métricas se definen con las ecuaciones
 \ref{eq:precision}, \ref{eq:recall}, \ref{eq:f1} respectivamente. Para
-aplicar las fórmulas \ref{eq:precision} y \ref{eq:recall}, se considera
-como fragmento relevante a aquel que su nombre del nodo, coincida con el
-nombre del artículo donde se encuentra la respuesta (\textit{context}
-en el conjunto de datos).
+aplicar estas fórmulas se necesita calcular la similitud entre la pregunta
+y todos los fragmentos en la base de datos, compararlos y obtener
+el top k con mayor similitud. Además, se debe considerar
+como fragmento relevante a aquel que realmente contenga la respuesta a la
+pregunta, lo cual se determina al comparar el nombre del nodo del
+fragmento con el nombre del artículo marcado como contexto en el
+conjunto de datos de evaluación.
 
 \begin{equation}\label{eq:precision}
     \text{precision@k} = \frac{\text{N fragmentos relevantes en top k}}{k}
@@ -706,7 +781,7 @@ El proceso de evaluación de los \textit{embeddings} se realiza siguiendo
 los siguientes pasos:
 
 \begin{enumerate}
-    \item Para cada pregunta, se identifican los fragmentos relevantes reales. Es decir,
+    \item Para cada pregunta, se identifican los fragmentos relevantes. Es decir,
           los fragmentos de los artículos donde se encuentra la respuesta.
     \item Se calcula la similitud coseno entre la pregunta y cada fragmento de
           la base de datos de \textit{embeddings}, incluyendo todos los documentos.

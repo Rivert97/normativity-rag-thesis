@@ -1,0 +1,77 @@
+\chapter{Conclusiones}
+
+En este trabajo se presentó la implementación de un asistente virtual tipo
+chatbot que emplea RAG para responder preguntas de los documentos normativos
+de la Universidad de Guanajuato, alcanzando un puntaje BERT de 0.75 y
+un porcentaje de respuestas correctas del 88\%. La implementación presenta
+ventajas sobre otras opciones comerciales como la nula necesidad de que el
+usurio tenga conocimiento previo de los documentos normativos, cuáles son o
+dónde encontrarlos. Además, cada respuesta del sistema se encuentra perfectamente
+referenciada con los documentos pertinentes, al grado de mostrar el texto
+de los artículos específicos de donde se obtuvo la información. Una
+contribución importante de este trabajo es el diseño e implementación de
+una arquitectura de nube híbrida, la cual permite que la aplicación pueda
+usarse por medio de internet y a la vez aprovechar el hardware y la
+infraestructura disponible en la institución, con el fin de mantener el
+control total del flujo de la información.
+
+Se implementaron satisfactoriamente cuatro flujos de trabajo, que
+corresponden a los principales componentes del sistema. Para la extracción
+de información por medio de técnias de RAG, se implementó una estrategia
+de procesamiento de archivos PDF que permitió aprovechar las características
+visuales de los documentos para obtener la estructura de los mismos. Esta
+estrategia demostró ser indispensable para referenciar correctamente
+las respuestas del sistema, además de ayudar en la fragmentación
+correcta de los documentos. Dentro de las áreas de mejora para la extracción
+de información se encontró que, bajo esta metodología, la falta de
+información del nombre del documento y del artículo en los \textit{embeddings},
+dificulta la respuesta a preguntas directas
+sobre el contenido de artículos en específico, siendo ésta una posible mejora
+al sistema. Respecto a la generación de \textit{embeddings},
+los experimentos confirmaron que el modelo cuantizado Qwen3-Embedding-8B-Q4\_K\_M
+es el más apto para el sistema pues ofrece un desempeño con un recall de
+0.90 con un consumo bajo de memoria.
+
+En cuanto al reentrenamiento de LLMs, se logró reentrenar dos modelos de
+menor tamaño aplicando un ajuste completo de los modelos, alcanzando
+puntajes de 0.86 y 0.88 puntos de recall, sin embargo, éstos no lograron superar
+los 0.93 puntos de recall del modelo cuantizado de Qwen3-Embeddings-8B-Q4\_K\_M
+en el mismo conjunto de datos de prueba. Lo anterior sirve como indicio de
+que es posible reducir la memoria necesaria para el sistema si se exploran
+nuevas técnicas de reentrenamiento y modelos más compactos que el que
+se emplea actualmente.
+
+Respecto a los modelos de inferencia, se encontró que tanto Qwen3-8B-Q4\_K\_M
+como gpt-oss-20b-MXFP4 son buenas opciones para responder las preguntas,
+sin embargo, el modelo GPT-OSS se adaptó mejor a los cambios en el comando
+del sistema, además de permitir que los fragmentos relevantes fueran
+referenciados correctamente a través de la estructura JSON. Se considera que
+el 88\% de aciertos tiene margen de mejora, pero esta mejora debe venir
+principalmente del modelo de extracción de \textit{embeddings}, pues
+actualmente es la principal limitante.
+
+Referente al backend y frontend de la aplicación, se puede afirmar que la
+selección de las herramientas fue acertada, pues logró el desarrollo de
+una aplicación funcional, responsiba y familiar para los usuarios.
+Además, el uso de herramientas como Docker permitió la semi-automatización
+de las acualizaciones del sistema, pues solo se requiere construir un nuevo
+contenedor con cada modificación a la aplicación y ejecutarlo. Esto también
+incluye actualizaciones en la normativa, que mientras el formato de sus
+documentos no cambie considerablemente, la base de datos puede actualizarse
+al ejecutar del contenedor correspondiente.
+
+Como perspectivas a futuro de este proyecto, se considera efectuar pruebas
+de resiliencia del sistema, pues el hardware que lo ejecuta actualmente
+tiene limitantes importantes, comparado con otros sistemas comerciales.
+Además, en el proceso de extracción de información, se considera como
+un importante punto de mejora la interpretación adecuada de las tablas en
+los documentos, se debe explorar el uso de las funcionalidades proporcionadas
+por \textit{PdfPlumber} o aprovechar las características visuales obtenidas
+de los documentos para detectarlas.
+
+Finalmente, con la liberación constante de nuevos modelos de lenguaje por
+parte de la comunidad científica, el mantener el sistema actualizado con
+los mejores modelos será una tarea premanente, permitiendo que el sistema
+mejore significativamente si se actualiza alguno de sus modelos,
+lo cual será sencillo si se efectúa con las herramientas que ya fueron
+desarrolladas en este proyecto.

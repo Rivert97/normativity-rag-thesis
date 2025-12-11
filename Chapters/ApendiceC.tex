@@ -64,7 +64,7 @@ ENTRYPOINT ["uvicorn", "app.main:app", \
 
 \end{verbatim}
 
-\section{\textit{Dell Precission 7920 Tower} docker-compose.yml}
+\section{\textit{Dell Precision 7920 Tower} docker-compose}
 
 \begin{verbatim}
 services:
@@ -163,7 +163,18 @@ ENV HOSTNAME="0.0.0.0"
 CMD ["node", "server.js"]
 \end{verbatim}
 
-\section{Máquina Virtual de Azure docker-compose.yml}
+\section{Comando para construir contenedor \textit{app}}
+
+\begin{verbatim}
+  docker buildx create --name multiarch --use
+
+  docker buildx inspect --bootstrap
+
+  docker buildx build --platform linux/arm64/v8 \
+    -t rivert97/chatug:latest --push .
+\end{verbatim}
+
+\section{Máquina Virtual de Azure docker-compose}
 
 \begin{verbatim}
 services:

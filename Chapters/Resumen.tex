@@ -1,0 +1,43 @@
+\chapter{Resumen}
+
+Los documentos normativos son un componente fundamental de las organizaciones,
+las cuales tienen la responsabilidad de difundirlos y lograr que sus miembros
+los comprendan. Para facilitar esta labor, es posible emplear tecnologías de
+cómputo modernas y técnicas de procesamiento de lenguaje natural con el fin
+de generar sistemas inteligentes que faciliten la consulta y compresnsión
+de la normativa.
+
+En este trabajo se presenta un asistente virtual, basado en LLMs de código
+abierto y técnicas de Recuperación-Generación Aumentada (RAG, Retreival-Augmented
+Generation), diseñado para responder preguntas sobre la normativa de la
+Universidad de Guanajuato utilizando como única fuente de información los
+documentos oficiales disponibles en formato PDF. El sistema alcanzó una
+puntuación BERT de 0.75 y un porcentaje de aciertos del 88\%. Una primera
+contribución de este trabajo es la implementación de un asistente capaz
+de ofrecer respuestas referenciadas, vinculando cada salida con los artículos
+y documentos correspondientes.
+
+La segunda contribución consiste en el desarrollo de una metodología de
+extracción de información a partir de documentos PDF, la cual aprovecha sus
+elementos visuales para recuperar la estructura jerárquica de la normativa.
+Esto facilita la separación en fragmentos y permite relacionar correctamente
+cada respuesta con los artículos correspondientes de los documentos
+oficiales. Para la recuperación de información y la generación de respuesta,
+se evaluaron distintos modelos de extracción de \textit{embeddings} y de
+inferencia, seleccionando los más aptos considerando su desempeño
+y el hardware disponible: Qwen3-Embedding-8B-Q4\_K\_M como extractor de
+\textit{embeddings} y gpt-oss-20b-MXFP4 para la inferencia.
+
+Además, se generó un conjunto de preguntas y respuestas basadas en la
+normativa de la Universidad de Guanajuato con el fin de evaluar los modelos
+y reentrenar dos extractores de \textit{embeddings} mediante el ajuste
+completo de sus parámetros. Uno de estos modelos alcanzó un recall de 0.88,
+lo que, si bien es inferior al 0.93 del modelo óptimo, muestra que es
+posible mejorar el desempeño de los modelos base mediante reentrenamiento
+con los datos obtenidos.
+
+Finalmente, la tercera contribución es la implementación de una arquitectura
+de nube híbrida para poner el sistema en producción, aprovechando los
+recursos locales de la institución y permitiendo el acceso a través de
+una aplicación web por la cual los usuarios interactúan con los modelos de
+lenguaje.
