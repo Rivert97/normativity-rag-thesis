@@ -3,8 +3,8 @@
 
 <svg
    width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   height="275mm"
+   viewBox="0 0 210 275"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (1:1.4+202410161351+e7c3feb100)"
@@ -27,11 +27,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.78157842"
-     inkscape:cx="246.93619"
-     inkscape:cy="514.34378"
+     inkscape:cx="353.13155"
+     inkscape:cy="502.82862"
      inkscape:window-width="1920"
      inkscape:window-height="1008"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
@@ -388,17 +388,11 @@
        y="176.98343"
        id="text1-6-1"><tspan
          sodipodi:role="line"
-         id="tspan40"
-         x="98.985725"
-         y="176.98343">Atención de</tspan><tspan
+         id="tspan1">Atención de</tspan><tspan
          sodipodi:role="line"
-         x="98.985725"
-         y="184.03899"
-         id="tspan1">consultas grupadas</tspan><tspan
+         id="tspan4">consultas agrupadas</tspan><tspan
          sodipodi:role="line"
-         id="tspan41"
-         x="98.985725"
-         y="191.09453">enmascarada</tspan></text>
+         id="tspan5">enmascarada</tspan></text>
     <g
        id="g11"
        transform="translate(-3.3287798,-14.676871)"
@@ -504,7 +498,9 @@
        y="15.431273"
        id="text1-6-9-5-4-6-4-7-5"><tspan
          sodipodi:role="line"
-         id="tspan2">Modelo GPT-OSS</tspan></text>
+         id="tspan2"
+         x="99.462151"
+         y="15.431273">Modelo GPT-OSS</tspan></text>
     <path
        style="display:inline;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
        d="m 98.987103,259.29277 v -7.34603"

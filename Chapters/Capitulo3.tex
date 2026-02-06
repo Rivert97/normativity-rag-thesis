@@ -28,7 +28,7 @@ Una vez lista la base de datos, el usuario accede a la aplicación web,
 desde donde realiza una pregunta que se envía al modelador de lenguaje a través
 de la API de comunicación. Cuando el modelador de lenguaje recibe la pregunta,
 el controlador busca en la base de datos los fragmentos de información relacionados
-con la pregunta y se los proporciona al LLM como contexto, para que genere la respusta. Una vez
+con la pregunta y se los proporciona al LLM como contexto, para que genere la respuesta. Una vez
 obtenida la respuesta, el controlador la envía de vuelta a través de la API para que
 el usuario pueda visualizarla en la aplicación web.
 
@@ -266,7 +266,7 @@ las primeras secciones de la Ley Orgánica.
 
 Para generar el árbol es necesario analizar el documento en varios pasos. Primero,
 se divide el documento en bloques de texto que estén separados verticalmente,
-es decir, quey haya al menos una línea en blanco entre ellos.
+es decir, que haya al menos una línea en blanco entre ellos.
 Posteriormente se detectan los bloques que corresponden a títulos, estos típicamente
 se encuentran centrados en la página o en la columna. Para encontrar las
 secciones o subsecciones se consideran los títulos centrados en la página
@@ -375,7 +375,7 @@ de los modelos de extracción de \textit{embeddings} se encuentra en la Tabla \r
     \label{tab:embed_models}
 \end{table}
 
-El proceso para convertir la información del documento a embeddings consiste
+El proceso para convertir la información del documento a \textit{embeddings} consiste
 en recorrer el árbol en profundidad, y en cada nodo hacer lo siguiente:
 
 \begin{enumerate}
@@ -568,14 +568,14 @@ respuesta. Por lo general, la respuesta a la pregunta
 del usuario se encuentra únicamente en uno o dos fragmentos, pero al modelo
 se le proporcionan k fragmentos como contexto. Para lograr que en
 la aplicación web se le muestre al usuario únicamente los fragmentos
-de los que se extrajo la respuesta, se aprovecha la capacidad preentrenada
+de los que se extrajo la respuesta, se aprovecha la capacidad pre-entrenada
 del modelo de referenciar su respuesta, pero se mejora al agregar al comando del sistema una línea
 adicional para indicar que debe referenciar los fragmentos como
 una lista en formato JSON al final de la respuesta.
 Se teoriza que al proporcionar al modelo los fragmentos de forma estructurada
 en un JSON, se puede solicitar que haga referencia a campos específicos de los
 mismos también en formato JSON, el cual es un formato que la aplicación
-puede interpretar facilmente.
+puede interpretar fácilmente.
 El comando adicional de sistema se muestra a continuación y sólo se
 agrega en el sistema final y no para las evaluaciones de los modelos.
 

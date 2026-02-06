@@ -27,14 +27,14 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.60221704"
-     inkscape:cx="367.80759"
+     inkscape:cx="366.97733"
      inkscape:cy="536.35148"
      inkscape:window-width="1920"
      inkscape:window-height="1008"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer9" />
+     inkscape:current-layer="layer7" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -422,17 +422,11 @@
        y="175.25812"
        id="text1-6-1"><tspan
          sodipodi:role="line"
-         id="tspan40"
-         x="94.80661"
-         y="175.25812">Atención de</tspan><tspan
+         id="tspan1">Atención de</tspan><tspan
          sodipodi:role="line"
-         x="94.80661"
-         y="182.31367"
-         id="tspan1">consultas grupadas</tspan><tspan
+         id="tspan5">consultas agrupadas</tspan><tspan
          sodipodi:role="line"
-         id="tspan41"
-         x="94.80661"
-         y="189.36922">enmascarada</tspan></text>
+         id="tspan15">enmascarada</tspan></text>
     <g
        id="g11"
        transform="translate(-7.5078925,-16.402181)">

@@ -2,22 +2,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Resumen de documentos normativos de la Universidad de Guanajuato}}{47}{table.caption.15}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Resumen de modelos de extracción de \textit {embeddings}}}{60}{table.caption.24}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Resumen de modelos de generación de respuesta.}}{65}{table.caption.28}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Resumen de documentos normativos de la Universidad de Guanajuato}}{46}{table.caption.10}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen de modelos de extracción de \textit {embeddings}}}{59}{table.caption.19}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Resumen de modelos de generación de respuesta.}}{64}{table.caption.23}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Tabla comparativa de métodos de extracción de información. Pruebas realizadas en computadora con un procesador Intel\textregistered Core\textregistered i5-8300H CPU @ 2.30GHz}}{84}{table.caption.37}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Resultados de evaluación para modelos de \textit {embeddings} con el top-3 de fragmentos similares.}}{89}{table.caption.39}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Resultados de evaluación para modelos de \textit {embeddings} con el top-5 de fragmentos similares.}}{90}{table.caption.40}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Resultados de evaluación de modelos de inferencia con Qwen3-Embedding-8B y top-5 de fragmentos similares.}}{90}{table.caption.43}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Resultados de evaluación de mejores modelos de inferencia con comando de sistema más complejo.}}{91}{table.caption.44}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Porcentaje de respuesta correctas por modelo en una muestra de 25 preguntas aleatorias.}}{92}{table.caption.45}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Configuraciones de entranamiento de los modelos. Tasa de aprendizaje (LR), razón de calentamiento (WR), detención temprana (ES).}}{93}{table.caption.46}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Resultados de evaluación de modelos para k=3.}}{96}{table.caption.51}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Resultados de evaluación de modelos para k=5.}}{97}{table.caption.52}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Tabla comparativa de métodos de extracción de información. Pruebas realizadas en computadora con un procesador Intel\textregistered Core\textregistered i5-8300H CPU @ 2.30GHz}}{85}{table.caption.42}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resultados de evaluación para modelos de \textit {embeddings} con el top-3 de fragmentos similares.}}{90}{table.caption.44}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Resultados de evaluación para modelos de \textit {embeddings} con el top-5 de fragmentos similares.}}{91}{table.caption.45}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Resultados de evaluación de modelos de inferencia con Qwen3-Embedding-8B y top-5 de fragmentos similares.}}{91}{table.caption.48}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Resultados de evaluación de mejores modelos de inferencia con comando de sistema más complejo.}}{92}{table.caption.49}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Porcentaje de respuesta correctas por modelo en una muestra de 25 preguntas aleatorias.}}{93}{table.caption.50}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Configuraciones de entranamiento de los modelos. Tasa de aprendizaje (LR), razón de calentamiento (WR), detención temprana (ES).}}{94}{table.caption.51}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Resultados de evaluación de modelos para k=3.}}{97}{table.caption.56}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Resultados de evaluación de modelos para k=5.}}{98}{table.caption.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Tabla comparativa de errores y funcionalidades de extractores de texto de archivos PDF.}}{121}{table.caption.74}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Tabla comparativa de errores y funcionalidades de extractores de texto de archivos PDF.}}{122}{table.caption.79}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

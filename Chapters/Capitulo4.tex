@@ -18,12 +18,12 @@ análisis general del sistema.
 
 En la metodología se mencionan dos formas de extraer la información de los
 documentos normativos, usando \textit{PyPdf+PyTesseract} y empleando
-\textit{Pdfplumber}. Ambos métodos cumplieron con la finalidad generar una
+\textit{Pdfplumber}. Ambos métodos cumplieron con la finalidad de generar una
 base de datos de \textit{embeddings} con toda la información de los
 documentos normativos, incluyendo la estrutura de los documentos con
 sus títulos y secciones. Sin embargo, \textit{Pdfplumber} mostró mayores
-ventajas, por lo que se seleccionó como método de extracción de información
-en el sistema final.
+ventajas, por lo que se seleccionó como el método de extracción de información
+para el sistema final.
 En las siguientes subsecciones se presentan algunas de las consideraciones
 adicionales que se tuvieron que implementar para hacer la correcta
 extracción de la información así como el razonamiento para seleccionar
@@ -195,7 +195,7 @@ el enfoque de \textit{PyPDF+PyTesseract} es mucho más lento, pues tarda
 5 minutos en procesar un documento de 48 páginas, mientras
 que \textit{Pdfplumber} demora 45 segundos. En un intento de reducir
 el tiempo de procesamiento se paralelizó el procesamiento de las páginas,
-logrando reducir a 2.5 minutos al procesar 4 páginas en paralelo, pudiendo
+logrando reducir a 2.5 minutos al procesar 48 páginas en paralelo, pudiendo
 disminuir más con más núcleos de procesamiento. Otra
 desventaja de \textit{PyPDF+PyTesseract} es que se encontró texto no visible
 en los documentos PDF de la normativa, especialmente palabras que al obtener
@@ -203,7 +203,7 @@ el texto plano con \textit{PyPDF} se duplican o triplican como se muestra
 en la Figura \ref{fig:texto_duplicado}, lo cual altera
 considerablemente el algoritmo y requiere de un proceso adicional para
 eliminarlas, este proceso se puede hacer directamente con \textit{Pdfplumber}
-con una bandera de configuración. Sin embargo, una bentaja de
+con una bandera de configuración. Sin embargo, una ventaja de
 \textit{PyPDF+PyTesseract} es que permite al sistema detectar texto escrito en
 imágenes, aunque en toda la normativa solamente hay un documento que lo tiene
 y es en su portada, la cual puede simplemente ser ignorada. En la Tabla
@@ -248,7 +248,7 @@ datos generado se ve como el siguiente:
     \item \textbf{context:} Artículo 1
     \item \textbf{context\_text:} La presente Ley es de orden público y de interés social. Contiene las normas fundamentales de la misión, organización, funcionamiento y gobierno de la Universidad de Guanajuato.
     \item \textbf{question:} ¿Qué contiene la Ley Orgánica de la Universidad de Guanajuato?
-    \item \textbf{answers:} \{'text': ['Contiene las normas fundamentales de la misión, organización, funcionamiento y gobierno de la Universidad de Guanajuato']\}
+    \item \textbf{answers:} \{`text': [`Contiene las normas fundamentales de la misión, organización, funcionamiento y gobierno de la Universidad de Guanajuato']\}
 \end{itemize}
 
 \begin{figure}[]
@@ -266,16 +266,16 @@ por lo que estas partes fueron omitidas. Otro elemento particular es la
 presencia de artículos transitorios, los cuales, como su nombre lo indica,
 son de caracter temporal y solo tienen relevancia cuando recién se publica el
 documento o la reforma al documento, por lo que incluirlos podría ser
-inecesario o contradictorio, pues muchos hacen referencia
+innecesario o contradictorio, pues muchos hacen referencia
 a fechas o tiempos de los cuales el sistema no tiene conocimiento. A pesar
 de esto, todas las pruebas se realizaron incluyendo estos artículos.
 
 Adicionalmente, en el conjunto de datos se observa cierta tendencia a
-que las preguntas contengan las palabras clave al cual están redactadas
+que las preguntas contengan las palabras clave tal cual están redactadas
 en los artículos, usando el nombre completo y apropiado para cada elemento,
 ej: ¿Cuáles son las responsabilidades de la persona titular de la Rectoría
 General?, cuando sería más natural preguntar ¿Cuáles son las responsabilidades
-del Rector General?. Esto podría generar pregunta más fáciles de responder y
+del Rector General?. Esto podría generar preguntas más fáciles de responder y
 con lenguaje un poco alejado del lenguaje común del usuario final.
 
 Una vez recopiladas las preguntas y respuestas, el conjunto
@@ -315,7 +315,7 @@ de 0.63 y 0.5 puntos de recall entre el mejor modelo y los modelos
 all-MiniLM-L6-v2 y multi-qa-mpnet-base-dot-v1 respectivamente. Además,
 observamos que existe una diferencia de aproximadamente 0.8 puntos entre
 las pruebas con el top-5 de fragmentos similares respecto al top-3, esto es indicativo
-de que no siempre el fragmento relevante real está dentro de de los tres
+de que no siempre el fragmento relevante real está dentro de los tres
 fragmentos más similares, por
 lo que alimentar el modelo de inferencia con 5 fragmentos de contexto entregará
 mejores resultados sacrificando un poco de memoria para el contexto.
@@ -380,7 +380,7 @@ mejores resultados sacrificando un poco de memoria para el contexto.
 
 Para la inferencia se evaluaron tres modelos diferentes: Qwen3 en sus versiones
 0.6B y 8B, tanto su versión completa como su versión cuantizada de Q4\_K\_M,
-el modelo GPT-OSS 20B y el modelo LLama 3.1 8B. Adicionalmente se evaluó
+el modelo GPT-OSS 20B y el modelo Llama 3.1 8B. Adicionalmente se evaluó
 el modelo de Qwen3 8B con la opción de razonamiento activada. Estas evaluaciones
 fueron ejecutadas en el centro de supercómputo del CIMAT, con 48 GB de memoria
 de video disponibles, además, todos los
@@ -471,7 +471,7 @@ resto se desempeña de una forma similar.
 \end{table}
 
 Durante el análisis de las respuestas se encontró que el modelo Qwen3-0.6B
-tiende a cometer ligeras imprecisiones en las respuesatas, como omitir
+tiende a cometer ligeras imprecisiones en las respuestas, como omitir
 una fracción, agregar texto que no tiene que ver con la pregunta o escribir
 texto incoherente, lo que provoca que el evaluador califique la respuesta
 como incorrecta, además de cometer errores de
@@ -618,7 +618,7 @@ que se encuentra dentro de las instalaciones de la División de Ingenierías
 del Campus Irapuato-Salamanca (DICIS) de la Universidad de Guanajuato, en este servidor
 se coloca el extractor de información, el modelador del lenguaje y la API
 de comunicación. El servidor en la nube corresponde a una máquina virtual
-de Azure del tipo \textit{Standard B2pts v2 (2vcpus, GiB memory)}, con
+de Azure del tipo \textit{Standard B2pts v2 (2vcpus, 1GiB memory)}, con
 Ubuntu 24.04, donde se ejecuta la aplicación web. Este servidor debe
 ser visible desde internet, por lo se le asigna una IP pública.
 Por último, la VPN se configura en Azure para conectar directamente con
@@ -661,7 +661,7 @@ En cuanto al modelador del lenguaje y la API de comunicación, ambos se
 incluyen en otro contenedor bajo el nombre \textit{llm\_api}. A este contenedor
 se le mapea el puerto 8080 del servidor para poder acceder a la API desde
 la VPN. Para una administración más sencilla del contenedor se crea un archivo
-docker-compose.yml en el que se indica el contenedor a usar, el puerto a
+\textit{docker-compose.yml} en el que se indica el contenedor a usar, el puerto a
 mapear y el volumen a cargar donde se encuentra la base de datos de la API
 y los modelos descargados. Este contenedor requiere la inicialización de la
 base de datos, así como la creación de al menos una API-KEY para acceder,
@@ -721,7 +721,7 @@ La administración de la conexión a la VPN se hace a través de la aplicación
 sistema, y un archivo de configuración para conectarse a la puerta de enlace
 VPN configurada en Azure, en la Figura \ref{fig:azure_vpn} se muestra
 una captura de pantalla de la interfaz de conexión.
-Una desventaja de esta estructua es que la
+Una desventaja de esta estructura es que la
 conexión a la VPN tiene que hacerse manualmente al encender el servidor,
 además, cuando existen problemas de conexión de internet, es posible que la
 VPN se desconecte y deba reconectarse manualmente. Otro problema es que
@@ -852,7 +852,7 @@ Todos los campos tienen validación del formato de los datos.
 Para los usuarios que hayan creado una cuenta pueden acceder a ella
 a través de la pantalla de inicio de sesión, que consulta la existencia
 del usuario en la base de datos. En la captura de pantalla de la
-Figura \ref{fig:login_page} se muestra el formalario de inicio de sesión.
+Figura \ref{fig:login_page} se muestra el formulario de inicio de sesión.
 
 \begin{figure}
     \centering
@@ -1028,13 +1028,13 @@ al modelo por el contenido de un artículo de un documento y no siempre
 puede encontrarlo, esto porque el nombre del documento y número de
 artículo no forma parte de la información de la que se extraen los
 \textit{embeddings}, en un futuro se puede generar una estrategia
-donde estos datos sean incluidos sin que la repetirción constante
+donde estos datos sean incluidos sin que la repetición constante
 del nombre del documento o la aparición de números de artículo
 repetidos en la base de datos afecte el sistema. Adicionalmente,
-el sistema mostró la capacidad de responder preguntas indicrectas como
+el sistema mostró la capacidad de responder preguntas indirectas como
 ``Tengo problemas económicos y no me alcanza para ir a la escuela'',
 siempre y cuando dentro del mensaje se proporcione suficiente información,
-ya que si el es demasiado simple, el sistema no puede encontrar
+ya que si la pregunta es demasiado simple, el sistema no puede encontrar
 documentos relevantes, como por ejemplo ``Tengo problemas económicos''.
 
 Una última observación importante es que cuando se le agregó al comando

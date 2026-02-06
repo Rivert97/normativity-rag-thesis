@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="480mm"
+   height="130mm"
+   viewBox="0 0 480 130"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (1:1.4+202410161351+e7c3feb100)"
+   sodipodi:docname="educational_model.svg"
+   inkscape:export-filename="../Paper/educational_model.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.46996403"
+     inkscape:cx="810.70034"
+     inkscape:cy="72.345962"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       id="path1"
+       ry="5.0030322"
+       rx="10.708382"
+       cy="30.494015"
+       cx="169.50357" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:11.2889px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="50.141979"
+       y="14.898985"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="50.141979"
+         y="14.898985">Educational Model of the University of Guanajuato and Its Academic Model</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="163.23016"
+       y="32.402882"
+       id="text1-2-68"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="163.23016"
+         y="32.402882">root</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="13.30553"
+       y="65.395126"
+       id="text1-2"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         x="13.30553"
+         y="65.395126">Index</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3"
+       sodipodi:type="arc"
+       sodipodi:cx="21.732121"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="16.327267"
+       sodipodi:ry="7.4800663"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="M 38.059387,62.987003 A 16.327267,7.4800663 0 0 1 21.747221,70.467066 16.327267,7.4800663 0 0 1 5.4048818,63.00084 16.327267,7.4800663 0 0 1 21.686818,55.506966 16.327267,7.4800663 0 0 1 38.059275,62.959331"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="49.954838"
+       y="65.357231"
+       id="text1-2-7"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="49.954838"
+         y="65.357231">1. Presentation</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-8"
+       sodipodi:type="arc"
+       sodipodi:cx="73.727272"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="28.067459"
+       sodipodi:ry="7.4800663"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="M 101.79473,62.987003 A 28.067459,7.4800663 0 0 1 73.753231,70.467066 28.067459,7.4800663 0 0 1 45.659861,63.00084 28.067459,7.4800663 0 0 1 73.649395,55.506966 28.067459,7.4800663 0 0 1 101.79454,62.959331"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="113.48753"
+       y="61.025021"
+       id="text1-2-4"><tspan
+         sodipodi:role="line"
+         id="tspan31"
+         x="113.48753"
+         y="61.025021">2. Theoretical framework of</tspan><tspan
+         sodipodi:role="line"
+         id="tspan32"
+         x="113.48753"
+         y="69.844467">the Educational Model</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5"
+       sodipodi:type="arc"
+       sodipodi:cx="155.4567"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="51.257065"
+       sodipodi:ry="14.979939"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="M 206.71376,62.987003 A 51.257065,14.979939 0 0 1 155.5041,77.966936 51.257065,14.979939 0 0 1 104.19972,63.014713 51.257065,14.979939 0 0 1 155.31448,48.007122 51.257065,14.979939 0 0 1 206.71341,62.931585"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 159.48326,32.411355 23.247656,54.865743"
+       id="path13"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;marker-end:url(#Triangle)"
+       d="m 166.16415,35.195494 -9.26394,11.513073"
+       id="path43"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="263.88205"
+       y="61.925224"
+       id="text1-2-4-0"><tspan
+         sodipodi:role="line"
+         id="tspan33"
+         x="263.88205"
+         y="61.925224">3. Contexts in which the present</tspan><tspan
+         sodipodi:role="line"
+         id="tspan34"
+         x="263.88205"
+         y="70.744675">Educational Model emerged</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8"
+       sodipodi:type="arc"
+       sodipodi:cx="263.43839"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="55.396832"
+       sodipodi:ry="14.979939"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 318.83522,62.987003 a 55.396832,14.979939 0 0 1 -55.3456,14.979933 55.396832,14.979939 0 0 1 -55.44797,-14.952223 55.396832,14.979939 0 0 1 55.24303,-15.007591 55.396832,14.979939 0 0 1 55.55016,14.924463"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-1"
+       sodipodi:type="arc"
+       sodipodi:cx="299.13782"
+       sodipodi:cy="108.11581"
+       sodipodi:rx="62.359169"
+       sodipodi:ry="12.345542"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 361.49699,108.11581 a 62.359169,12.345542 0 0 1 -62.3015,12.34553 62.359169,12.345542 0 0 1 -62.41673,-12.3227 62.359169,12.345542 0 0 1 62.18603,-12.368328 62.359169,12.345542 0 0 1 62.53177,12.299818"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;marker-end:url(#Triangle)"
+       d="m 176.35787,34.526077 71.37408,13.179248"
+       id="path44"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;marker-end:url(#Triangle)"
+       d="m 179.10726,32.855153 169.5347,21.788505"
+       id="path45"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="362.46738"
+       y="65.434746"
+       id="text1-2-4-0-9"><tspan
+         sodipodi:role="line"
+         id="tspan35"
+         x="362.46738"
+         y="65.434746">4. Essential functions</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-7"
+       sodipodi:type="arc"
+       sodipodi:cx="362.40005"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="36.203362"
+       sodipodi:ry="8.3939457"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 398.60342,62.987003 a 36.203362,8.3939457 0 0 1 -36.16988,8.393942 36.203362,8.3939457 0 0 1 -36.23678,-8.378415 36.203362,8.3939457 0 0 1 36.10284,-8.40944 36.203362,8.3939457 0 0 1 36.30357,8.36286"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="438.9426"
+       y="65.357231"
+       id="text1-2-4-0-9-4"><tspan
+         sodipodi:role="line"
+         id="tspan36"
+         x="438.9426"
+         y="65.357231">5. Educational Model</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-7-9"
+       sodipodi:type="arc"
+       sodipodi:cx="438.87527"
+       sodipodi:cy="62.987003"
+       sodipodi:rx="36.203362"
+       sodipodi:ry="8.3939457"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 475.07864,62.987003 a 36.203362,8.3939457 0 0 1 -36.16988,8.393942 36.203362,8.3939457 0 0 1 -36.23678,-8.378415 36.203362,8.3939457 0 0 1 36.10284,-8.40944 36.203362,8.3939457 0 0 1 36.30357,8.36286"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="85.204018"
+       y="110.52393"
+       id="text1-2-4-0-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         x="85.204018"
+         y="110.52393">4.1 Education</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-7-1"
+       sodipodi:type="arc"
+       sodipodi:cx="85.136696"
+       sodipodi:cy="108.11581"
+       sodipodi:rx="26.982969"
+       sodipodi:ry="5.7595482"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 112.11967,108.11581 a 26.982969,5.7595482 0 0 1 -26.958018,5.75954 26.982969,5.7595482 0 0 1 -27.007879,-5.74889 26.982969,5.7595482 0 0 1 26.908055,-5.77018 26.982969,5.7595482 0 0 1 27.057652,5.73822"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="149.72025"
+       y="110.48603"
+       id="text1-2-4-0-9-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         x="149.72025"
+         y="110.48603">4.2 Research</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-7-1-5"
+       sodipodi:type="arc"
+       sodipodi:cx="149.65292"
+       sodipodi:cy="108.11581"
+       sodipodi:rx="26.982969"
+       sodipodi:ry="5.7595482"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 176.63589,108.11581 a 26.982969,5.7595482 0 0 1 -26.95801,5.75954 26.982969,5.7595482 0 0 1 -27.00788,-5.74889 26.982969,5.7595482 0 0 1 26.90806,-5.77018 26.982969,5.7595482 0 0 1 27.05765,5.73822"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="207.1291"
+       y="110.43781"
+       id="text1-2-4-0-9-0-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan39"
+         x="207.1291"
+         y="110.43781">4.3 Extension</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="299.06375"
+       y="108.19331"
+       id="text1-2-4-0-9-0-8-2"><tspan
+         sodipodi:role="line"
+         id="tspan40"
+         x="299.06375"
+         y="108.19331">5.1 Articulating Axis: Comprehensive</tspan><tspan
+         sodipodi:role="line"
+         id="tspan41"
+         x="299.06375"
+         y="117.01276">Personal Development</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-1-6"
+       sodipodi:type="arc"
+       sodipodi:cx="413.26627"
+       sodipodi:cy="108.11581"
+       sodipodi:rx="46.364613"
+       sodipodi:ry="10.581306"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 459.63088,108.11581 a 46.364613,10.581306 0 0 1 -46.32173,10.5813 46.364613,10.581306 0 0 1 -46.40742,-10.56173 46.364613,10.581306 0 0 1 46.23589,-10.600839 46.364613,10.581306 0 0 1 46.49294,10.542119"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.05556px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none"
+       x="413.1922"
+       y="106.68298"
+       id="text1-2-4-0-9-0-8-2-7"><tspan
+         sodipodi:role="line"
+         id="tspan42"
+         x="413.1922"
+         y="106.68298">5.2 Dimensions of the</tspan><tspan
+         sodipodi:role="line"
+         id="tspan43"
+         x="413.1922"
+         y="115.50243">Educational Model</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path3-5-8-7-1-5-0"
+       sodipodi:type="arc"
+       sodipodi:cx="207.06178"
+       sodipodi:cy="108.11581"
+       sodipodi:rx="26.982969"
+       sodipodi:ry="5.7595482"
+       sodipodi:start="0"
+       sodipodi:end="6.2794858"
+       sodipodi:arc-type="arc"
+       d="m 234.04475,108.11581 a 26.982969,5.7595482 0 0 1 -26.95801,5.75954 26.982969,5.7595482 0 0 1 -27.00788,-5.74889 26.982969,5.7595482 0 0 1 26.90806,-5.77018 26.982969,5.7595482 0 0 1 27.05765,5.73822"
+       sodipodi:open="true" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 162.99532,34.301628 77.867197,54.582153"
+       id="path46"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 180.5217,30.545976 421.13386,55.082904"
+       id="path47"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 346.01105,70.541061 94.547627,101.91748"
+       id="path48"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 347.18765,70.632414 157.15777,101.95219"
+       id="path49"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 348.1257,70.738905 213.13351,101.91748"
+       id="path50"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 424.89074,70.794238 314.27565,94.901029"
+       id="path51"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="m 425.21923,70.973129 -9.59036,25.272105"
+       id="path52"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       d="M 180.26363,29.9903 477.07571,48.440792"
+       id="path53"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       d="M 180.20789,29.563655 477.07571,45.621487"
+       id="path54"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       d="M 180.09328,29.253191 477.07571,43.058482"
+       id="path55"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       d="m 453.74932,70.583226 23.32639,10.083318"
+       id="path56"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

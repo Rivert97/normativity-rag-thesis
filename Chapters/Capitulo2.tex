@@ -77,7 +77,7 @@ arquitectura del \textit{transformer} para crear una arquitectura basada
 \end{figure}
 
 El \textit{transformer} esta basado en una arquitectura del tipo
-codificador-decodificador, es decir, una red neuronal divida en dos partes
+codificador-decodificador, es decir, una red neuronal dividida en dos partes
 cuyo objetivo es convertir una secuencia de texto a otra.
 En su artículo, Vashwani et al. \cite{vaswani_attention_2017} definen
 una función de \textit{atención} como un mapeo de una
@@ -123,7 +123,7 @@ y combinada con el uso de una arquitectura de \textit{transformer decodificador}
 \cite{liu_generating_2018} es la base de los LLM actuales.
 
 Los modelos se someten a ajuste fino con el objetivo de mejorar su desempeño
-en tareas de distinto dominios, moderar sus respuestas,
+en tareas de distintos dominios, moderar sus respuestas,
 y optimizar sus capacidades conversacionales. Ejemplos de ello son
 ChatGPT (OpenAI), Gemini (Google), Llama (Meta). Estos modelos, al combinarse
 con interfaces de usuario amigables y
@@ -162,7 +162,7 @@ que se muestra en la figura \ref{fig:qwen3} y está disponible en tres tamaños:
 \end{figure}
 
 La arquitectura MoE fue inicialmente propuesta por Shazeer et al.
-\cite{shazeer_outrageously_2017} y empleada con \textit{transformers} por Du et al. \cite{du_glam_2022}. Esta arquitectura
+\cite{shazeer_outrageously_2017} y empleada en \textit{transformers} por Du et al. \cite{du_glam_2022}. Esta arquitectura
 consiste en reemplazar las capas de alimentación directa (\textit{feedforward}) del
 transformer por un bloque MoE. Este bloque se compone de múltipes capas de alimentación directa
 en paralelo, llamadas expertos, conectadas a un enrutador o compuerta que ``escoge'' los expertos más
@@ -255,7 +255,7 @@ muy grande y de diversas fuentes, además de que se le hace un ajuste fino
 para esta tarea, de tal forma que el modelo es capaz de responder una pregunta
 utilizando la información que se le proporcionó durante su entrenamiento.
 
-Este tipo de respuestas es buena cuando se trata de preguntas de dominio abierto
+Este tipo de respuestas es bueno cuando se trata de preguntas de dominio abierto
 donde la información es pública y no cambia con el tiempo, como es el caso
 de conocimientos generales o eventos históricos. Sin embargo, las respuestas suelen ser deficientes
 cuando se trata de eventos recientes, situaciones personales o conocimiento
@@ -299,11 +299,11 @@ En su forma más simple, una base de conocimiento para RAG parte de la recolecci
 de documentos relacionados con las preguntas que se harán a continuación.
 Una de las ventajas es que no hay limitante en la cantidad o tamaño de
 los documentos, aunque sí deben estar en formato de texto.
-Estos documentos se separan en framentos, comúnmente
+Estos documentos se separan en fragmentos, comúnmente
 llamados \textit{chunks}, el objetivo es obtener fragmentos pequeños pero
 que contengan suficiente información. Posteriormente se calcula la
-representación vectorial (\textit{embedding}) de cada framento, para finalmente
-almacenar cada fragmento con su respectivo \textit{embedding} en una base
+representación vectorial (\textit{embedding}) de cada fragmento, para finalmente
+almacenar cada uno con su respectivo \textit{embedding} en una base
 de datos.
 
 \subsection{Recuperación}
@@ -365,12 +365,12 @@ ejemplos con pares instrucción-respuesta, donde la respuesta tiene
 las características que se desea que el modelo aprenda. Existen diferentes
 ténicas para llevar a cabo este proceso, que van desde reajustar todos los pesos
 del modelo, hasta emplear técnicas como LoRA (Low-Rank Adaptation) que congela
-el modelo preentrenado y solo entrena un pequeño número de parámetros adicionales.
+el modelo pre-entrenado y solo entrena un pequeño número de parámetros adicionales.
 
 \subsection{Aprendizaje por refuerzo}
 
 El aprendizaje por refuerzo consiste en entrenar al modelo para tomar decisiones
-que maximicen una recompenza. En el caso de los modelos de lenguaje, uno
+que maximicen una recompensa. En el caso de los modelos de lenguaje, uno
 de los enfoques más utilizados es el aprendizaje por refuerzo con
 retroalimentación humana (RLHF, Reinforcement Learning from Human Feedback),
 el cual utiliza retroalimentación humana para optimizar modelos. Esta
@@ -393,7 +393,7 @@ En el caso de la normativa de la Universidad de Guanajuato, y de muchas otras
 normativas, la estructura de los documentos se divide principalmente en:
 Título, Sección, Capítulo y Artículos. Este trabajo pretende aprovechar esta
 estructura predefinida para obtener mejores fragmentos de documentos para la
-metodología RAG y para referenciar las repuestas del sistema.
+metodología RAG y para referenciar las respuestas del sistema.
 
 \subsection{Formato PDF}
 
